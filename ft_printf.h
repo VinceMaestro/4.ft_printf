@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/28 21:50:54 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/03/30 03:54:05 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_format_id	t_format_id;
 
 struct			s_format_id
 {
-	char	*flags;
+	char	flags[4];
 	int		width_min;
 	int		period;
 	int		width_max;
@@ -30,6 +30,7 @@ struct			s_format_id
 };
 
 int				ft_printf(char *str, ...);
+void			ft_error(char *msg);
 void			ft_print_arg_s(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_p(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_d(va_list *ap, t_format_id *format_id);
@@ -38,10 +39,10 @@ void			ft_print_arg_u(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_x(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_c(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_percent(va_list *ap, t_format_id *format_id);
-void			ft_get_flags(format_id, tmp_str);
-void			ft_get_width_min(format_id, tmp_str);
-void			ft_get_period(format_id, tmp_str);
-void			ft_get_width_max(format_id, tmp_str);
-void			ft_get_arg_type(format_id, tmp_str);
+void			ft_get_flags(t_format_id *format_id, char *tmp_str);
+void			ft_get_width_min(t_format_id *format_id, char *tmp_str);
+void			ft_get_period(t_format_id *format_id, char *tmp_str);
+void			ft_get_width_max(t_format_id *format_id, char *tmp_str);
+void			ft_get_arg_type(t_format_id *format_id, char *tmp_str);
 
 #endif

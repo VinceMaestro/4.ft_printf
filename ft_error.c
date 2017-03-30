@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 06:53:34 by vpetit           ###   ########.fr       */
+/*   Created: 2017/03/29 14:41:09 by vpetit            #+#    #+#             */
+/*   Updated: 2017/03/29 15:03:08 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-int		main(void)
+void	ft_error(char *msg)
 {
-	char	str[15] = "Hello %-+Urld\n\0";
-
-	ft_printf(str, "Wo");
-	return (0);
+	ft_putstr_fd("error : ", 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd(" \n", 2);
+	exit(1);
 }

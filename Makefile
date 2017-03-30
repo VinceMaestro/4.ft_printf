@@ -3,14 +3,23 @@ NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra
 
 SRC = ft_printf.c \
-	printf_format_s.c \
-	printf_format_p.c \
-	printf_format_d.c \
-	printf_format_o.c \
-	printf_format_u.c \
-	printf_format_x.c \
-	printf_format_c.c \
-	printf_format_percent.c
+		ft_error.c \
+		ft_get_arg_type.c \
+		ft_get_flags.c \
+		ft_get_width_min.c
+		# ft_print_arg_s.c \
+		# ft_print_arg_p.c \
+		# ft_print_arg_d.c \
+		# ft_print_arg_o.c \
+		# ft_print_arg_u.c \
+		# ft_print_arg_x.c \
+		# ft_print_arg_c.c \
+		# ft_print_arg_percent.c \
+		# ft_get_flags.c \
+		# ft_get_width_min.c \
+		# ft_get_period.c \
+		# ft_get_width_max.c \
+		# ft_get_arg_type.c
 
 LIBDIR = ./libft
 
