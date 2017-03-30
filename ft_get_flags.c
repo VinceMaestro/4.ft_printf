@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:47:12 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 04:07:06 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/03/30 19:51:11 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void			ft_get_flags(t_format_id *format_id, char *tmp_str)
 {
-	char	list[6];
+	char	list[5];
 	int		pos;
 	int		nb_flags;
 	int		first_digit;
+	char	*ptr;
 
 	pos = 1;
 	nb_flags = 0;
@@ -32,8 +33,9 @@ void			ft_get_flags(t_format_id *format_id, char *tmp_str)
 			first_digit = 1;
 			pos++;
 		}
-		if (ft_strchr(list, tmp_str[pos]))
-			format_id->flags[nb_flags++] = tmp_str[pos];
+		(ptr = ft_strchr(list, tmp_str[pos]));
+		if (ptr)
+			format_id->flags[nb_flags++] = *ptr;
 		pos++;
 	}
 }

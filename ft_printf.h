@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 03:54:05 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/03/30 19:39:09 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ typedef struct s_format_id	t_format_id;
 
 struct			s_format_id
 {
-	char	flags[4];
+	char	flags[5];
 	int		width_min;
-	int		period;
+	char	period;
 	int		width_max;
 	char	arg_type;
 	int		nb_read_char;
@@ -31,6 +31,7 @@ struct			s_format_id
 
 int				ft_printf(char *str, ...);
 void			ft_error(char *msg);
+void			ft_print_format_id(t_format_id *format_id);
 void			ft_print_arg_s(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_p(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_d(va_list *ap, t_format_id *format_id);
