@@ -9,7 +9,8 @@ SRC = ft_printf.c \
 		ft_get_width_min.c \
 		ft_print_format_id.c \
 		ft_get_period.c \
-		ft_get_width_max.c
+		ft_get_width_max.c \
+		ft_print_arg_s.c
 		# ft_print_arg_s.c \
 		# ft_print_arg_p.c \
 		# ft_print_arg_d.c \

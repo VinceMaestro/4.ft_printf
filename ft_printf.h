@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 19:39:09 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/04 22:57:14 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@
 # include "./libft/libft.h"
 # include <stdarg.h>
 
+typedef struct s_flags		t_flags;
 typedef struct s_format_id	t_format_id;
+
+struct			s_flags
+{
+	int		space;
+	int		plus;
+	int		minus;
+	int		hash;
+	int		zero;
+};
 
 struct			s_format_id
 {
-	char	flags[5];
+	t_flags	flags;
 	int		width_min;
 	char	period;
 	int		width_max;

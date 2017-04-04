@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 17:41:48 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 18:18:25 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/04 23:20:03 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,16 @@
 void	ft_print_format_id(t_format_id *format_id)
 {
 	ft_putstr("===========================\n");
-	ft_putstr("format_id->flags = ");
-	ft_putstr(format_id->flags);
+	ft_putstr("format_id->flags.space = ");
+	ft_putnbr(format_id->flags.space);
+	ft_putstr("\nformat_id->flags.plus = ");
+	ft_putnbr(format_id->flags.plus);
+	ft_putstr("\nformat_id->flags.minus = ");
+	ft_putnbr(format_id->flags.minus);
+	ft_putstr("\nformat_id->flags.hash = ");
+	ft_putnbr(format_id->flags.hash);
+	ft_putstr("\nformat_id->flags.zero = ");
+	ft_putnbr(format_id->flags.zero);
 	ft_putstr("\nformat_id->width_min = ");
 	ft_putnbr(format_id->width_min);
 	ft_putstr("\nformat_id->period = ");

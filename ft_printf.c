@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 19:49:39 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/04 23:21:58 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 // (va_list ap, t_format_id *format_id)
 // (t_format_data const*)
 
-// static void * (*const g_formats_f[255])(va_list, t_format_id *) =
+// static void (*const g_formats_f[])(va_list, t_format_id *) =
+
+
+
+// static void *(ptr_fct[255])(va_list *, t_format_id *) =
 // {
 // 	['s'] = &ft_print_arg_s,				//String.
-// 	['S'] = &ft_print_arg_s,				//String.
+// 	['S'] = &ft_print_arg_s					//String.
 // 	['p'] = &ft_print_arg_p,				//pointer.
 // 	['d'] = &ft_print_arg_d,				//Decimal signed integer.
 // 	['D'] = &ft_print_arg_d,				//Decimal signed integer.
@@ -40,35 +44,44 @@
 // 	// ['G'] = &printf_format_g,				//double.
 // };
 
-static void			ft_format_id_getinfo(t_format_id *format_id, char *tmp_str)
+static void 		ft_printstr(char *str)
 {
-	ft_putstr("-- 1.2 --\n");
-	ft_get_arg_type(format_id, tmp_str);
-	ft_putstr("-- 2.2 --\n");
-	ft_get_flags(format_id, tmp_str);
-	ft_putstr("-- 3.2 --\n");
-	ft_get_width_min(format_id, tmp_str);
-	ft_putstr("-- 4.2 --\n");
-	ft_get_period(format_id, tmp_str);
-	ft_putstr("-- 5.2 --\n");
-	if (format_id->period == '.')
-		ft_get_width_max(format_id, tmp_str);
-	ft_putstr("-- x.2 Done --\n");
+	ft_putstr("STRING IS : '");
+	ft_putstr(str);
+	ft_putstr("'\n");
 }
 
-static t_format_id	*ft_format_id_init(t_format_id *format_id)
+static void			ft_format_id_getinfo(t_format_id *format_id, char *tmp_str)
 {
-	ft_putstr("-- 1 --\n");
-	ft_bzero(format_id->flags, 5);
-	ft_putstr("-- 2 --\n");
-	format_id->width_min = 0;
-	format_id->period = 0;
-	format_id->width_max = 0;
-	format_id->arg_type = 0;
-	format_id->nb_read_char = 0;
-	format_id->nb_print_char = 0;
-	ft_putstr("-- 3 --\n");
-	return (format_id);
+	ft_get_arg_type(format_id, tmp_str);
+	ft_get_flags(format_id, tmp_str);
+	ft_get_width_min(format_id, tmp_str);
+	ft_get_period(format_id, tmp_str);
+	if (format_id->period == '.')
+		ft_get_width_max(format_id, tmp_str);
+}
+
+static void			ft_init_flags(t_format_id *format_id)
+{
+	format_id->flags.space = 0;
+	format_id->flags.plus = 0;
+	format_id->flags.minus = 0;
+	format_id->flags.hash = 0;
+	format_id->flags.zero = 0;
+}
+
+static t_format_id	ft_format_id_init(void)
+{
+	t_format_id		new;
+
+	ft_init_flags(&new);
+	new.width_min = 0;
+	new.period = 0;
+	new.width_max = 0;
+	new.arg_type = 0;
+	new.nb_read_char = 0;
+	new.nb_print_char = 0;
+	return (new);
 }
 
 int					ft_printf(char *str, ...)
@@ -76,41 +89,39 @@ int					ft_printf(char *str, ...)
 	int			len;
 	char		*tmp_str;
 	va_list		ap;
-	t_format_id	*format_id;
+	t_format_id	format_id;
 	int			pos;
 
 	pos = 0;
 	len = 0;
 	tmp_str = str;
 	va_start(ap, str);
-	ft_putstr("STRING IS : '");
-	ft_putstr(tmp_str);
-	ft_putstr("'\n");
+	ft_printstr(tmp_str);
 	while (tmp_str && tmp_str[pos])
 	{
-		format_id = ft_format_id_init(format_id);
+		format_id = ft_format_id_init();
 		if (tmp_str[pos] != '%')
 		{
-			ft_putstr("IF : Reading : ");
-			ft_putchar(tmp_str[pos]);
-			ft_putchar('\n');
 			pos++;
 			len++;
 		}
 		else
 		{
-			ft_putstr("ELSE : Reading : ");
-			ft_putchar(tmp_str[pos]);
-			ft_putchar('\n');
-			ft_format_id_getinfo(format_id, &(tmp_str[pos]));
-			ft_print_format_id(format_id);
-			// g_formats_f[format_id->arg_type](ap, format_id);
-			// len += format_id.nb_print_char;
-			pos += format_id->nb_read_char;
-			ft_putstr("Exit ELSE\n");
+			ft_format_id_getinfo(&format_id, &(tmp_str[pos]));
+			// ft_print_format_id(&format_id);
+			if (format_id.arg_type == 's')
+				ft_print_arg_s(&ap, &format_id);
+
+			ft_print_format_id(&format_id);
+
+			// (*ptr_fct[(int)format_id.arg_type])(&ap, &format_id);
+			// *g_formats_f[format_id.arg_type](ap, &format_id);
+			len += format_id.nb_print_char;
+			pos += format_id.nb_read_char;
 		}
 	}
 	ft_putstr("ENDING\n");
+	// ft_printstr(tmp_str);
 	va_end(ap);
-	return (0);
+	return (len);
 }
