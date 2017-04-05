@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 16:59:06 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/05 21:44:16 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void			ft_init_flags(t_format_id *format_id)
 	format_id->flags.zero = 0;
 }
 
-static t_format_id	ft_format_id_init(void)
+static t_format_id	ft_format_id_init(t_format_id *format_id)
 {
 	t_format_id		new;
 
@@ -92,32 +92,49 @@ static t_format_id	ft_format_id_init(void)
 	new.arg_type = 0;
 	new.nb_read_char = 0;
 	new.nb_print_char = 0;
+	new.start_pos = 0;
+	if (format_id)
+		new->first = format_id->first;
+	else
+		new->first = new;
+	new->next = NULL;
 	return (new);
 }
 
 int					ft_printf(char *str, ...)
 {
 	int			len;
+	int			pos;
 	char		*tmp_str;
+
 	va_list		ap;
 	t_format_id	format_id;
-	int			pos;
 
 	pos = 0;
 	len = 0;
 	tmp_str = str;
-	va_start(ap, str);
+	// va_start(ap, str);
 	ft_printstr(tmp_str);
 	while (tmp_str && tmp_str[pos])
 	{
-		format_id = ft_format_id_init();
-		if (tmp_str[pos] != '%')
+		if (!format_id)
+			format_id = ft_format_id_init(&format_id);
+		else
+			format_id->next = ft_format_id_init(&format_id);
+		format_id->next ? format_id = format_id->next : format_id;
+		if (tmp_str[pos] != '%' || tmp_str[pos + 1] == '%')
 		{
-			pos++;
-			len++;
+			tmp_str[pos] != '%' ? len++ : len += 2;
+			tmp_str[pos] != '%' ? pos++ : pos += 2;
 		}
+		// else if ()
+		// {
+		// 	pos += 2;
+		// 	len += 2;
+		// }
 		else
 		{
+			format_id.start_pos = pos;
 			ft_format_id_getinfo(&format_id, &(tmp_str[pos]));
 			// ft_print_format_id(&format_id);
 			if (format_id.arg_type == 's')
@@ -127,12 +144,12 @@ int					ft_printf(char *str, ...)
 
 			// (*ptr_fct[(int)format_id.arg_type])(&ap, &format_id);
 			// *g_formats_f[format_id.arg_type](ap, &format_id);
-			len += format_id.nb_print_char;
 			pos += format_id.nb_read_char;
+			len += format_id.nb_print_char;
 		}
 	}
 	ft_putstr("ENDING\n");
 	// ft_printstr(tmp_str);
-	va_end(ap);
+	// va_end(ap);
 	return (len);
 }

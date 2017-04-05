@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 18:36:35 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/05 21:18:58 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ struct			s_format_id
 	char		arg_type;
 	int			nb_read_char;
 	int			nb_print_char;
+	int			start_pos;
+	t_format_id	*first;
+	t_format_id	*next;
 };
 
 int				ft_printf(char *str, ...);
