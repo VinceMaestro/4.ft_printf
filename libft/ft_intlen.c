@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_width_max.c                                 :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 18:10:52 by vpetit            #+#    #+#             */
-/*   Updated: 2017/03/30 19:24:01 by vpetit           ###   ########.fr       */
+/*   Created: 2017/04/05 18:22:56 by vpetit            #+#    #+#             */
+/*   Updated: 2017/04/05 18:30:29 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void			ft_get_width_max(t_format_id *format_id, char *tmp_str)
+size_t		ft_intlen(int nbr)
 {
-	int		pos;
-	int		first;
+	size_t	len;
 
-	pos = 1;
-	while (tmp_str[pos] != format_id->period)
-		pos++;
-	pos++;
-	if (!ft_isdigit(tmp_str[pos]))
-		ft_error("ft_get_width_max : Input error");
-	first = pos;
-	while (ft_isdigit(tmp_str[pos]))
-		pos++;
-	format_id->width_max = ft_atoi(&tmp_str[first]);
+	len = 0;
+	if (nbr)
+	{
+		len++;
+		nbr < 0 ? len ++ : len;
+		while (nbr && nbr != nbr % 10)
+		{
+			len++;
+			nbr = nbr / 10;
+		}
+	}
+	return (len);
 }

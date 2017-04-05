@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/01/04 05:48:48 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/05 18:29:46 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void		ft_foreach(int *tab, int lenght, void (*f)(int));
 int			ft_count_if(char **tab, int (*f)(char*));
 size_t		ft_min(size_t a, size_t b);
 size_t		ft_max(size_t a, size_t b);
+size_t		ft_intlen(int nbr);
 
 #endif

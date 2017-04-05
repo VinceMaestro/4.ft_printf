@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/04 23:21:58 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/05 16:59:06 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,23 @@ static void 		ft_printstr(char *str)
 
 static void			ft_format_id_getinfo(t_format_id *format_id, char *tmp_str)
 {
-	ft_get_arg_type(format_id, tmp_str);
-	ft_get_flags(format_id, tmp_str);
-	ft_get_width_min(format_id, tmp_str);
-	ft_get_period(format_id, tmp_str);
-	if (format_id->period == '.')
-		ft_get_width_max(format_id, tmp_str);
+	int		newpos;
+
+	newpos = 0;
+	ft_get_parameter(format_id, &tmp_str[newpos]);
+	newpos += format_id->nb_read_char;
+	ft_get_flags(format_id, &tmp_str[newpos]);
+	newpos += format_id->nb_read_char;
+	ft_get_width_min(format_id, &tmp_str[newpos]);
+	newpos += format_id->nb_read_char;
+	ft_get_precision(format_id, &tmp_str[newpos]);
+	newpos += format_id->nb_read_char;
+	ft_get_lenght(format_id, &tmp_str[newpos]);
+	newpos += format_id->nb_read_char;
+	ft_get_arg_type(format_id, &tmp_str[newpos]);
+	newpos += format_id->nb_read_char;
+
+	format_id->nb_read_char = newpos;
 }
 
 static void			ft_init_flags(t_format_id *format_id)
