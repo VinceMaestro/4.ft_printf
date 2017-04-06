@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 17:34:03 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/06 18:04:29 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int		main(void)
 {
-	char	str[20] = "Hello %2$-+03.02srld!\0";
+	char	str[37] = "Hello %2$-+03.02srld!\nWhat %s you?%%\0";
 
-	ft_printf(str, "Mo", "Wo");
+	ft_printf(str, "Wo", "are");
 	return (0);
 }

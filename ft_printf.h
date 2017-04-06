@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 21:18:58 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/06 17:20:56 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ struct			s_format_id
 };
 
 int				ft_printf(char *str, ...);
-void			ft_error(char *msg, char *info_sup);
+void			ft_error(char *msg, char info_sup);
 void			ft_print_format_id(t_format_id *format_id);
 void			ft_print_arg_s(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_p(va_list *ap, t_format_id *format_id);

@@ -8,22 +8,16 @@ SRC = ft_printf.c \
 		ft_get_flags.c \
 		ft_get_width_min.c \
 		ft_print_format_id.c \
-		ft_get_period.c \
-		ft_get_width_max.c \
-		ft_print_arg_s.c
-		# ft_print_arg_s.c \
+		ft_print_arg_s.c \
+		ft_get_precision.c \
+		ft_get_parameter.c
 		# ft_print_arg_p.c \
 		# ft_print_arg_d.c \
 		# ft_print_arg_o.c \
 		# ft_print_arg_u.c \
 		# ft_print_arg_x.c \
 		# ft_print_arg_c.c \
-		# ft_print_arg_percent.c \
-		# ft_get_flags.c \
-		# ft_get_width_min.c \
-		# ft_get_period.c \
-		# ft_get_width_max.c \
-		# ft_get_arg_type.c
+		# ft_print_arg_percent.c
 
 LIBDIR = ./libft
 

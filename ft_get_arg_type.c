@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 03:19:17 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 18:32:03 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/06 18:02:43 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			ft_get_arg_type(t_format_id *format_id, char *tmp_str)
 	char	list[15];
 	int		pos;
 
-	pos = 1;
+	pos = 0;
 	ft_strcpy(list, "sSpdDioOuUxXcC\0");	// BONUS : b,r,k
 	end = 0;
 	while (!end && tmp_str[pos])
@@ -31,6 +31,6 @@ void			ft_get_arg_type(t_format_id *format_id, char *tmp_str)
 		pos++;
 	}
 	if (!format_id->arg_type)
-		ft_error("ft_get_arg_type: Input format error", "usage");
+		ft_error("ft_get_arg_type: Input format error", 'U');
 	format_id->nb_read_char = pos;
 }

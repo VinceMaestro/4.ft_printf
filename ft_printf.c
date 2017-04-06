@@ -6,43 +6,39 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 21:44:16 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/06 21:12:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-// (va_list ap, t_format_id *format_id)
-// (t_format_data const*)
+// gcc main_printf.c libftprintf.a ./libft/libft.a -I libft
 
-// static void (*const g_formats_f[])(va_list, t_format_id *) =
-
-
-
-// static void *(ptr_fct[255])(va_list *, t_format_id *) =
-// {
-// 	['s'] = &ft_print_arg_s,				//String.
-// 	['S'] = &ft_print_arg_s					//String.
-// 	['p'] = &ft_print_arg_p,				//pointer.
-// 	['d'] = &ft_print_arg_d,				//Decimal signed integer.
-// 	['D'] = &ft_print_arg_d,				//Decimal signed integer.
-// 	['i'] = &ft_print_arg_d,				//Decimal signed integer.
-// 	['o'] = &ft_print_arg_o,				//Octal integer.
-// 	['O'] = &ft_print_arg_o,				//Octal integer.
-// 	['u'] = &ft_print_arg_u,				//Unsigned integer.
-// 	['U'] = &ft_print_arg_u,				//Unsigned integer.
-// 	['x'] = &ft_print_arg_x,				//Hex integer.
-// 	['X'] = &ft_print_arg_x,				//Hex integer.
-// 	['c'] = &ft_print_arg_c,				//Character.
-// 	['C'] = &ft_print_arg_c,				//Character.
-// 	['%'] = &ft_print_arg_percent
-// 	// ['f'] = &printf_format_f,				//double
-// 	// ['e'] = &printf_format_e,				//double.
-// 	// ['E'] = &printf_format_e,				//double.
-// 	// ['g'] = &printf_format_g,				//double.
-// 	// ['G'] = &printf_format_g,				//double.
-// };
+static void (*(ptr_fct[]))(va_list *, t_format_id *) =
+{
+	['s'] = ft_print_arg_s,				//String.
+	['S'] = ft_print_arg_s					//String.
+	//
+	// ['p'] = ft_print_arg_p,				//pointer.
+	// ['d'] = ft_print_arg_d,				//Decimal signed integer.
+	// ['D'] = ft_print_arg_d,				//Decimal signed integer.
+	// ['i'] = ft_print_arg_d,				//Decimal signed integer.
+	// ['o'] = ft_print_arg_o,				//Octal integer.
+	// ['O'] = ft_print_arg_o,				//Octal integer.
+	// ['u'] = ft_print_arg_u,				//Unsigned integer.
+	// ['U'] = ft_print_arg_u,				//Unsigned integer.
+	// ['x'] = ft_print_arg_x,				//Hex integer.
+	// ['X'] = ft_print_arg_x,				//Hex integer.
+	// ['c'] = ft_print_arg_c,				//Character.
+	// ['C'] = ft_print_arg_c,				//Character.
+	// ['%'] = ft_print_arg_percent
+	// // ['f'] = printf_format_f,				//double
+	// // ['e'] = printf_format_e,				//double.
+	// // ['E'] = printf_format_e,				//double.
+	// // ['g'] = printf_format_g,				//double.
+	// // ['G'] = printf_format_g,				//double.
+};
 
 static void 		ft_printstr(char *str)
 {
@@ -56,16 +52,31 @@ static void			ft_format_id_getinfo(t_format_id *format_id, char *tmp_str)
 	int		newpos;
 
 	newpos = 0;
+	ft_putstr("==== 1 : ");
+	ft_putchar(tmp_str[newpos]);
+	ft_putstr(" ====\n");
 	ft_get_parameter(format_id, &tmp_str[newpos]);
 	newpos += format_id->nb_read_char;
+	ft_putstr("==== 2 : ");
+	ft_putchar(tmp_str[newpos]);
+	ft_putstr(" ====\n");
 	ft_get_flags(format_id, &tmp_str[newpos]);
 	newpos += format_id->nb_read_char;
+	ft_putstr("==== 3 : ");
+	ft_putchar(tmp_str[newpos]);
+	ft_putstr(" ====\n");
 	ft_get_width_min(format_id, &tmp_str[newpos]);
 	newpos += format_id->nb_read_char;
+	ft_putstr("==== 4 : ");
+	ft_putchar(tmp_str[newpos]);
+	ft_putstr(" ====\n");
 	ft_get_precision(format_id, &tmp_str[newpos]);
 	newpos += format_id->nb_read_char;
-	ft_get_lenght(format_id, &tmp_str[newpos]);
-	newpos += format_id->nb_read_char;
+	ft_putstr("==== 5 : ");
+	ft_putchar(tmp_str[newpos]);
+	ft_putstr(" ====\n");
+	// ft_get_lenght(format_id, &tmp_str[newpos]);
+	// newpos += format_id->nb_read_char;
 	ft_get_arg_type(format_id, &tmp_str[newpos]);
 	newpos += format_id->nb_read_char;
 
@@ -81,18 +92,21 @@ static void			ft_init_flags(t_format_id *format_id)
 	format_id->flags.zero = 0;
 }
 
-static t_format_id	ft_format_id_init(t_format_id *format_id)
+static t_format_id	*ft_format_id_init(t_format_id *format_id)
 {
-	t_format_id		new;
+	t_format_id		*new;
 
-	ft_init_flags(&new);
-	new.width_min = 0;
-	new.period = 0;
-	new.width_max = 0;
-	new.arg_type = 0;
-	new.nb_read_char = 0;
-	new.nb_print_char = 0;
-	new.start_pos = 0;
+	new = (t_format_id*)malloc(sizeof(t_format_id));
+	new->parameter = 0;
+	ft_init_flags(new);
+	new->width_min = 0;
+	new->precision.period = 0;
+	new->precision.width_max = 0;
+	new->lenght = NULL;
+	new->arg_type = 0;
+	new->nb_read_char = 0;
+	new->nb_print_char = 0;
+	new->start_pos = 0;
 	if (format_id)
 		new->first = format_id->first;
 	else
@@ -108,7 +122,7 @@ int					ft_printf(char *str, ...)
 	char		*tmp_str;
 
 	va_list		ap;
-	t_format_id	format_id;
+	t_format_id	*format_id;
 
 	pos = 0;
 	len = 0;
@@ -117,15 +131,10 @@ int					ft_printf(char *str, ...)
 	ft_printstr(tmp_str);
 	while (tmp_str && tmp_str[pos])
 	{
-		if (!format_id)
-			format_id = ft_format_id_init(&format_id);
-		else
-			format_id->next = ft_format_id_init(&format_id);
-		format_id->next ? format_id = format_id->next : format_id;
 		if (tmp_str[pos] != '%' || tmp_str[pos + 1] == '%')
 		{
-			tmp_str[pos] != '%' ? len++ : len += 2;
-			tmp_str[pos] != '%' ? pos++ : pos += 2;
+			((tmp_str[pos] != '%') ? (len++) : (len += 2));
+			((tmp_str[pos] != '%') ? (pos++) : (pos += 2));
 		}
 		// else if ()
 		// {
@@ -134,18 +143,24 @@ int					ft_printf(char *str, ...)
 		// }
 		else
 		{
-			format_id.start_pos = pos;
-			ft_format_id_getinfo(&format_id, &(tmp_str[pos]));
-			// ft_print_format_id(&format_id);
-			if (format_id.arg_type == 's')
-				ft_print_arg_s(&ap, &format_id);
+			if (!format_id)
+				format_id = ft_format_id_init(format_id);
+			else
+				format_id->next = ft_format_id_init(format_id);
+			((format_id->next) ? (format_id = format_id->next) : (format_id));
+			format_id->start_pos = pos;
+			ft_format_id_getinfo(format_id, &(tmp_str[pos]));
+			ft_print_format_id(format_id);
+			if (format_id->arg_type == 's')
+				ft_print_arg_s(&ap, format_id);
 
-			ft_print_format_id(&format_id);
+			// ft_print_format_id(format_id);
 
-			// (*ptr_fct[(int)format_id.arg_type])(&ap, &format_id);
-			// *g_formats_f[format_id.arg_type](ap, &format_id);
-			pos += format_id.nb_read_char;
-			len += format_id.nb_print_char;
+			if (!format_id)
+				ptr_fct[(int)format_id->arg_type](&ap, format_id);
+			// *g_formats_f[format_id->arg_type](ap, format_id);
+			pos += format_id->nb_read_char;
+			len += format_id->nb_print_char;
 		}
 	}
 	ft_putstr("ENDING\n");
