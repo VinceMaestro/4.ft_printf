@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 03:19:17 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/06 18:02:43 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/19 18:41:36 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void			ft_get_arg_type(t_format_id *format_id, char *tmp_str)
 		pos++;
 	}
 	if (!format_id->arg_type)
-		ft_error("ft_get_arg_type: Input format error", 'U');
+		ft_error("ft_get_arg_type: Input format error");
 	format_id->nb_read_char = pos;
 }

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/06 17:20:56 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/19 18:42:22 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef struct s_flags		t_flags;
 typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
+typedef struct s_list_args	t_list_arg;
+typedef union u_union		t_union;
 
 struct			s_flags
 {
@@ -50,8 +52,26 @@ struct			s_format_id
 	t_format_id	*next;
 };
 
+union			u_union
+{
+	char const *s;
+	void *p;
+	long long int ll;
+	long double ld;
+};
+
+struct			s_list_arg
+{
+	int				nbr;
+	char			type;
+	t_union			*arg;
+	size_t			len;
+	t_list_arg		*next;
+	t_list_arg		*first;
+};
+
 int				ft_printf(char *str, ...);
-void			ft_error(char *msg, char info_sup);
+void			ft_error(char *msg);
 void			ft_print_format_id(t_format_id *format_id);
 void			ft_print_arg_s(va_list *ap, t_format_id *format_id);
 void			ft_print_arg_p(va_list *ap, t_format_id *format_id);

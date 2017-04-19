@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/04 23:21:05 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/19 15:58:48 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,27 @@
 
 // struct			s_format_id
 // {
-// 	char	flags[5];
-// 	int		width_min;
-// 	char	period;
-// 	int		width_max;
-// 	char	arg_type;
-// 	int		nb_read_char;
-// 	int		nb_print_char;
+// 	int			parameter;
+// 	t_flags		flags;
+// 	int			width_min;
+// 	t_precision	precision;
+// 	char		*lenght;
+// 	char		arg_type;
+// 	int			nb_read_char;
+// 	int			nb_print_char;
+// 	int			start_pos;
+// 	t_format_id	*first;
+// 	t_format_id	*next;
 // };
 
 void	ft_print_arg_s(va_list *ap, t_format_id *format_id)
 {
 	char	*str;
+	// char	*new_str;
+
 	ft_putstr("I'm in !\n");
+	((format_id->precision.period == '*') ? (format_id->precision.width_max = \
+		va_arg(*ap, int)) : (format_id->precision.width_max = 0));
 	str = va_arg(*ap, char*);
 	if (format_id->flags.space)
 		;

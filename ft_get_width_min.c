@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 03:57:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/06 17:21:46 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/19 18:41:51 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			ft_get_width_min(t_format_id *format_id, char *tmp_str)
 		format_id->width_min = -1;
 	}
 	if (!tmp_str[nbr_len + nb_read_char])
-		ft_error("ft_get_width_min: Input format error", 'U');
+		ft_error("ft_get_width_min: Input format error");
 	if (!format_id->width_min)
 		format_id->width_min = ft_max(0, save_nbr);
 	format_id->nb_read_char = nbr_len + nb_read_char;
