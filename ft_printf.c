@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/19 18:56:34 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/20 15:20:35 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // gcc main_printf.c libftprintf.a ./libft/libft.a -I libft
 
-static const void (*(ptr_fct[]))(va_list *, t_format_id *) =
+static void (*(ptr_fct[]))(va_list *, t_format_id *) =
 {
 	['s'] = ft_print_arg_s,				//String.
 	['S'] = ft_print_arg_s					//String.
@@ -40,34 +40,48 @@ static const void (*(ptr_fct[]))(va_list *, t_format_id *) =
 	// // ['G'] = printf_format_g,				//double.
 };
 
-static const void (*(ptr_arg[]))(t_list_arg *) =
-{
-	['s'] = va_arg(*ap, char*),				//String.
-	['S'] = va_arg(*ap, char*)					//String.
-	['p'] = va_arg(*ap, p),				//pointer.
-	['d'] = va_arg(*ap, d),				//Decimal signed integer.
-	['D'] = va_arg(*ap, d),				//Decimal signed integer.
-	['i'] = va_arg(*ap, d),				//Decimal signed integer.
-	['o'] = va_arg(*ap, o),				//Octal integer.
-	['O'] = va_arg(*ap, o),				//Octal integer.
-	['u'] = va_arg(*ap, u),				//Unsigned integer.
-	['U'] = va_arg(*ap, u),				//Unsigned integer.
-	['x'] = va_arg(*ap, x),				//Hex integer.
-	['X'] = va_arg(*ap, x),				//Hex integer.
-	['c'] = va_arg(*ap, c),				//Character.
-	['C'] = va_arg(*ap, c),				//Character.
-	['%'] = va_arg(*ap, percent)
-	// ['f'] = printf_format_f,				//double
-	// ['e'] = printf_format_e,				//double.
-	// ['E'] = printf_format_e,				//double.
-	// ['g'] = printf_format_g,				//double.
-	// ['G'] = printf_format_g,				//double.
-};
-
-static const void (*(ptr_va_arg[]))(va_list *, t_format_id *) =
-{
-	['']
-};
+// static const void (*(ptr_arg[]))(va_list *ap) =
+// {
+// 	['s'] = char*,				//String.
+// 	['S'] = char*,					//String.
+// 	['p'] = void*,				//pointer.
+// 	['d'] = long long int,				//Decimal signed integer.
+// 	['D'] = long long int,				//Decimal signed integer.
+// 	['i'] = long long int,				//Decimal signed integer.
+// 	['o'] = long long int,				//Octal integer.
+// 	['O'] = long long int,				//Octal integer.
+// 	['u'] = long long int,				//Unsigned integer.
+// 	['U'] = long long int,				//Unsigned integer.
+// 	['x'] = long long int,				//Hex integer.
+// 	['X'] = long long int,				//Hex integer.
+// 	['c'] = char,				//Character.
+// 	['C'] = char				//Character.
+// 	// ['f'] = printf_format_f,				//double
+// 	// ['e'] = printf_format_e,				//double.
+// 	// ['E'] = printf_format_e,				//double.
+// 	// ['g'] = printf_format_g,				//double.
+// 	// ['G'] = printf_format_g,				//double.
+// };
+//
+//
+//
+// static const void (*(ptr_va_arg[]))(t_list_arg *list_arg) =
+// {
+// 	['s'] = list_arg->arg->s,
+// 	['S'] = list_arg->arg->s,
+// 	['p'] = list_arg->arg->p,
+// 	['d'] = list_arg->arg->ll,
+// 	['D'] = list_arg->arg->ll,
+// 	['i'] = list_arg->arg->ll,
+// 	['o'] = list_arg->arg->ll,
+// 	['O'] = list_arg->arg->ll,
+// 	['u'] = list_arg->arg->ll,
+// 	['U'] = list_arg->arg->ll,
+// 	['x'] = list_arg->arg->ll,
+// 	['X'] = list_arg->arg->ll,
+// 	['c'] = list_arg->arg->c,
+// 	['C'] = list_arg->arg->c
+// };
 
 static void 		ft_printstr(char *str)
 {
@@ -144,17 +158,7 @@ static t_format_id	*ft_format_id_init(t_format_id *format_id)
 	return (new);
 }
 
-// struct			s_list_arg
-// {
-// 	int				nbr;
-// 	char			type;
-// 	void			*arg;
-// 	size_t			len;
-// 	t_list_arg		*next;
-// 	t_list_arg		*first;
-// };
-
-t_list_arg			*ft_init_list_arg(t_list_arg *list_arg)
+static t_list_arg		*ft_init_list_arg(t_list_arg *list_arg)
 {
 	if (list_arg)
 	{
@@ -171,72 +175,76 @@ t_list_arg			*ft_init_list_arg(t_list_arg *list_arg)
 		list_arg->first = list_arg;
 		list_arg->nbr = 1;
 	}
-	list_arg->type = 0;
+	list_arg->arg_type = 0;
 	list_arg->arg = NULL;
 	list_arg->len = 0;
 	list_arg->next = NULL;
 	return (list_arg);
 }
 
-// ['d'] = ft_print_arg_d,				//Decimal signed integer.
-// ['D'] = ft_print_arg_d,				//Decimal signed integer.
-// ['i'] = ft_print_arg_d,				//Decimal signed integer.
-// ['o'] = ft_print_arg_o,				//Octal integer.
-// ['O'] = ft_print_arg_o,				//Octal integer.
-// ['u'] = ft_print_arg_u,				//Unsigned integer.
-// ['U'] = ft_print_arg_u,				//Unsigned integer.
-// ['x'] = ft_print_arg_x,				//Hex integer.
-// ['X'] = ft_print_arg_x,				//Hex integer.
-// // ['f'] = printf_format_f,				//double
-// // ['e'] = printf_format_e,				//double.
-// // ['E'] = printf_format_e,				//double.
-// // ['g'] = printf_format_g,				//double.
-// // ['G'] = printf_format_g,				//double.
 
-
-
-ft_get_type(t_format_id *format_id, t_list_arg *list_arg, va_list *ap)
+static void			ft_get_type(t_format_id *format_id, t_list_arg *list_arg, va_list *ap)
 {
 	if (format_id->precision.period == '*')
 	{
 		list_arg->arg->ll = va_arg(*ap, long long int);
-		list_arg->tpye = 'L';
+		list_arg->arg_type = 'L';
 		list_arg = ft_init_list_arg(list_arg);
 	}
 
-	if (ptr_arg[format_id->arg_type])
-		ptr_arg[format_id->arg_type] = ptr_va_arg[format_id->arg_type](ap)
+	// if (ptr_arg[format_id->arg_type])
+	// 	va_arg(*ap, ptr_arg[format_id->arg_type]) = ptr_va_arg[format_id->arg_type](ap);
 
-	if (format_id->arg_type == 's'|| format_id->arg_type == 'S')
-		list_arg->arg->s = va_list(*ap, char*);
-	else if (format_id->arg_type == 'c' || format_id->arg_type == 'C')
-		*list_arg->arg->s = va_list(*ap, char);
-	else if (ft_strchr(format_id->arg_type, "dDioOuUxX"))
-		list_arg->arg->ll = ;
-	else if (format_id->arg_type == || format_id->arg_type == || format_id->arg_type == || format_id->arg_type == || )
-		list_arg->arg->ld = ;
+	if (ft_strchr("sScC", format_id->arg_type))
+		list_arg->arg->s = va_arg(*ap, char*);
+	else if (ft_strchr("dDioOuUxX", format_id->arg_type))
+		list_arg->arg->ll = va_arg(*ap, long long int);
 	else if (format_id->arg_type == 'p')
-		list_arg->arg->p = va_list(*ap, void*);
+		list_arg->arg->p = va_arg(*ap, void*);
 	else
 		(ft_error("ft_get_type : arg_type error"));
 }
 
-t_list_arg			*ft_get_args(t_format_id *format_id, va_list *ap)
+static t_list_arg		*ft_get_args(t_format_id *format_id, va_list *ap)
 {
 	t_list_arg	*list_arg;
+	int			done;
 
+	done = 0;
 	list_arg = NULL;
 	if (format_id)
 	{
-		while (format_id->next || format_id == format_id->first)
+		while (format_id->next || (format_id == format_id->first && !done))
 		{
 			list_arg = ft_init_list_arg(list_arg);
-			((format_id != format_id->first) ? format_id = format_id->next : 0);
+			((done) ? (format_id = format_id->next) : (done++));
 			ft_get_type(format_id, list_arg, ap);
 		}
 	}
+	return (list_arg);
 }
 
+static void			ft_print_all_arg(t_list_arg *arg_list)
+{
+	int			done;
+
+	done = 0;
+	if (arg_list)
+	{
+		while (arg_list->next || (arg_list->first == arg_list && !done))
+		{
+			((!done) ? (arg_list = arg_list->next) : (done++));
+			if (ft_strchr("dDioOuUxX", arg_list->arg_type))
+				ft_putnbr(arg_list->arg->ll);
+			else if (ft_strchr("sScC", arg_list->arg_type))
+				ft_putstr(arg_list->arg->s);
+			else if (arg_list->arg_type == 'p')
+				ft_putstr("Pointer here\n");
+			else
+				ft_putstr("Autre chose ici\n");
+		}
+	}
+}
 
 int					ft_printf(char *str, ...)
 {
@@ -244,7 +252,7 @@ int					ft_printf(char *str, ...)
 	int				pos;
 	va_list			ap;
 	t_format_id		*format_id;
-	t_list_arg	*arg;
+	t_list_arg		*arg;
 
 	pos = 0;
 	len = 0;
@@ -273,15 +281,16 @@ int					ft_printf(char *str, ...)
 			if (format_id->arg_type == 's')
 				ft_print_arg_s(&ap, format_id);
 
-			if (!format_id)
-				ptr_fct[(int)format_id->arg_type](&ap, format_id);
+			// if (!format_id)
+			// 	ptr_fct[(int)format_id->arg_type](&ap, format_id);
 			// *g_formats_f[format_id->arg_type](ap, format_id);
 			pos += format_id->nb_read_char;
 			len += format_id->nb_print_char;
 		}
 	}
-	arg = ft_get_args(format_id);
+	arg = ft_get_args(format_id, &ap);
 	ft_putstr("ENDING\n");
+	ft_print_all_arg(arg);
 	// ft_printstr(str);
 	// va_end(ap);
 	return (len);
