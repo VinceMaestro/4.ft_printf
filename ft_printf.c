@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/20 15:20:35 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/04/26 20:04:39 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,70 +158,84 @@ static t_format_id	*ft_format_id_init(t_format_id *format_id)
 	return (new);
 }
 
-static t_list_arg		*ft_init_list_arg(t_list_arg *list_arg)
+static t_list_arg		*ft_init_list_arg(t_list_arg *arg_list)
 {
-	if (list_arg)
+	if (arg_list)
 	{
-		(!(list_arg->next = (t_list_arg*)malloc(sizeof(t_list_arg))) ? \
-			(ft_error("ft_get_args : malloc failed")) : (list_arg));
-		list_arg->next->first = list_arg->first;
-		list_arg->next->nbr = list_arg->nbr + 1;
-		list_arg = list_arg->next;
+		(!(arg_list->next = (t_list_arg*)malloc(sizeof(t_list_arg))) ? \
+			(ft_error("ft_get_args : malloc failed")) : (arg_list));
+		arg_list->next->first = arg_list->first;
+		arg_list->next->nbr = arg_list->nbr + 1;
+		arg_list = arg_list->next;
 	}
 	else
 	{
-		(!(list_arg = (t_list_arg*)malloc(sizeof(t_list_arg))) ? \
-			(ft_error("ft_get_args : malloc failed")) : (list_arg));
-		list_arg->first = list_arg;
-		list_arg->nbr = 1;
+		(!(arg_list = (t_list_arg*)malloc(sizeof(t_list_arg))) ? \
+			(ft_error("ft_get_args : malloc failed")) : (arg_list));
+		arg_list->first = arg_list;
+		arg_list->nbr = 1;
 	}
-	list_arg->arg_type = 0;
-	list_arg->arg = NULL;
-	list_arg->len = 0;
-	list_arg->next = NULL;
-	return (list_arg);
+	arg_list->arg_type = 0;
+	arg_list->arg = NULL;
+	arg_list->len = 0;
+	arg_list->next = NULL;
+	return (arg_list);
 }
 
 
-static void			ft_get_type(t_format_id *format_id, t_list_arg *list_arg, va_list *ap)
+static void			ft_get_type(t_format_id *format_id, t_list_arg *arg_list, va_list *ap)
 {
+	ft_putstr("\n--------- 1 ----------\n");
 	if (format_id->precision.period == '*')
 	{
-		list_arg->arg->ll = va_arg(*ap, long long int);
-		list_arg->arg_type = 'L';
-		list_arg = ft_init_list_arg(list_arg);
+		ft_putstr("\n--------- 1.0 ----------\n");
+		arg_list->arg->ll = va_arg(*ap, long long int);
+		arg_list->arg_type = 'L';
+		arg_list = ft_init_list_arg(arg_list);
 	}
-
 	// if (ptr_arg[format_id->arg_type])
 	// 	va_arg(*ap, ptr_arg[format_id->arg_type]) = ptr_va_arg[format_id->arg_type](ap);
-
 	if (ft_strchr("sScC", format_id->arg_type))
-		list_arg->arg->s = va_arg(*ap, char*);
+	{
+		arg_list->arg->s = va_arg(*ap, char*);
+		ft_putstr("\n--------- 1.1 ----------\n");
+	}
 	else if (ft_strchr("dDioOuUxX", format_id->arg_type))
-		list_arg->arg->ll = va_arg(*ap, long long int);
+	{
+		arg_list->arg->ll = va_arg(*ap, long long int);
+		ft_putstr("\n--------- 1.2 ----------\n");
+	}
+
 	else if (format_id->arg_type == 'p')
-		list_arg->arg->p = va_arg(*ap, void*);
+	{
+		arg_list->arg->p = va_arg(*ap, void*);
+		ft_putstr("\n--------- 1.3 ----------\n");
+	}
 	else
 		(ft_error("ft_get_type : arg_type error"));
 }
 
 static t_list_arg		*ft_get_args(t_format_id *format_id, va_list *ap)
 {
-	t_list_arg	*list_arg;
-	int			done;
+	t_list_arg	*arg_list;
 
-	done = 0;
-	list_arg = NULL;
+	arg_list = NULL;
 	if (format_id)
 	{
-		while (format_id->next || (format_id == format_id->first && !done))
+		arg_list = ft_init_list_arg(arg_list);
+		ft_get_type(format_id, arg_list, ap);
+		ft_putstr("\n--------- 1 ----------\n");
+		while (format_id->next)
 		{
-			list_arg = ft_init_list_arg(list_arg);
-			((done) ? (format_id = format_id->next) : (done++));
-			ft_get_type(format_id, list_arg, ap);
+			ft_putstr("\nNOT  WTF\n");
+			format_id = format_id->next;
+			arg_list = ft_init_list_arg(arg_list);
+			ft_get_type(format_id, arg_list, ap);
 		}
 	}
-	return (list_arg);
+	else
+		ft_putstr("\nWTF\n");
+	return (arg_list);
 }
 
 static void			ft_print_all_arg(t_list_arg *arg_list)
@@ -229,11 +243,16 @@ static void			ft_print_all_arg(t_list_arg *arg_list)
 	int			done;
 
 	done = 0;
+	ft_putstr("BeforeAfterLife\n");
 	if (arg_list)
 	{
+		ft_putstr("AfterLife\n");
 		while (arg_list->next || (arg_list->first == arg_list && !done))
 		{
-			((!done) ? (arg_list = arg_list->next) : (done++));
+			if (!done)
+				arg_list = arg_list->next;
+			else
+				 done++;
 			if (ft_strchr("dDioOuUxX", arg_list->arg_type))
 				ft_putnbr(arg_list->arg->ll);
 			else if (ft_strchr("sScC", arg_list->arg_type))
@@ -252,11 +271,11 @@ int					ft_printf(char *str, ...)
 	int				pos;
 	va_list			ap;
 	t_format_id		*format_id;
-	t_list_arg		*arg;
+	t_list_arg		*arg_list;
 
 	pos = 0;
 	len = 0;
-	// va_start(ap, str);
+	va_start(ap, str);
 	ft_printstr(str);
 	while (str && str[pos])
 	{
@@ -275,23 +294,23 @@ int					ft_printf(char *str, ...)
 			format_id->start_pos = pos;
 			ft_format_id_getinfo(format_id, &(str[pos]));
 
-
 			ft_print_format_id(format_id);
-
 			if (format_id->arg_type == 's')
 				ft_print_arg_s(&ap, format_id);
 
-			// if (!format_id)
-			// 	ptr_fct[(int)format_id->arg_type](&ap, format_id);
+			if (!format_id)
+				ptr_fct[(int)format_id->arg_type](&ap, format_id);
 			// *g_formats_f[format_id->arg_type](ap, format_id);
 			pos += format_id->nb_read_char;
 			len += format_id->nb_print_char;
 		}
 	}
-	arg = ft_get_args(format_id, &ap);
+	ft_putstr("\nAfterall----------\n");
+	arg_list = ft_get_args(format_id, &ap);
+	ft_putstr("\nAfterall----------\n");
 	ft_putstr("ENDING\n");
-	ft_print_all_arg(arg);
+	ft_print_all_arg(arg_list);
 	// ft_printstr(str);
-	// va_end(ap);
+	va_end(ap);
 	return (len);
 }
