@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/20 15:05:26 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/02 13:09:13 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ struct			s_list_arg
 {
 	int				nbr;
 	char			arg_type;
-	t_union			*arg;
+	t_union			arg;
 	size_t			len;
 	t_list_arg		*next;
 	t_list_arg		*first;
@@ -91,5 +91,10 @@ void			ft_get_precision(t_format_id *format_id, char *tmp_str);
 void			ft_get_lenght(t_format_id *format_id, char *tmp_str); /////////////// CREATE
 
 void			ft_get_arg_type(t_format_id *format_id, char *tmp_str);
+
+void			ft_print_all_arg(t_list_arg *arg_list);
+
+t_list_arg		*ft_get_args(t_format_id *format_id, va_list *ap);
+t_format_id		*ft_format_id_init(t_format_id *format_id);
 
 #endif

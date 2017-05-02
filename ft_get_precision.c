@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/06 17:44:19 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/02 14:01:54 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static void			ft_get_width_max(t_format_id *format_id, char *tmp_str)
 	else if (ft_isdigit(tmp_str[pos]))
 	{
 		format_id->precision.width_max = ft_atoi(&tmp_str[pos]);
+		if (format_id->precision.width_max)
+		{
+			while (tmp_str[pos] == '0')
+				pos++;
+		}
 		pos += ft_intlen(format_id->precision.width_max);
 		format_id->nb_read_char = pos;
 	}
