@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/19 15:58:48 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/02 18:56:32 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 // 	t_format_id	*next;
 // };
 
-void	ft_print_arg_s(va_list *ap, t_format_id *format_id)
+void	ft_print_arg_s(t_list_arg *arg_list, t_format_id *format_id)
 {
 	char	*str;
 	// char	*new_str;
