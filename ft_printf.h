@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/02 18:48:06 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/03 16:56:06 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ struct			s_list_arg
 int				ft_printf(char *str, ...);
 void			ft_error(char *msg);
 void			ft_print_format_id(t_format_id *format_id);
+void			ft_print_all_format_id(t_format_id *format_id);
 void			ft_print_arg_s(t_list_arg *arg_list, t_format_id *format_id);
 void			ft_print_arg_p(t_list_arg *arg_list, t_format_id *format_id);
 void			ft_print_arg_d(t_list_arg *arg_list, t_format_id *format_id);
@@ -94,6 +95,6 @@ void			ft_get_arg_type(t_format_id *format_id, char *tmp_str);
 int				ft_print_all(t_format_id *format_id ,t_list_arg *arg_list, char *str);
 
 t_list_arg		*ft_get_args(t_format_id *format_id, va_list *ap);
-t_format_id		*ft_format_id_init(t_format_id *format_id);
+t_format_id		*ft_format_id_init(t_format_id *format_id, int nbr);
 
 #endif

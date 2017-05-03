@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:53:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/02 18:51:31 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/03 17:45:45 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,29 @@ int				ft_print_all(t_format_id *format_id ,t_list_arg *arg_list, char *str)
 {
 	int			pos;
 	int			len;
+	int			tmp;
 
 	pos = 0;
 	len = 0;
+	tmp = 1;
 	if (format_id && arg_list)
 	{
-		ft_putstr("ENTER PRINT_ALL\n");
-
-		len += ft_print_text(str, pos, format_id);
-		pos += format_id->nb_read_char;
+		ft_putstr("=== ENTER PRINT_ALL ===\n");
+		while (tmp)
+		{
+			tmp = ft_print_text(str, pos, format_id);
+			len += tmp;
+			pos += format_id->nb_read_char;
+			if (pos > format_id->start_pos && format_id->next)
+				format_id = format_id->next;
+			else
+				tmp = 0;
+		}
+		ft_putstr("=== 1 ===\n");
 		ptr_fct[(int)format_id->arg_type](arg_list, format_id); // Doit MAJ la Pos (nb_read_char)
+		ft_putstr("=== 2 ===\n");
 		len += format_id->nb_print_char;
+		ft_putstr("=== 3 ===\n");
 		while (format_id->next)
 		{
 			format_id = format_id->next;
@@ -103,7 +115,7 @@ int				ft_print_all(t_format_id *format_id ,t_list_arg *arg_list, char *str)
 			len += format_id->nb_print_char;
 		}
 	}
-	ft_putstr("EXIT PRINT_ALL\n");
+	ft_putstr("=== EXIT PRINT_ALL ===\n");
 	return (len);
 }
 

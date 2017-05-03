@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 17:41:48 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/06 17:44:55 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/03 17:13:17 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_print_format_id(t_format_id *format_id)
 {
+	ft_putstr("============\n");
+	if (format_id->arg_type)
+		ft_putstr("    VALID   \n");
+	else
+		ft_putstr("   INVALID  \n");
 	ft_putstr("===========================\n");
 	ft_putstr("format_id->parameter = ");
 	ft_putnbr(format_id->parameter);

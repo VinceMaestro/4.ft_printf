@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/02 14:01:54 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/03 16:50:58 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ static void			ft_get_width_max(t_format_id *format_id, char *tmp_str)
 	int		pos;
 
 	pos = format_id->nb_read_char;
-	if (format_id->precision.period == '*')
-		format_id->precision.width_max = -1;
-	else if (ft_isdigit(tmp_str[pos]))
+	if (ft_isdigit(tmp_str[pos]))
 	{
 		format_id->precision.width_max = ft_atoi(&tmp_str[pos]);
 		if (format_id->precision.width_max)
@@ -52,6 +50,6 @@ static void			ft_get_width_max(t_format_id *format_id, char *tmp_str)
 void				ft_get_precision(t_format_id *format_id, char *tmp_str)
 {
 	ft_get_period(format_id, tmp_str);
-	if (format_id->precision.period)
+	if (format_id->precision.period == '.')
 		ft_get_width_max(format_id, tmp_str);
 }

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 17:02:40 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 18:33:51 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/03 15:53:46 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void		ft_get_parameter(t_format_id *format_id, char *tmp_str)
 	if (tmp_str[nbr_len + nb_read_char] == '$')
 	{
 		nb_read_char++;
-		format_id->parameter = ft_max(0, save_nbr);
+		if (save_nbr > 0)
+			format_id->parameter = save_nbr;
 		format_id->nb_read_char = nbr_len + nb_read_char;
 	}
 	else
