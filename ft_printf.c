@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/02 18:44:27 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/03 14:38:42 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ int					ft_printf(char *str, ...)
 			ft_parse_str_infos(format_id, &(str[pos]));
 
 			ft_print_format_id(format_id);
-			if (format_id->arg_type == 's')
-				ft_print_arg_s(&ap, format_id);
 
 			// *g_formats_f[format_id->arg_type](ap, format_id);
 			pos += format_id->nb_read_char;
@@ -94,6 +92,8 @@ int					ft_printf(char *str, ...)
 	format_id = format_id->first;
 	arg_list = ft_get_args(format_id, &ap);
 	ft_putstr("\nAfterall----------\n");
+	if (format_id->arg_type == 's')
+		ft_print_arg_s(arg_list, format_id);
 	ft_putstr("ENDING\n");
 	len = ft_print_all(format_id, arg_list, str);
 	// ft_printstr(str);
