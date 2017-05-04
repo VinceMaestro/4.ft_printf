@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/03 16:56:06 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/04 14:50:29 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void			ft_get_arg_type(t_format_id *format_id, char *tmp_str);
 
 int				ft_print_all(t_format_id *format_id ,t_list_arg *arg_list, char *str);
 
-t_list_arg		*ft_get_args(t_format_id *format_id, va_list *ap);
+t_list_arg		*ft_get_all_args(t_format_id *format_id, char *str);
 t_format_id		*ft_format_id_init(t_format_id *format_id, int nbr);
 
 #endif

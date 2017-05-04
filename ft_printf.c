@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/03 17:31:25 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/04 14:49:22 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,12 @@ int					ft_printf(char *str, ...)
 	int				len;
 	int				pos;
 	int				cpt;
-	va_list			ap;
 	t_format_id		*format_id;
 	t_list_arg		*arg_list;
 
 	pos = 0;
 	cpt = 1;
-	va_start(ap, str);
+
 	ft_printstr(str);
 	format_id = NULL;
 	ft_putstr("PARSING : START\n");
@@ -85,7 +84,9 @@ int					ft_printf(char *str, ...)
 	ft_print_all_format_id(format_id);
 
 	ft_putstr("Fetching Arguments : ");
-	arg_list = ft_get_args(format_id, &ap);
+
+	arg_list = ft_get_args(format_id, str);
+
 	ft_putstr("Sucess\n");
 
 	len = ft_print_all(format_id, arg_list, str);
@@ -93,6 +94,6 @@ int					ft_printf(char *str, ...)
 
 	ft_putstr("ENDING\n");
 
-	va_end(ap);
+
 	return (len);
 }
