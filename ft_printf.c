@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/04 14:49:22 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/04 18:51:28 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int					ft_printf(char *str, ...)
 
 	ft_putstr("Fetching Arguments : ");
 
-	arg_list = ft_get_args(format_id, str);
+	arg_list = ft_get_all_args(format_id, str);
 
 	ft_putstr("Sucess\n");
 

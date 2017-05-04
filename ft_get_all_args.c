@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/04 15:57:26 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/04 18:56:48 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,23 @@ static t_list_arg		*ft_init_list_arg(t_list_arg *arg_list)
 	return (arg_list);
 }
 
-static t_list_arg	ft_get_arg(t_list_arg *arg_list, t_format_id *format_id, char *str)
+static t_list_arg	*ft_get_arg(t_list_arg *arg_list, t_format_id *format_id, char *str)
 {
 	va_list			ap;
 
-	if ()
+	va_start(ap, str);
+	if (!str)
 	{
 		while (arg_list->next && arg_list->nbr != format_id->parameter)
 			arg_list = arg_list->next;
-		if (arg_list->nbr == format_id->parameter)
+		if (arg_list->nbr == format_id->parameter) ///////HEEEEEERRRREEEE
 		{
 			((arg_list->arg_type && arg_list->arg_type != format_id->arg_type) \
 				? ft_error("Input parameter conflict") : 0);
-			va_start(ap, str);
+
 
 			va_end(ap);
-			return (arg_list)
+			return (arg_list);
 		}
 	}
 	return (NULL);
@@ -59,6 +60,8 @@ static t_list_arg	ft_get_arg(t_list_arg *arg_list, t_format_id *format_id, char 
 
 static void			ft_get_type(t_format_id *format_id, t_list_arg *arg_list, char *str)
 {
+	va_list		ap;
+
 	if (format_id->precision.period == '*')
 	{
 		arg_list->arg.ll = va_arg(*ap, long long int);
