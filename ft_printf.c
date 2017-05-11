@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/04 18:51:28 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/11 19:11:46 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,16 @@ static void			ft_parse_str_infos(t_format_id *format_id, char *str)
 	format_id->nb_read_char = newpos;
 }
 
-int					ft_printf(char *str, ...)
+
+t_format_id			*ft_parse_all(char *str)
 {
-	int				len;
-	int				pos;
 	int				cpt;
+	int				pos;
 	t_format_id		*format_id;
-	t_list_arg		*arg_list;
 
 	pos = 0;
 	cpt = 1;
-
-	ft_printstr(str);
 	format_id = NULL;
-	ft_putstr("PARSING : START\n");
 	while (str && str[pos])
 	{
 		if (str[pos] != '%' || str[pos + 1] == '%')
@@ -78,18 +74,134 @@ int					ft_printf(char *str, ...)
 			pos += format_id->nb_read_char;
 		}
 	}
-	// ft_print_all_format_id(format_id);
-	ft_putstr("PARSING : SUCESS\n");
 	format_id = format_id->first;
+	return (format_id);
+}
+
+t_format_id			*ft_get_smaller(t_format_id *format_id)
+{
+	t_format_id		*smaller;
+
+	ft_putstr("--- 1.1 ---\n");
+	smaller = NULL;
+	if (format_id)
+	{
+		smaller = format_id;
+		while (format_id->next)
+		{
+			format_id = format_id->next;
+			if (format_id->parameter < smaller->parameter)
+				smaller = format_id;
+		}
+	}
+	ft_putstr("--- 1.1 Done ---\n");
+	return (smaller);
+}
+
+t_format_id			*ft_list_prev(t_format_id *elem)
+{
+	t_format_id		*prev;
+
+	prev = elem;
+	if (prev)
+	{
+		prev = prev->first;
+		while (prev->next && prev->next != elem)
+			prev = prev->next;
+	}
+	return (prev);
+}
+
+void				ft_change_first(t_format_id *elem)
+{
+	if (elem)
+	{
+		ft_putstr("--- 1.2.1 ---\n");
+		elem = elem->first;
+
+		elem->first = elem;
+		while (elem && elem->next)
+		{
+			ft_putstr("--- 1.2.1... ---\n");
+			elem->next->first = elem->first;
+			elem = elem->next;
+		}
+	}
+}
+
+void				ft_swap_elem(t_format_id *elem1, t_format_id *elem2)
+{
+	t_format_id		*tmp;
+	t_format_id		*prev1;
+	t_format_id		*prev2;
+
+	ft_putstr("--- 1.2 ---\n");
+	if (elem1 && elem2 && elem1 != elem2)
+	{
+		prev1 = NULL;
+		prev2 = NULL;
+		tmp = elem1->next;
+		if (elem1 != elem1->first)
+			prev1 = ft_list_prev(elem1);
+		if (elem2 != elem2->first)
+			prev2 = ft_list_prev(elem2);
+		elem1->next = elem2->next;
+		elem2->next = tmp;
+		((prev1) ? (prev1->next = elem2) : (prev1));
+		((prev2) ? (prev2->next = elem1) : (prev2));
+		if (!prev1)
+			ft_change_first(elem2);
+		if (!prev2)
+			ft_change_first(elem1);
+	}
+}
+
+void				ft_sort_list(t_format_id *format_id)
+{
+	t_format_id		*smaller;
+
+	ft_putstr("--- 1 ---\n");
+	if (format_id)
+	{
+		format_id = format_id->first;
+		smaller = ft_get_smaller(format_id);
+		ft_swap_elem(smaller, format_id);
+		while (smaller->next)
+		{
+			format_id = smaller->next;
+			smaller = ft_get_smaller(format_id);
+			ft_swap_elem(smaller, format_id);
+		}
+	}
+	ft_putstr("--- 2 ---\n");
+}
+
+int					ft_printf(char *str, ...)
+{
+	int				len;
+	t_format_id		*format_id;
+
+	// t_list_arg		*arg_list;
+
+	ft_printstr(str);
+	ft_putstr("PARSING : START\n");
+	format_id = ft_parse_all(str);
+	ft_putstr("PARSING : SUCESS\n");
+
+	ft_sort_list(format_id);
+
 	ft_print_all_format_id(format_id);
 
 	ft_putstr("Fetching Arguments : ");
 
-	arg_list = ft_get_all_args(format_id, str);
+	// arg_list = ft_get_all_args(format_id, str);
 
 	ft_putstr("Sucess\n");
 
-	len = ft_print_all(format_id, arg_list, str);
+	// len = ft_print_all(format_id, arg_list, str);
+
+	len = 0;
+
 	// ft_printstr(str);
 
 	ft_putstr("ENDING\n");
