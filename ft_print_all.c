@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:53:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 20:02:48 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 20:44:56 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,24 @@ static t_format_id	*p_arg_w_ntp(t_format_id *f_id, t_a_lst *a_lst, char *str)
 	////////HEREREREREEERERRERERERE
 }
 
-int				ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
+int					ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
 {
 	int		len;
+	int		pos;
 
 	len = 0;
-	while (str[pos])
+	pos = -1;
+	while (str[++pos])
 	{
-		while (str[pos] && pos < f_id->start_pos && ++len > 0)
+		while (str[pos] && (pos < f_id->start_pos || !f_id->start_pos) && ++len > 0)
 			ft_putchar(str[pos++]);
 		if (str[pos])
 		{
 			if (f_id->arg_type)
-				f_id = ft_print_arg_with_type(f_id, a_lst, str);
+				p_arg_w_tp(f_id, a_lst, str);
 			else
-				f_id = p_arg_w_ntp(f_id, a_lst, str);
+				p_arg_w_ntp(f_id, a_lst, str);
+			len += f_id->nb_print_char;
 		}
 	}
 }

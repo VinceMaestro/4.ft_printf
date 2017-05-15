@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_all_args.c                                  :+:      :+:    :+:   */
+/*   ft_get_a_lst.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:33:49 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 21:00:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_a_lst	*ft_init_a_lst(t_a_lst *a_lst)
 	if (a_lst)
 	{
 		(!(a_lst->next = (t_a_lst*)malloc(sizeof(t_a_lst))) ? \
-			(ft_error("ft_get_all_args : malloc failed")) : (a_lst));
+			(ft_error("ft_get_a_lst : malloc failed")) : (a_lst));
 		a_lst->next->first = a_lst->first;
 		a_lst->next->nbr = a_lst->nbr + 1;
 		a_lst = a_lst->next;
@@ -26,7 +26,7 @@ static t_a_lst	*ft_init_a_lst(t_a_lst *a_lst)
 	else
 	{
 		(!(a_lst = (t_a_lst*)malloc(sizeof(t_a_lst))) ? \
-			(ft_error("ft_get_all_args : malloc failed")) : (a_lst));
+			(ft_error("ft_get_a_lst : malloc failed")) : (a_lst));
 		a_lst->first = a_lst;
 		a_lst->nbr = 1;
 	}
@@ -77,7 +77,7 @@ static void			ft_get_type(t_format_id *f_id, t_a_lst *a_lst, va_list *ap)
 		(ft_error("ft_get_type : arg_type error"));
 }
 
-t_a_lst			*ft_get_all_args(t_format_id *f_id, va_list *ap)
+t_a_lst			*ft_get_a_lst(t_format_id *f_id, va_list *ap)
 {
 	t_a_lst	*a_lst;
 
@@ -101,6 +101,6 @@ t_a_lst			*ft_get_all_args(t_format_id *f_id, va_list *ap)
 		}
 	}
 	else
-		ft_error("\nWTF : ft_get_all_args\n");
+		ft_error("\nWTF : ft_get_a_lst\n");
 	return (a_lst);
 }

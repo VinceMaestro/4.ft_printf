@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:52:48 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 21:00:47 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ struct			s_list_arg
 	char			arg_type;
 	t_union			arg;
 	size_t			len;
-	t_a_lst		*next;
-	t_a_lst		*first;
+	t_a_lst			*next;
+	t_a_lst			*first;
 };
 
 int				ft_printf(char *str, ...);
@@ -94,7 +94,7 @@ void			ft_get_arg_type(t_format_id *f_id, char *tmp_str);
 
 int				ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str);
 
-t_a_lst			*ft_get_all_args(t_format_id *f_id, va_list *ap);
+t_a_lst			*ft_get_a_lst(t_format_id *f_id, va_list *ap);
 t_format_id		*ft_format_id_init(t_format_id *f_id, int nbr);
 
 #endif

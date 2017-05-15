@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:50:10 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 21:06:37 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void			ft_parse_str_infos(t_format_id *f_id, char *str)
 	f_id->nb_read_char = newpos;
 }
 
-t_format_id			*ft_parse_all(char *str)
+t_format_id			*ft_get_f_id_from_str(char *str)
 {
 	int				cpt;
 	int				pos;
@@ -84,15 +84,15 @@ int					ft_printf(char *str, ...)
 
 	ft_printstr(str);
 	ft_putstr("PARSING : START\n");
-	f_id = ft_parse_all(str);
+	f_id = ft_get_f_id_from_str(str);
 	ft_putstr("PARSING : SUCESS\n");
 
-	// ft_print_all_f_id(f_id);
+	// ft_print_all_f_id(f_id); // for debugg
 
 	ft_putstr("Fetching Arguments : ");
 
 	va_start(ap, str);
-	a_lst = ft_get_all_args(f_id, &ap);
+	a_lst = ft_get_a_lst(f_id, &ap);
 	va_end(ap);
 
 	ft_putstr("\nSucess\n");

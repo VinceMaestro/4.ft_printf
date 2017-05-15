@@ -14,7 +14,7 @@ SRC = ft_printf.c \
 		ft_get_parameter.c \
 		ft_print_all.c \
 		ft_format_id_init.c \
-		ft_get_all_args.c
+		ft_get_a_lst.c
 		# ft_print_arg_p.c \
 		# ft_print_arg_d.c \
 		# ft_print_arg_o.c \
