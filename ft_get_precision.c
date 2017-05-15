@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/03 16:50:58 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 19:38:48 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-static void			ft_get_period(t_format_id *format_id, char *tmp_str)
+static void			ft_get_period(t_format_id *f_id, char *tmp_str)
 {
 	int		pos;
 
@@ -23,33 +23,33 @@ static void			ft_get_period(t_format_id *format_id, char *tmp_str)
 	{
 		if (tmp_str[pos + 1] && tmp_str[pos + 1] == '*')
 			pos++;
-		format_id->precision.period = tmp_str[pos];
+		f_id->precision.period = tmp_str[pos];
 		pos++;
 	}
-	format_id->nb_read_char = pos;
+	f_id->nb_read_char = pos;
 }
 
-static void			ft_get_width_max(t_format_id *format_id, char *tmp_str)
+static void			ft_get_width_max(t_format_id *f_id, char *tmp_str)
 {
 	int		pos;
 
-	pos = format_id->nb_read_char;
+	pos = f_id->nb_read_char;
 	if (ft_isdigit(tmp_str[pos]))
 	{
-		format_id->precision.width_max = ft_atoi(&tmp_str[pos]);
-		if (format_id->precision.width_max)
+		f_id->precision.width_max = ft_atoi(&tmp_str[pos]);
+		if (f_id->precision.width_max)
 		{
 			while (tmp_str[pos] == '0')
 				pos++;
 		}
-		pos += ft_intlen(format_id->precision.width_max);
-		format_id->nb_read_char = pos;
+		pos += ft_intlen(f_id->precision.width_max);
+		f_id->nb_read_char = pos;
 	}
 }
 
-void				ft_get_precision(t_format_id *format_id, char *tmp_str)
+void				ft_get_precision(t_format_id *f_id, char *tmp_str)
 {
-	ft_get_period(format_id, tmp_str);
-	if (format_id->precision.period == '.')
-		ft_get_width_max(format_id, tmp_str);
+	ft_get_period(f_id, tmp_str);
+	if (f_id->precision.period == '.')
+		ft_get_width_max(f_id, tmp_str);
 }

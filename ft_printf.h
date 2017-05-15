@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/04 14:50:29 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 19:52:48 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_flags		t_flags;
 typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
-typedef struct s_list_arg	t_list_arg;
+typedef struct s_list_arg	t_a_lst;
 typedef union u_union		t_union;
 
 struct			s_flags
@@ -66,35 +66,35 @@ struct			s_list_arg
 	char			arg_type;
 	t_union			arg;
 	size_t			len;
-	t_list_arg		*next;
-	t_list_arg		*first;
+	t_a_lst		*next;
+	t_a_lst		*first;
 };
 
 int				ft_printf(char *str, ...);
 void			ft_error(char *msg);
-void			ft_print_format_id(t_format_id *format_id);
-void			ft_print_all_format_id(t_format_id *format_id);
-void			ft_print_arg_s(t_list_arg *arg_list, t_format_id *format_id);
-void			ft_print_arg_p(t_list_arg *arg_list, t_format_id *format_id);
-void			ft_print_arg_d(t_list_arg *arg_list, t_format_id *format_id);
-void			ft_print_arg_o(t_list_arg *arg_list, t_format_id *format_id);
-void			ft_print_arg_u(t_list_arg *arg_list, t_format_id *format_id);
-void			ft_print_arg_x(t_list_arg *arg_list, t_format_id *format_id);
-void			ft_print_arg_c(t_list_arg *arg_list, t_format_id *format_id);
+void			ft_print_f_id(t_format_id *f_id);
+void			ft_print_all_f_id(t_format_id *f_id);
+void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_p(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_d(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_u(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_x(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_c(t_a_lst *a_lst, t_format_id *f_id);
 
-void			ft_get_parameter(t_format_id *format_id, char *tmp_str);
-void			ft_get_flags(t_format_id *format_id, char *tmp_str);
-void			ft_get_width_min(t_format_id *format_id, char *tmp_str);
+void			ft_get_parameter(t_format_id *f_id, char *tmp_str);
+void			ft_get_flags(t_format_id *f_id, char *tmp_str);
+void			ft_get_width_min(t_format_id *f_id, char *tmp_str);
 
-void			ft_get_precision(t_format_id *format_id, char *tmp_str);
+void			ft_get_precision(t_format_id *f_id, char *tmp_str);
 
-void			ft_get_lenght(t_format_id *format_id, char *tmp_str); /////////////// CREATE
+void			ft_get_lenght(t_format_id *f_id, char *tmp_str); /////////////// CREATE
 
-void			ft_get_arg_type(t_format_id *format_id, char *tmp_str);
+void			ft_get_arg_type(t_format_id *f_id, char *tmp_str);
 
-int				ft_print_all(t_format_id *format_id ,t_list_arg *arg_list, char *str);
+int				ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str);
 
-t_list_arg		*ft_get_all_args(t_format_id *format_id, char *str);
-t_format_id		*ft_format_id_init(t_format_id *format_id, int nbr);
+t_a_lst			*ft_get_all_args(t_format_id *f_id, va_list *ap);
+t_format_id		*ft_format_id_init(t_format_id *f_id, int nbr);
 
 #endif

@@ -6,23 +6,23 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 13:00:05 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/03 15:49:11 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 19:36:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static void			ft_init_flags(t_format_id *format_id)
+static void			ft_init_flags(t_format_id *f_id)
 {
-	format_id->flags.space = 0;
-	format_id->flags.plus = 0;
-	format_id->flags.minus = 0;
-	format_id->flags.hash = 0;
-	format_id->flags.zero = 0;
+	f_id->flags.space = 0;
+	f_id->flags.plus = 0;
+	f_id->flags.minus = 0;
+	f_id->flags.hash = 0;
+	f_id->flags.zero = 0;
 }
 
-t_format_id			*ft_format_id_init(t_format_id *format_id, int nbr)
+t_format_id			*ft_format_id_init(t_format_id *f_id, int nbr)
 {
 	t_format_id		*new;
 
@@ -37,8 +37,8 @@ t_format_id			*ft_format_id_init(t_format_id *format_id, int nbr)
 	new->nb_read_char = 0;
 	new->nb_print_char = 0;
 	new->start_pos = 0;
-	if (format_id)
-		new->first = format_id->first;
+	if (f_id)
+		new->first = f_id->first;
 	else
 		new->first = new;
 	new->next = NULL;

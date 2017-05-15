@@ -6,24 +6,24 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:47:12 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/06 18:00:43 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/15 19:37:57 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_save_flag(t_format_id *format_id, char c)
+static int		ft_save_flag(t_format_id *f_id, char c)
 {
 	if (c == '0')
-		format_id->flags.zero = 1;
+		f_id->flags.zero = 1;
 	else if (c == '#')
-		format_id->flags.hash = 1;
+		f_id->flags.hash = 1;
 	else if (c == '-')
-		format_id->flags.minus = 1;
+		f_id->flags.minus = 1;
 	else if (c == '+')
-		format_id->flags.plus = 1;
+		f_id->flags.plus = 1;
 	else if (c == ' ')
-		format_id->flags.space = 1;
+		f_id->flags.space = 1;
 	else
 		return (1);
 	return (0);
@@ -31,14 +31,14 @@ static int		ft_save_flag(t_format_id *format_id, char c)
 
 // static void		*(tab_flags[])(t_format_id *) =
 // {
-// 	['0'] = format_id->flags.zero,
-// 	['#'] = format_id->flags.hash,
-// 	['-'] = format_id->flags.minus,
-// 	['+'] = format_id->flags.plus,
-// 	[' '] = format_id->flags.space
+// 	['0'] = f_id->flags.zero,
+// 	['#'] = f_id->flags.hash,
+// 	['-'] = f_id->flags.minus,
+// 	['+'] = f_id->flags.plus,
+// 	[' '] = f_id->flags.space
 // };
 
-void			ft_get_flags(t_format_id *format_id, char *tmp_str)
+void			ft_get_flags(t_format_id *f_id, char *tmp_str)
 {
 	char	list[6];
 	int		pos;
@@ -53,8 +53,8 @@ void			ft_get_flags(t_format_id *format_id, char *tmp_str)
 	while (tmp_str[pos] && !end)// && ptr = ft_strchr(list, tmp_str[pos]))
 	{
 		// tab_flags[tmp_str[pos]] = 1;
-		end = ft_save_flag(format_id, tmp_str[pos]);
+		end = ft_save_flag(f_id, tmp_str[pos]);
 		!end ? pos++ : pos;
 	}
-	format_id->nb_read_char = pos;
+	f_id->nb_read_char = pos;
 }
