@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_get_a_from_lst.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 19:05:54 by vpetit           ###   ########.fr       */
+/*   Created: 2017/05/16 19:17:36 by vpetit            #+#    #+#             */
+/*   Updated: 2017/05/16 19:17:45 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int		main(void)
+t_a_lst			*ft_get_a_from_lst(t_a_lst *a_lst, int nbr)
 {
-	// char	str[80] = "Hello %2$3.*d str %3$2.4s str %3$d int %%4p pointer %2$-+03.04k out%%\0";
-	char	str[80] = "%3$3.5lls First : - Second : %1$zzs - Third : %s - Done - \n";
-	void	*ptr;
-
-	ptr = &str;
-	ft_printf(str, "1.0", "2.0", "3.0", "Is : ", 80);
-	// printf(str, "1.0", "2.0", 3, "Is : ", 80);
-	return (0);
+	if (a_lst && nbr)
+	{
+		if (a_lst->nbr > nbr)
+			a_lst = a_lst->first;
+		while (a_lst->next && a_lst->nbr != nbr)
+			a_lst = a_lst->next;
+		if (a_lst->nbr != nbr)
+		 	return (a_lst);
+	}
+	else
+		ft_error("ft_get_a_from_lst\n");
+	return (NULL);
 }

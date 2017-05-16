@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_id_init.c                                :+:      :+:    :+:   */
+/*   ft_init_format_id.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 13:00:05 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:36:33 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 19:23:03 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void			ft_init_flags(t_format_id *f_id)
 	f_id->flags.zero = 0;
 }
 
-t_format_id			*ft_format_id_init(t_format_id *f_id, int nbr)
+t_format_id			*ft_init_format_id(t_format_id *f_id, int nbr)
 {
 	t_format_id		*new;
 

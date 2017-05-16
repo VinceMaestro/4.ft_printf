@@ -6,12 +6,11 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 03:57:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 21:02:42 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 19:29:39 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdlib.h>
 
 void			ft_get_width_min(t_format_id *f_id, char *tmp_str)
 {

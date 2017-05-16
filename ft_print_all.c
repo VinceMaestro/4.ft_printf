@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:53:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 15:42:48 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 19:00:32 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int					ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
 			if (f_id->arg_type)
 			{
 				ft_putstr("Getting into two \n");
-				p_arg_w_tp(f_id, a_lst);
+				ft_p_arg_w_tp(f_id, a_lst);
 				len += f_id->nb_print_char;
 			}
 			pos += f_id->nb_read_char;

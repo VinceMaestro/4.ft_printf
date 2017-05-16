@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 21:06:37 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 21:40:22 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,6 @@ static void 		ft_printstr(char *str)
 	ft_putstr("STRING IS : '");
 	ft_putstr(str);
 	ft_putstr("'\n");
-}
-
-static void			ft_parse_str_infos(t_format_id *f_id, char *str)
-{
-	int		newpos;
-
-	newpos = 0;
-	ft_get_parameter(f_id, &str[newpos]);
-	newpos += f_id->nb_read_char;
-	ft_get_flags(f_id, &str[newpos]);
-	newpos += f_id->nb_read_char;
-	ft_get_width_min(f_id, &str[newpos]);
-	newpos += f_id->nb_read_char;
-	ft_get_precision(f_id, &str[newpos]);
-	newpos += f_id->nb_read_char;
-	ft_get_arg_type(f_id, &str[newpos]);
-	newpos += f_id->nb_read_char;
-
-	f_id->nb_read_char = newpos;
 }
 
 t_format_id			*ft_get_f_id_from_str(char *str)
@@ -58,16 +39,16 @@ t_format_id			*ft_get_f_id_from_str(char *str)
 			if (!f_id)
 			{
 				ft_putstr("HERE FIRST CREATTION\n");
-				f_id = ft_format_id_init(f_id, cpt++);
+				f_id = ft_init_format_id(f_id, cpt++);
 			}
 			else
 			{
 				ft_putstr("HERE NEW ELEM\n");
-				f_id->next = ft_format_id_init(f_id, cpt++);
+				f_id->next = ft_init_format_id(f_id, cpt++);
 				f_id = f_id->next;
 			}
 			f_id->start_pos = pos;
-			ft_parse_str_infos(f_id, &(str[pos]));
+			ft_get_all_infos(f_id, &(str[pos]));
 			pos += f_id->nb_read_char;
 		}
 	}
@@ -92,7 +73,7 @@ int					ft_printf(char *str, ...)
 	ft_putstr("Fetching Arguments : ");
 
 	va_start(ap, str);
-	a_lst = ft_get_a_lst(f_id, &ap);
+	a_lst = ft_mk_all_a_lst(f_id, &ap);
 	va_end(ap);
 
 	ft_putstr("\nSucess\n");

@@ -4,19 +4,24 @@ CFLAGS = -Wall -Werror -Wextra
 
 SRC = ft_printf.c \
 		ft_error.c \
-		ft_get_arg_type.c \
+		ft_init_format_id.c \
+		ft_init_a_lst.c \
+		ft_get_all_infos.c \
+		ft_get_parameter.c \
 		ft_get_flags.c \
 		ft_get_width_min.c \
-		ft_print_f_id.c \
-		ft_print_all_f_id.c \
+		ft_get_precision.c \
+		ft_get_lenght.c \
+		ft_get_arg_type.c \
+		ft_mk_all_a_lst.c \
+		ft_get_a_from_lst.c \
+		ft_new_a_lst_elem.c \
 		ft_p_x_char.c \
 		ft_p_arg_w_tp.c \
-		ft_print_arg_s.c \
-		ft_get_precision.c \
-		ft_get_parameter.c \
+		ft_print_f_id.c \
+		ft_print_all_f_id.c \
 		ft_print_all.c \
-		ft_format_id_init.c \
-		ft_get_a_lst.c
+		ft_print_arg_s.c
 		# ft_print_arg_p.c \
 		# ft_print_arg_d.c \
 		# ft_print_arg_o.c \

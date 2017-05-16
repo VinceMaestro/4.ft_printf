@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_get_lenght.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 19:05:54 by vpetit           ###   ########.fr       */
+/*   Created: 2017/05/16 17:16:55 by vpetit            #+#    #+#             */
+/*   Updated: 2017/05/16 18:59:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-int		main(void)
+void			ft_get_lenght(t_format_id *f_id, char *str)
 {
-	// char	str[80] = "Hello %2$3.*d str %3$2.4s str %3$d int %%4p pointer %2$-+03.04k out%%\0";
-	char	str[80] = "%3$3.5lls First : - Second : %1$zzs - Third : %s - Done - \n";
-	void	*ptr;
-
-	ptr = &str;
-	ft_printf(str, "1.0", "2.0", "3.0", "Is : ", 80);
-	// printf(str, "1.0", "2.0", 3, "Is : ", 80);
-	return (0);
+	if (ft_strchr("hlzj", str[0]))
+	{
+		f_id->nb_read_char = 1;
+		if (!(f_id->lenght = (char*)malloc(sizeof(char) * 3) ) )
+			ft_error("ft_get_lenght alloc failed");
+		f_id->lenght[0] = str[0];
+		f_id->lenght[1] = 0;
+		if ((str[1] == 'h' || str[1] == 'l') && str[0] == str[1])
+		{
+			f_id->lenght[1] = str[1];
+			f_id->nb_read_char++;
+		}
+		f_id->lenght[2] = 0;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 15:21:09 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 18:55:19 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
 	// // ['G'] = printf_format_g,				//double.
 };
 
-void			p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
+void			ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
 {
 	ptr_fct[(int)f_id->arg_type](a_lst, f_id); // Doit MAJ la Pos (nb_read_char)
 }
