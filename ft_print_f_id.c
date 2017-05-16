@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 17:41:48 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:45:01 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 15:39:31 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_format_id(t_format_id *f_id)
+void	ft_print_f_id(t_format_id *f_id)
 {
 	ft_putstr("============\n");
 	if (f_id->arg_type)

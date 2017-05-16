@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_p_x_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 15:04:11 by vpetit           ###   ########.fr       */
+/*   Created: 2017/05/16 15:18:18 by vpetit            #+#    #+#             */
+/*   Updated: 2017/05/16 15:19:42 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int		main(void)
+void		ft_p_x_char(char c, int nbr)
 {
-	// char	str[80] = "Hello %2$3.*d str %3$2.4s str %3$d int %%4p pointer %2$-+03.04k out%%\0";
-	char	str[80] = "%3$s First : - Second : %1$s - Third : %s - Done - \n";
-	void	*ptr;
+	int		i;
 
-	ptr = &str;
-	ft_printf(str, "1.0", "2.0", "3.0", "Is : ", 80);
-	// printf(str, "1.0", "2.0", 3, "Is : ", 80);
-	return (0);
+	i = 0;
+	if (c && nbr)
+	{
+		while (i < nbr)
+		{
+			ft_putchar(c);
+			i++;
+		}
+	}
 }

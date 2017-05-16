@@ -9,6 +9,8 @@ SRC = ft_printf.c \
 		ft_get_width_min.c \
 		ft_print_f_id.c \
 		ft_print_all_f_id.c \
+		ft_p_x_char.c \
+		ft_p_arg_w_tp.c \
 		ft_print_arg_s.c \
 		ft_get_precision.c \
 		ft_get_parameter.c \

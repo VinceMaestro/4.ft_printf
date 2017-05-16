@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 21:00:15 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 15:34:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,8 @@ static t_a_lst	*ft_get_arg(t_a_lst *a_lst, t_format_id *f_id)
 		while (a_lst->next && a_lst->nbr != f_id->parameter)
 			a_lst = a_lst->next;
 		if (a_lst->nbr == f_id->parameter) ///////HEEEEEERRRREEEE
-		{
-			((a_lst->arg_type && a_lst->arg_type != f_id->arg_type) \
-				? ft_error("Input parameter conflict") : 0);
 			return (a_lst);
-		}
+		ft_error("ft_get_arg: Input parameter");
 	}
 	return (NULL);
 }
@@ -58,7 +55,8 @@ static void			ft_get_type(t_format_id *f_id, t_a_lst *a_lst, va_list *ap)
 	{
 		a_lst->arg.ll = va_arg(*ap, long long int);
 		a_lst->arg_type = 'L';
-		a_lst = ft_init_a_lst(a_lst);
+		a_lst->next = ft_init_a_lst(a_lst);
+		a_lst = a_lst->next;
 	}
 	// if (ptr_arg[f_id->arg_type])
 	// 	va_arg(*ap, ptr_arg[f_id->arg_type]) = ptr_va_arg[f_id->arg_type](ap);

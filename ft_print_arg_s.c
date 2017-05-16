@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:47:40 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/16 15:36:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	char		*str;
 	t_a_lst	*ptr;
 
+	ft_putstr("Getting into three \n");
 	if (a_lst && f_id)
 	{
 		ft_putstr("I'm in ft_print_arg_s\n");
