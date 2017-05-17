@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 21:33:22 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/17 16:35:50 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 static void		ft_save_ll_a(t_a_lst *a_lst, va_list *ap)
 {
+	ft_putstr("-- SAVING ll : ");
 	a_lst->arg.ll = va_arg(*ap, long long int);
+	ft_putnbr(a_lst->arg.ll);
+	ft_putstr("\n");
 	a_lst->arg_type = 'L';
-	a_lst->next = ft_init_a_lst(a_lst);
 }
 
 static void		ft_save_s_a(t_a_lst *a_lst, va_list *ap)
@@ -28,22 +30,30 @@ static void		ft_save_s_a(t_a_lst *a_lst, va_list *ap)
 
 static void		ft_save_i_a(t_a_lst *a_lst, va_list *ap)
 {
+	ft_putstr("-- SAVING int : ");
 	a_lst->arg.ll = va_arg(*ap, long long int);
+	ft_putnbr(a_lst->arg.ll);
+	ft_putstr("\n");
 	a_lst->arg_type = 'i';
 }
 static void		ft_save_p_a(t_a_lst *a_lst, va_list *ap)
 {
+	ft_putstr("-- SAVING pointer : ");
 	a_lst->arg.p = va_arg(*ap, void*);
+	ft_putstr(a_lst->arg.p);
+	ft_putstr("\n");
 	a_lst->arg_type = 'p';
 }
 
 t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap)
 {
 	t_a_lst		*a_lst;
+	int			stop;
 
 	a_lst = NULL;
+	stop = 0;
 	// Rajouter le first case
-	while (f_id)
+	while (f_id && !stop)
 	{
 		if (f_id->arg_type)
 		{
@@ -60,8 +70,7 @@ t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap)
 			else if (f_id->arg_type == 'p')
 				ft_save_p_a(a_lst, ap);
 		}
-		if (f_id->next)
-			f_id = f_id->next;
+		((!f_id->next && stop++) ? f_id : (f_id = f_id->next));
 	}
-	return (a_lst);
+	return (a_lst->first);
 }

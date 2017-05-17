@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 19:16:58 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/17 16:36:55 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,17 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	char		*str;
 	t_a_lst	*ptr;
 
-	ft_putstr("Getting into three \n");
 	if (a_lst && f_id)
 	{
-		ft_putstr("I'm in ft_print_arg_s\n");
-		ft_putstr("=== 1.1 ===\n");
-		a_lst = ft_get_a_from_lst(a_lst, f_id->parameter);
-		ft_putstr("=== 1.2 ===\n");
+		// a_lst = ft_get_a_from_lst(a_lst, f_id->parameter);
 		str = a_lst->arg.s;
-		ft_putstr("=== 1.3 ===\n");
+		ft_putstr(str);
 		if (f_id->precision.period == '*')
 		{
 			ft_putstr("=== 1.3.1 ===\n");
 			ptr = ft_get_a_from_lst(a_lst, f_id->parameter + 1);
 			((ptr) ? (f_id->precision.width_max = ptr->arg.ll) : 0);
 		}
-		ft_putstr("=== 1.4 ===\n");
 		if (f_id->flags.space)
 			;
 		if (f_id->flags.plus)

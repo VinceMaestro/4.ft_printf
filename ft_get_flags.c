@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:47:12 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:37:57 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/17 16:51:05 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static int		ft_save_flag(t_format_id *f_id, char c)
 	else if (c == ' ')
 		f_id->flags.space = 1;
 	else
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 // static void		*(tab_flags[])(t_format_id *) =
@@ -42,19 +42,20 @@ void			ft_get_flags(t_format_id *f_id, char *tmp_str)
 {
 	char	list[6];
 	int		pos;
-	int		first_digit;
-	// char	*ptr;
-	int		end;
+	int		i;
 
 	pos = 0;
-	end = 0;
-	first_digit = 0;
-	ft_strcpy(list, "#-+ 0\0");	//BONUS *$L’
-	while (tmp_str[pos] && !end)// && ptr = ft_strchr(list, tmp_str[pos]))
+	i = 0;
+	ft_strcpy(list, "#0- +\0");	//BONUS *$L’
+
+	while (list[i])
 	{
-		// tab_flags[tmp_str[pos]] = 1;
-		end = ft_save_flag(f_id, tmp_str[pos]);
-		!end ? pos++ : pos;
+		if (tmp_str[pos] == list[i])
+		{
+			ft_save_flag(f_id, tmp_str[pos]);
+			pos++;
+		}
+		i++;
 	}
 	f_id->nb_read_char = pos;
 }

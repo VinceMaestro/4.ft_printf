@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:53:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 19:00:32 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/17 16:25:12 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,27 @@ int					ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
 
 	len = 0;
 	pos = -1;
-	ft_print_all_f_id(f_id);
 	while (str[++pos])
 	{
-		ft_putstr("Getting into zero \n");
-		while (str[pos] && pos < f_id->start_pos)
+		while (str[pos] && (!f_id || pos < f_id->start_pos))
 		{
-			ft_putstr("Getting one char \n");
 			ft_putchar(str[pos++]);
 			len++;
 		}
-
 		if (str[pos])
 		{
 			if (f_id->width_min) //
 			{
-				ft_putstr("Getting into one \n");
 				ft_p_x_char(' ', f_id->width_min);
 				len += f_id->width_min;
 			}
 			if (f_id->arg_type)
 			{
-				ft_putstr("Getting into two \n");
-				ft_p_arg_w_tp(f_id, a_lst);
+				a_lst = ft_p_arg_w_tp(f_id, a_lst);
 				len += f_id->nb_print_char;
 			}
 			pos += f_id->nb_read_char;
+			f_id = f_id->next;
 		}
 	}
 	return (len);

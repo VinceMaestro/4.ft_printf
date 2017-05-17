@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 18:55:19 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/17 16:21:22 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
+static			void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
 {
 	['s'] = ft_print_arg_s,				//String.
 	['S'] = ft_print_arg_s					//String.
@@ -37,7 +37,10 @@ static void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
 	// // ['G'] = printf_format_g,				//double.
 };
 
-void			ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
+t_a_lst			*ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
 {
 	ptr_fct[(int)f_id->arg_type](a_lst, f_id); // Doit MAJ la Pos (nb_read_char)
+	if (f_id->precision.period == '*')
+		return (a_lst->next->next);
+	return (a_lst->next);
 }

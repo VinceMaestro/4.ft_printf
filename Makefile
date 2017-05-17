@@ -6,6 +6,7 @@ SRC = ft_printf.c \
 		ft_error.c \
 		ft_init_format_id.c \
 		ft_init_a_lst.c \
+		ft_mk_all_f_id.c \
 		ft_get_all_infos.c \
 		ft_get_parameter.c \
 		ft_get_flags.c \
