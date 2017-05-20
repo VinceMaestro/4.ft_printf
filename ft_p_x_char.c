@@ -17,7 +17,7 @@ void		ft_p_x_char(char c, int nbr)
 	int		i;
 
 	i = 0;
-	if (c && nbr)
+	if (c && nbr > 0)
 	{
 		while (i < nbr)
 		{

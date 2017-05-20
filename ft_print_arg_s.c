@@ -30,29 +30,41 @@
 void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 {
 	char		*str;
-	t_a_lst	*ptr;
+	int			len;
 
+	len = 0;
 	if (a_lst && f_id)
 	{
-		// a_lst = ft_get_a_from_lst(a_lst, f_id->parameter);
-		str = a_lst->arg.s;
-		ft_putstr(str);
+		(f_id->width_min ? len = f_id->width_min - ft_strlen(str) : len);
 		if (f_id->precision.period == '*')
 		{
 			ft_putstr("=== 1.3.1 ===\n");
-			ptr = ft_get_a_from_lst(a_lst, f_id->parameter + 1);
-			((ptr) ? (f_id->precision.width_max = ptr->arg.ll) : 0);
+			f_id->precision.width_max = a_lst->arg.ll;
+			(!a_lst->next ? ft_error("print_arg_s : missing arg") : 0);
+			a_lst = a_lst->next;
 		}
-		if (f_id->flags.space)
-			;
-		if (f_id->flags.plus)
-			;
-		if (f_id->flags.minus)
-			;
-		if (f_id->flags.hash)
-			;
-		if (f_id->flags.zero)
-			;
+		str = a_lst->arg.s;
+		if (!f_id->flags.minus && len > 0)
+		{
+			if (f_id->flags.zero)
+				ft_p_x_char('0', f_id->width_min - ft_strlen(str));
+			else
+				ft_p_x_char(' ', f_id->width_min - ft_strlen(str));
+		}
+		else if (f_id->flags.minus && len > 0)
+		{
+			ft_putstr(str);
+			ft_p_x_char(' ', f_id->width_min - ft_strlen(str));
+		}
+		else
+			ft_putstr(str);
+		f_id->nb_print_char += ft_strlen(str) + ft_max(len, 0);
+		// if (f_id->flags.plus)
+		// 	;
+		// if (f_id->flags.hash)
+		// 	;
+		// if (f_id->flags.space)
+		// 	;
 	}
 	else
 		ft_putstr("!a_lst or !f_id\n");

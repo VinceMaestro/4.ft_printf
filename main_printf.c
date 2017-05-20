@@ -16,11 +16,11 @@
 int		main(void)
 {
 	// char	str[80] = "Hello %2$3.*d str %3$2.4s str %3$d int %%4p pointer %2$-+03.04k out%%\0";
-	char	str[80] = "-%3$3.5lls First : - Second : %1$-zs - Third : %0s - Done -";
+	char	str[80] = "-%05.7s First : - Second : %s - Third : %s - Done -";
 	void	*ptr;
 
 	ptr = &str;
 	ft_printf(str, "1.0", "2.0", "3.0", "Is : ", 80);
-	// printf(str, "1.0", "2.0", 3, "Is : ", 80);
+	// printf(str, "1.0", "2.0", "3.0", "Is : ", 80);
 	return (0);
 }

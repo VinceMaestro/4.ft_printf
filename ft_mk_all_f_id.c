@@ -21,10 +21,11 @@ t_format_id			*ft_mk_all_f_id(char *str)
 	pos = 0;
 	cpt = 1;
 	f_id = NULL;
+	ft_putstr(str);
 	while (str && str[pos])
 	{
-		if (str[pos] != '%' || str[pos + 1] == '%')
-			((str[pos] != '%') ? (pos++) : (pos += 2));
+		if (str[pos] != '%')
+			pos++;
 		else
 		{
 			if (!f_id)
