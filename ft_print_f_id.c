@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 17:41:48 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 15:39:31 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/23 17:42:52 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	ft_print_f_id(t_format_id *f_id)
 	ft_putstr("===========================\n");
 	ft_putstr("f_id->parameter = ");
 	ft_putnbr(f_id->parameter);
-	ft_putstr("\nf_id->flags.space = ");
-	ft_putnbr(f_id->flags.space);
-	ft_putstr("\nf_id->flags.plus = ");
-	ft_putnbr(f_id->flags.plus);
-	ft_putstr("\nf_id->flags.minus = ");
-	ft_putnbr(f_id->flags.minus);
-	ft_putstr("\nf_id->flags.hash = ");
-	ft_putnbr(f_id->flags.hash);
-	ft_putstr("\nf_id->flags.zero = ");
-	ft_putnbr(f_id->flags.zero);
+	ft_putstr("\nf_id->flags & F_SPACE = ");
+	ft_putnbr(f_id->flags & F_SPACE);
+	ft_putstr("\nf_id->flags & F_PLUS = ");
+	ft_putnbr(f_id->flags & F_PLUS);
+	ft_putstr("\nf_id->flags & F_MINUS = ");
+	ft_putnbr(f_id->flags & F_MINUS);
+	ft_putstr("\nf_id->flags & F_HASH = ");
+	ft_putnbr(f_id->flags & F_HASH);
+	ft_putstr("\nf_id->flags & F_ZERO = ");
+	ft_putnbr(f_id->flags & F_ZERO);
 	ft_putstr("\nf_id->width_min = ");
 	ft_putnbr(f_id->width_min);
 	ft_putstr("\nf_id->precision.period = ");

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/17 16:36:55 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/23 17:40:55 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // struct			s_f_id
 // {
 // 	int			parameter;
-// 	t_flags		flags;
+// 	uint32_t		flags;
 // 	int			width_min;
 // 	t_precision	precision;
 // 	char		*lenght;
@@ -35,7 +35,6 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	len = 0;
 	if (a_lst && f_id)
 	{
-		(f_id->width_min ? len = f_id->width_min - ft_strlen(str) : len);
 		if (f_id->precision.period == '*')
 		{
 			ft_putstr("=== 1.3.1 ===\n");
@@ -44,19 +43,21 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 			a_lst = a_lst->next;
 		}
 		str = a_lst->arg.s;
-		if (!f_id->flags.minus && len > 0)
+		(f_id->width_min ? len = f_id->width_min - ft_strlen(str) : len);
+		// ft_putnbr(len);
+		if (f_id->flags & ~F_MINUS && len > 0)
 		{
-			if (f_id->flags.zero)
+			if (f_id->flags & F_ZERO)
 				ft_p_x_char('0', f_id->width_min - ft_strlen(str));
 			else
 				ft_p_x_char(' ', f_id->width_min - ft_strlen(str));
 		}
-		else if (f_id->flags.minus && len > 0)
+		else if (f_id->flags & F_MINUS && len > 0)
 		{
 			ft_putstr(str);
 			ft_p_x_char(' ', f_id->width_min - ft_strlen(str));
 		}
-		else
+		if (len <= 0 || f_id->flags & ~F_MINUS)
 			ft_putstr(str);
 		f_id->nb_print_char += ft_strlen(str) + ft_max(len, 0);
 		// if (f_id->flags.plus)

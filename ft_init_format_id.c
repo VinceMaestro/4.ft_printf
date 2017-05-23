@@ -6,21 +6,12 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 13:00:05 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 19:23:03 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/23 17:37:41 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
-
-static void			ft_init_flags(t_format_id *f_id)
-{
-	f_id->flags.space = 0;
-	f_id->flags.plus = 0;
-	f_id->flags.minus = 0;
-	f_id->flags.hash = 0;
-	f_id->flags.zero = 0;
-}
 
 t_format_id			*ft_init_format_id(t_format_id *f_id, int nbr)
 {
@@ -28,7 +19,7 @@ t_format_id			*ft_init_format_id(t_format_id *f_id, int nbr)
 
 	new = (t_format_id*)malloc(sizeof(t_format_id));
 	new->parameter = nbr;
-	ft_init_flags(new);
+	f_id->flags = 0;
 	new->width_min = 0;
 	new->precision.period = 0;
 	new->precision.width_max = 0;

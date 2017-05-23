@@ -6,29 +6,40 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/17 16:21:51 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/05/23 17:49:23 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define F_HASH		(1 << 0)
+# define F_ZERO		(1 << 1)
+# define F_MINUS	(1 << 2)
+# define F_SPACE	(1 << 3)
+# define F_PLUS		(1 << 4)
+
+
+// # define A_TYPE_ "sSpdDioOuUxXcC"
+// # define LEN_ "hlzjhhll"
+
 # include "./libft/libft.h"
 # include <stdarg.h>
+# include <stdint.h>
 
-typedef struct s_flags		t_flags;
+typedef struct s_lst		t_lst;
+// typedef struct s_flags		t_flags;
 typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
 typedef struct s_list_arg	t_a_lst;
 typedef union u_union		t_union;
 
-struct			s_flags
+struct			s_lst
 {
-	int		minus;
-	int		plus;
-	int		space;
-	int		zero;
-	int		hash;
+	char	*cont;
+	int		size_t;
+	t_lst	*first;
+	t_lst	*next;
 };
 
 struct			s_precision
@@ -40,7 +51,7 @@ struct			s_precision
 struct			s_format_id
 {
 	int			parameter;
-	t_flags		flags;
+	uint32_t	flags;
 	int			width_min;
 	t_precision	precision;
 	char		*lenght;
