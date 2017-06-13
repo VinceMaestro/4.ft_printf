@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/17 17:17:27 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/13 21:11:47 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,24 @@ int					ft_printf(char *str, ...)
 	t_a_lst			*a_lst;
 
 	ft_printstr(str);
-	ft_putstr("printf : Making all format_id ... ");
+	ft_putstr("printf : Making all format_id ... \n");
 	f_id = ft_mk_all_f_id(str);
 	ft_putstr(" DONE\n");
 
-	ft_print_all_f_id(f_id); // for debugg
+	dbug_p_all_f_id(f_id); // for debugg
 
-	ft_putstr("printf : Making all arg_list ... ");
+	ft_putstr("printf : Making all arg_list ... \n");
 
 	va_start(ap, str);
 	a_lst = ft_mk_all_a_lst(f_id, &ap);
 	va_end(ap);
 
+	ft_updt_all_precision(f_id, a_lst);
+
 	ft_putstr(" DONE\n");
 
 	ft_putstr("printf : Printing all ... \n");
-	len = ft_print_all(f_id, a_lst, str);
+	len = ft_p_all_f_id(f_id, a_lst, str);
 
 	// ft_free_unions
 

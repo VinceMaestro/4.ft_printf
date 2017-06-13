@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/23 17:49:23 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/13 21:03:50 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,13 @@ struct			s_list_arg
 
 void			ft_error(char *msg);
 int				ft_printf(char *str, ...);
-int				ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str);
+int				ft_p_all_f_id(t_format_id *f_id ,t_a_lst *a_lst, char *str);
 
-void			ft_print_all_f_id(t_format_id *f_id);
-void			ft_print_f_id(t_format_id *f_id);
+void			dbug_p_all_f_id(t_format_id *f_id);
+void			dbug_p_f_id(t_format_id *f_id);
 void			ft_p_x_char(char c, int nbr);
 
-t_a_lst			*ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst);
+t_a_lst			*ft_p_f_id(t_format_id *f_id, t_a_lst *a_lst);
 void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id);
 void			ft_print_arg_p(t_a_lst *a_lst, t_format_id *f_id);
 void			ft_print_arg_d(t_a_lst *a_lst, t_format_id *f_id);
@@ -110,7 +110,7 @@ t_a_lst			*ft_get_a_from_lst(t_a_lst *a_lst, int nbr);
 t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst);
 t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap);
 t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
-
+void			ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst);
 
 t_format_id		*ft_init_format_id(t_format_id *f_id, int nbr);
 

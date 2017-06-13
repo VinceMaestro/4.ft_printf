@@ -18,11 +18,12 @@ SRC = ft_printf.c \
 		ft_get_a_from_lst.c \
 		ft_new_a_lst_elem.c \
 		ft_p_x_char.c \
-		ft_p_arg_w_tp.c \
-		ft_print_f_id.c \
-		ft_print_all_f_id.c \
-		ft_print_all.c \
-		ft_print_arg_s.c
+		ft_p_f_id.c \
+		dbug_p_f_id.c \
+		dbug_p_all_f_id.c \
+		ft_p_all_f_id.c \
+		ft_print_arg_s.c \
+		ft_updt_all_precision.c
 		# ft_print_arg_p.c \
 		# ft_print_arg_d.c \
 		# ft_print_arg_o.c \

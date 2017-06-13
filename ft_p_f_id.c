@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_p_arg_w_tp.c                                    :+:      :+:    :+:   */
+/*   ft_p_f_id.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/23 17:58:35 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/13 21:08:08 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,41 +49,19 @@ static			void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
 
 // "sSpdDioOuUxXcC"
 
-t_a_lst			*ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
+t_a_lst			*ft_p_f_id(t_format_id *f_id, t_a_lst *a_lst)
 {
-	int			len;
-
-	len = ft_get_a_len(a_lst);
 	if (a_lst && f_id)
 	{
-
-		if (f_id->precision.period)
-		{
-			if (f_id->precision.period == '*')
-				a_lst = get_precision(a_lst, f_id);
-
-		}
-
-		if (f_id->flags & (F_MINUS | F_ZERO))
-
-		if (f_id->flags & F_MINUS)
-
-		if (f_id->flags & ~F_MINUS)
-
-
-
-
-
-		if (f_id->flags & ~F_MINUS)
-
-
-
-
-
-
-		ptr_fct[(int)f_id->arg_type](a_lst, f_id); // Doit MAJ la Pos (nb_read_char)
 		if (f_id->precision.period == '*')
-			return (a_lst->next->next);
+			a_lst = a_lst->next;
+		if (f_id->flags & (F_MINUS | F_ZERO))
+			;
+		else if (f_id->flags & F_MINUS)
+			;
+		else if (f_id->flags & ~F_MINUS)
+			;
+		ptr_fct[(int)f_id->arg_type](a_lst, f_id); // Doit MAJ la Pos (nb_read_char)
 		return (a_lst->next);
 	}
 	return (a_lst);

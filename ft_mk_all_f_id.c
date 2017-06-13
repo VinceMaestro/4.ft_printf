@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:07:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/17 16:07:34 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/13 21:19:25 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_format_id			*ft_mk_all_f_id(char *str)
 	pos = 0;
 	cpt = 1;
 	f_id = NULL;
-	ft_putstr(str);
 	while (str && str[pos])
 	{
 		if (str[pos] != '%')

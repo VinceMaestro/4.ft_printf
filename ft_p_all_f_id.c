@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_all.c                                     :+:      :+:    :+:   */
+/*   ft_p_all_f_id.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:53:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/23 13:00:18 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/13 21:07:05 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// ptr_fct[(int)f_id->arg_type](&ap, f_id);
-
-
-
-int					ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
+int					ft_p_all_f_id(t_format_id *f_id ,t_a_lst *a_lst, char *str)
 {
 	int		len;
 	int		pos;
 
 	len = 0;
 	pos = 0;
-	while (str[pos])
+	while (str[pos] && a_lst)
 	{
 		while (str[pos] && (!f_id || pos < f_id->start_pos))
 		{
