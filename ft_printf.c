@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/13 21:11:47 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/19 17:27:50 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int					ft_printf(char *str, ...)
 	f_id = ft_mk_all_f_id(str);
 	ft_putstr(" DONE\n");
 
-	dbug_p_all_f_id(f_id); // for debugg
+	// dbug_p_all_f_id(f_id); // for debugg
 
 	ft_putstr("printf : Making all arg_list ... \n");
 

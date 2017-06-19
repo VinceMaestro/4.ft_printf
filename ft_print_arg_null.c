@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_arg_type.c                                  :+:      :+:    :+:   */
+/*   ft_print_arg_null.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 03:19:17 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 19:02:04 by vpetit           ###   ########.fr       */
+/*   Created: 2017/06/19 19:14:47 by vpetit            #+#    #+#             */
+/*   Updated: 2017/06/19 19:16:19 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_get_arg_type(t_format_id *f_id, char *tmp_str)
+void			ft_print_arg_null(t_format_id *f_id, char *str)
 {
-	char	list[15];
+	int		len;
 
-	ft_strcpy(list, "sSpdDioOuUxXcC\0");	// BONUS : b,r,k
-	if (tmp_str[0])
+	len = 0;
+	if (str && f_id)
 	{
-		if (ft_strchr(list, tmp_str[0]))
-			f_id->arg_type = tmp_str[0];
-		f_id->nb_read_char = 1;
+		(f_id->width_min ? len = f_id->width_min - 1 : len);
+		ft_p_x_char(' ', len);
+		f_id->nb_print_char += ft_max(len, 0);
 	}
+	else
+		ft_error("ft_print_arg_null: Shouldn't happend");
 }
