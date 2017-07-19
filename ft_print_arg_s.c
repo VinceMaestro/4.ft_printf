@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/23 17:40:55 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/19 19:17:10 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,26 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	len = 0;
 	if (a_lst && f_id)
 	{
-		if (f_id->precision.period == '*')
-		{
-			ft_putstr("=== 1.3.1 ===\n");
-			f_id->precision.width_max = a_lst->arg.ll;
-			(!a_lst->next ? ft_error("print_arg_s : missing arg") : 0);
-			a_lst = a_lst->next;
-		}
 		str = a_lst->arg.s;
 		(f_id->width_min ? len = f_id->width_min - ft_strlen(str) : len);
-		// ft_putnbr(len);
-		if (f_id->flags & ~F_MINUS && len > 0)
+		if (len > 0)
 		{
-			if (f_id->flags & F_ZERO)
-				ft_p_x_char('0', f_id->width_min - ft_strlen(str));
+			if (f_id->flags & F_MINUS)
+			{
+				ft_putstr(str);
+				ft_p_x_char(' ', len);
+			}
 			else
-				ft_p_x_char(' ', f_id->width_min - ft_strlen(str));
+			{
+				if (f_id->flags & F_ZERO)
+					ft_p_x_char('0', len);
+				else
+					ft_p_x_char(' ', len);
+			}
 		}
-		else if (f_id->flags & F_MINUS && len > 0)
-		{
+		if (len <= 0 || f_id->flags & ~F_MINUS || !f_id->flags)
 			ft_putstr(str);
-			ft_p_x_char(' ', f_id->width_min - ft_strlen(str));
-		}
-		if (len <= 0 || f_id->flags & ~F_MINUS)
-			ft_putstr(str);
-		f_id->nb_print_char += ft_strlen(str) + ft_max(len, 0);
+		f_id->nb_print_char = ft_strlen(str) + ft_max(len, 0);
 		// if (f_id->flags.plus)
 		// 	;
 		// if (f_id->flags.hash)
@@ -68,5 +63,15 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 		// 	;
 	}
 	else
-		ft_putstr("!a_lst or !f_id\n");
+		ft_putstr("ft_print_arg_s: !a_lst or !f_id\n");
 }
+
+
+
+//
+// if (f_id->flags & (F_MINUS | F_ZERO))
+// 	;
+// else if (f_id->flags & F_MINUS)
+// 	;
+// else if (f_id->flags & ~F_MINUS)
+// 	;

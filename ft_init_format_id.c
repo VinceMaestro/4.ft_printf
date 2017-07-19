@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 13:00:05 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/23 17:37:41 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/06/13 21:18:24 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_format_id			*ft_init_format_id(t_format_id *f_id, int nbr)
 
 	new = (t_format_id*)malloc(sizeof(t_format_id));
 	new->parameter = nbr;
-	f_id->flags = 0;
+	new->flags = 0;
 	new->width_min = 0;
 	new->precision.period = 0;
 	new->precision.width_max = 0;

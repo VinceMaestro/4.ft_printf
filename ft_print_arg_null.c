@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_all_f_id.c                                :+:      :+:    :+:   */
+/*   ft_print_arg_null.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 16:54:05 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:53:59 by vpetit           ###   ########.fr       */
+/*   Created: 2017/06/19 19:14:47 by vpetit            #+#    #+#             */
+/*   Updated: 2017/06/19 19:16:19 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_all_f_id(t_format_id *f_id)
+void			ft_print_arg_null(t_format_id *f_id, char *str)
 {
-	if (f_id)
+	int		len;
+
+	len = 0;
+	if (str && f_id)
 	{
-		ft_putstr("-- PRINTING FULL LIST : --\n");
-		f_id = f_id->first;
-		ft_print_f_id(f_id);
-		while (f_id->next)
-		{
-			f_id = f_id->next;
-			ft_print_f_id(f_id);
-		}
-		ft_putstr("-- END PRINTING LIST : --\n");
+		(f_id->width_min ? len = f_id->width_min - 1 : len);
+		ft_p_x_char(' ', len);
+		f_id->nb_print_char += ft_max(len, 0);
 	}
+	else
+		ft_error("ft_print_arg_null: Shouldn't happend");
 }

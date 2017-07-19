@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_arg_type.c                                  :+:      :+:    :+:   */
+/*   dbug_p_all_f_id.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 03:19:17 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 19:02:04 by vpetit           ###   ########.fr       */
+/*   Created: 2017/05/03 16:54:05 by vpetit            #+#    #+#             */
+/*   Updated: 2017/06/13 20:31:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_get_arg_type(t_format_id *f_id, char *tmp_str)
+void	dbug_p_all_f_id(t_format_id *f_id)
 {
-	char	list[15];
-
-	ft_strcpy(list, "sSpdDioOuUxXcC\0");	// BONUS : b,r,k
-	if (tmp_str[0])
+	if (f_id)
 	{
-		if (ft_strchr(list, tmp_str[0]))
-			f_id->arg_type = tmp_str[0];
-		f_id->nb_read_char = 1;
+		ft_putstr("-- PRINTING FULL LIST : --\n");
+		f_id = f_id->first;
+		dbug_p_f_id(f_id);
+		while (f_id->next)
+		{
+			f_id = f_id->next;
+			dbug_p_f_id(f_id);
+		}
+		ft_putstr("-- END PRINTING LIST : --\n");
 	}
 }
+// dbug_p_all_f_id
