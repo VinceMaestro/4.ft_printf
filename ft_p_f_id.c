@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_p_arg_w_tp.c                                    :+:      :+:    :+:   */
+/*   ft_p_f_id.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -49,7 +49,7 @@ static			void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
 
 // "sSpdDioOuUxXcC"
 
-t_a_lst			*ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
+t_a_lst			*ft_p_f_id(t_format_id *f_id, t_a_lst *a_lst)
 {
 	int			len;
 
@@ -63,23 +63,13 @@ t_a_lst			*ft_p_arg_w_tp(t_format_id *f_id, t_a_lst *a_lst)
 				a_lst = get_precision(a_lst, f_id);
 
 		}
-
 		if (f_id->flags & (F_MINUS | F_ZERO))
 
 		if (f_id->flags & F_MINUS)
 
 		if (f_id->flags & ~F_MINUS)
 
-
-
-
-
 		if (f_id->flags & ~F_MINUS)
-
-
-
-
-
 
 		ptr_fct[(int)f_id->arg_type](a_lst, f_id); // Doit MAJ la Pos (nb_read_char)
 		if (f_id->precision.period == '*')

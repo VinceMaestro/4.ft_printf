@@ -18,7 +18,7 @@ SRC = ft_printf.c \
 		ft_get_a_from_lst.c \
 		ft_new_a_lst_elem.c \
 		ft_p_x_char.c \
-		ft_p_arg_w_tp.c \
+		ft_p_f_id.c \
 		ft_print_f_id.c \
 		ft_print_all_f_id.c \
 		ft_print_all.c \

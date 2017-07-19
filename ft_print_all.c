@@ -32,7 +32,7 @@ int					ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
 		}
 		if (str[pos])
 		{
-			a_lst = ft_p_f_id(f_id, a_lst); // ex ft_p_arg_w_tp
+			a_lst = ft_p_f_id(f_id, a_lst);
 			len += f_id->nb_print_char;
 			pos += f_id->nb_read_char;
 			f_id = f_id->next;
@@ -40,7 +40,7 @@ int					ft_print_all(t_format_id *f_id ,t_a_lst *a_lst, char *str)
 
 			// if (f_id->arg_type)
 			// {
-			// 	a_lst = ft_p_arg_w_tp(f_id, a_lst);
+			// 	a_lst = f_p_f_id, a_lst);
 			// 	len += f_id->nb_print_char;
 			// }
 			// pos += f_id->nb_read_char;
