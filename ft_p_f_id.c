@@ -50,27 +50,12 @@ t_a_lst			*ft_p_f_id(t_format_id *f_id, t_a_lst *a_lst)
 {
 	if (a_lst && f_id)
 	{
-		if (f_id->precision.period)
-		{
-			if (f_id->precision.period == '*')
-				a_lst = get_precision(a_lst, f_id);
-
-		}
-		if (f_id->precision.period)
-		{
-			if (f_id->precision.period == '*')
-				a_lst = get_precision(a_lst, f_id);
-		}
-		if (f_id->flags & (F_MINUS | F_ZERO))
-
-		if (f_id->flags & F_MINUS)
-
-		if (f_id->flags & ~F_MINUS)
+		if (f_id->precision.period && f_id->precision.period == '*')
+			!(a_lst = a_lst->next) ? ft_error("ft_p_f_id: a_lst->next = Null ") : NULL;
 
 		// dbug_p_f_id(f_id);
 		if (!a_lst)
 			ft_error("ft_p_f_id: Should'nt happend\n");
-
 
 		ptr_fct[(int)f_id->arg_type](a_lst, f_id); // Doit MAJ la Pos (nb_read_char)
 		return (a_lst->next);

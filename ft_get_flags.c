@@ -31,22 +31,28 @@ static int		ft_save_flag(t_format_id *f_id, char c)
 
 void			ft_get_flags(t_format_id *f_id, char *tmp_str)
 {
-	char	list[6];
-	int		pos;
-	int		i;
+	char		list[6];
+	int			pos;
+	int			i;
+	int			save;
 
 	pos = 0;
-	i = 0;
+	save = 1;
 	ft_strcpy(list, "#0- +\0");	//BONUS *$L’
-
-	while (list[i])
+	while (save)
 	{
-		if (tmp_str[pos] == list[i])
+		i = 0;
+		save = 0;
+		while (list[i])
 		{
-			ft_save_flag(f_id, tmp_str[pos]);
-			pos++;
+			if (tmp_str[pos] == list[i])
+			{
+				ft_save_flag(f_id, tmp_str[pos]);
+				save = 1;
+				pos++;
+			}
+			i++;
 		}
-		i++;
+		f_id->nb_read_char = pos;
 	}
-	f_id->nb_read_char = pos;
 }
