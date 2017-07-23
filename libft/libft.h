@@ -92,7 +92,10 @@ size_t		ft_min(size_t a, size_t b);
 size_t		ft_max(size_t a, size_t b);
 size_t		ft_intlen(int nbr);
 size_t		ft_llintlen(long long nbr);
+size_t		ft_ullintlen(unsigned long long nbr);
 int			ft_power(int x, int n);
 int			ft_put_llnbr(long long nbr);
+int			ft_put_ullnbr(unsigned long long nbr);
+void		ft_putnstr(void *str, int len);
 
 #endif

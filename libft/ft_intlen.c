@@ -16,16 +16,12 @@ size_t		ft_intlen(int nbr)
 {
 	size_t	len;
 
-	len = 0;
-	if (nbr)
+	len = 1;
+	nbr < 0 ? len ++ : len;
+	while (nbr && nbr != nbr % 10)
 	{
 		len++;
-		nbr < 0 ? len ++ : len;
-		while (nbr && nbr != nbr % 10)
-		{
-			len++;
-			nbr = nbr / 10;
-		}
+		nbr = nbr / 10;
 	}
 	return (len);
 }

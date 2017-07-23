@@ -12,36 +12,23 @@
 
 #include "ft_printf.h"
 
-// struct			s_f_id
-// {
-// 	int			parameter;
-// 	uint32_t		flags;
-// 	int			width_min;
-// 	t_precision	precision;
-// 	char		*lenght;
-// 	char		arg_type;
-// 	int			nb_read_char;
-// 	int			nb_print_char;
-// 	int			start_pos;
-// 	t_format_id	*first;
-// 	t_format_id	*next;
-// };
-
 void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 {
 	char		*str;
 	int			len;
+	int			toprint;
 
 	len = 0;
 	if (a_lst && f_id)
 	{
 		str = a_lst->arg.s;
-		(f_id->width_min ? len = f_id->width_min - ft_strlen(str) : len);
+		toprint = ft_min(ft_strlen(str), f_id->precision.width_max);
+		len = ft_max(0, f_id->width_min - toprint);
 		if (len > 0)
 		{
 			if (f_id->flags & F_MINUS)
 			{
-				ft_putstr(str);
+				ft_putnstr(str, toprint);
 				ft_p_x_char(' ', len);
 			}
 			else
@@ -53,8 +40,8 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 			}
 		}
 		if (len <= 0 || f_id->flags & ~F_MINUS || !f_id->flags)
-			ft_putstr(str);
-		f_id->nb_print_char = ft_strlen(str) + ft_max(len, 0);
+			ft_putnstr(str, toprint);
+		f_id->nb_print_char = toprint + ft_max(len, 0);
 		// if (f_id->flags.plus)
 		// 	;
 		// if (f_id->flags.hash)

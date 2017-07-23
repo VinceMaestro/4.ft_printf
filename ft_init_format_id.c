@@ -22,7 +22,7 @@ t_format_id			*ft_init_format_id(t_format_id *f_id, int nbr)
 	new->flags = 0;
 	new->width_min = 0;
 	new->precision.period = 0;
-	new->precision.width_max = 0;
+	new->precision.width_max = -1;
 	new->lenght = NULL;
 	new->arg_type = 0;
 	new->nb_read_char = 0;

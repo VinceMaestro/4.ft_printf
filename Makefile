@@ -25,11 +25,11 @@ SRC = ft_printf.c \
 		ft_print_arg_s.c \
 		ft_print_arg_i.c \
 		ft_print_arg_x.c \
+		ft_print_arg_u.c \
 		ft_print_arg_null.c \
 		ft_updt_all_precision.c
 		# ft_print_arg_p.c \
 		# ft_print_arg_o.c \
-		# ft_print_arg_u.c \
 		# ft_print_arg_c.c
 
 LIBDIR = ./libft

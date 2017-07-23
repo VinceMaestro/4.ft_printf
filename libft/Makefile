@@ -44,6 +44,8 @@ SRC = ft_atoi \
 		ft_putendl_fd \
 		ft_putnbr \
 		ft_putnbr_fd \
+		ft_put_llnbr \
+		ft_put_ullnbr \
 		ft_putstr \
 		ft_putstr_fd \
 		ft_strcat \
@@ -82,9 +84,10 @@ SRC = ft_atoi \
 		ft_max \
 		ft_min \
 		ft_intlen \
+		ft_llintlen \
+		ft_ullintlen \
 		ft_power \
-		ft_put_llnbr \
-		ft_llintlen
+		ft_putnstr
 
 INCL = libft
 

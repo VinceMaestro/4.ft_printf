@@ -1,11 +1,10 @@
 #include "libft.h"
 
-size_t		ft_llintlen(long long nbr)
+size_t		ft_ullintlen(unsigned long long nbr)
 {
 	size_t	len;
 
 	len = 1;
-	nbr < 0 ? len ++ : len;
 	while (nbr && nbr != nbr % 10)
 	{
 		len++;

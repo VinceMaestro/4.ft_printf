@@ -37,12 +37,10 @@ static void			ft_get_width_max(t_format_id *f_id, char *tmp_str)
 	if (ft_isdigit(tmp_str[pos]))
 	{
 		f_id->precision.width_max = ft_atoi(&tmp_str[pos]);
+		while (tmp_str[pos] == '0')
+			pos++;
 		if (f_id->precision.width_max)
-		{
-			while (tmp_str[pos] == '0')
-				pos++;
-		}
-		pos += ft_intlen(f_id->precision.width_max);
+			pos += ft_intlen(f_id->precision.width_max);
 		f_id->nb_read_char = pos;
 	}
 }

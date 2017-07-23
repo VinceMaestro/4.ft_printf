@@ -65,10 +65,11 @@ struct			s_format_id
 
 union			u_union
 {
-	void			*p;
-	char 			*s;
-	long long int	ll;
-	long double		ld;
+	void				*p;
+	char 				*s;
+	long long			ll;
+	unsigned long long	ull;
+	long double			ld;
 };
 
 struct			s_list_arg
