@@ -91,5 +91,8 @@ int			ft_count_if(char **tab, int (*f)(char*));
 size_t		ft_min(size_t a, size_t b);
 size_t		ft_max(size_t a, size_t b);
 size_t		ft_intlen(int nbr);
+size_t		ft_llintlen(long long nbr);
+int			ft_power(int x, int n);
+int			ft_put_llnbr(long long nbr);
 
 #endif

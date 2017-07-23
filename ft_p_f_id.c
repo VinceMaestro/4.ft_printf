@@ -15,18 +15,18 @@
 static			void (*(ptr_fct[]))(t_a_lst *, t_format_id *) =
 {
 	['s'] = ft_print_arg_s,				//String.
-	['S'] = ft_print_arg_s					//String.
+	['S'] = ft_print_arg_s,					//String.
 
 	// ['p'] = ft_print_arg_p,				//pointer.
-	// ['d'] = ft_print_arg_d,				//Decimal signed integer.
-	// ['D'] = ft_print_arg_d,				//Decimal signed integer.
-	// ['i'] = ft_print_arg_d,				//Decimal signed integer.
+	['d'] = ft_print_arg_i,				//Decimal signed integer.
+	['D'] = ft_print_arg_i,				//Decimal signed integer.
+	['i'] = ft_print_arg_i,				//Decimal signed integer.
 	// ['o'] = ft_print_arg_o,				//Octal integer.
 	// ['O'] = ft_print_arg_o,				//Octal integer.
 	// ['u'] = ft_print_arg_u,				//Unsigned integer.
 	// ['U'] = ft_print_arg_u,				//Unsigned integer.
-	// ['x'] = ft_print_arg_x,				//Hex integer.
-	// ['X'] = ft_print_arg_x,				//Hex integer.
+	['x'] = ft_print_arg_x,				//Hex integer.
+	['X'] = ft_print_arg_x				//Hex integer.
 	// ['c'] = ft_print_arg_c,				//Character.
 	// ['C'] = ft_print_arg_c,				//Character.
 	// ['%'] = ft_print_arg_percent

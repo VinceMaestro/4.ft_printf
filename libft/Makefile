@@ -81,7 +81,10 @@ SRC = ft_atoi \
 		ft_count_if \
 		ft_max \
 		ft_min \
-		ft_intlen
+		ft_intlen \
+		ft_power \
+		ft_put_llnbr \
+		ft_llintlen
 
 INCL = libft
 

@@ -31,7 +31,7 @@ static void		ft_save_s_a(t_a_lst *a_lst, va_list *ap)
 static void		ft_save_i_a(t_a_lst *a_lst, va_list *ap)
 {
 	ft_putstr("-- SAVING int : ");
-	a_lst->arg.ll = va_arg(*ap, long long int);
+	a_lst->arg.ll = va_arg(*ap, long long);
 	ft_putnbr(a_lst->arg.ll);
 	ft_putstr("\n");
 	a_lst->arg_type = 'i';

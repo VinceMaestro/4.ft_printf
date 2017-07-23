@@ -92,7 +92,7 @@ void			ft_p_x_char(char c, int nbr);
 t_a_lst			*ft_p_f_id(t_format_id *f_id, t_a_lst *a_lst);
 void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id);
 void			ft_print_arg_p(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_d(t_a_lst *a_lst, t_format_id *f_id);
+void			ft_print_arg_i(t_a_lst *a_lst, t_format_id *f_id);
 void			ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id);
 void			ft_print_arg_u(t_a_lst *a_lst, t_format_id *f_id);
 void			ft_print_arg_x(t_a_lst *a_lst, t_format_id *f_id);
