@@ -6,15 +6,15 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 16:04:19 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 16:04:20 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 17:34:13 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_print_arg_i(t_a_lst *a_lst, t_format_id *f_id)
+void	ft_print_arg_i(t_a_lst *a_lst, t_format_id *f_id)
 {
-    if (a_lst->arg_type == 'L')
+	if (a_lst->arg_type == 'L')
 	{
 		ft_put_llnbr(a_lst->arg.ll);
 		f_id->nb_print_char = ft_llintlen(a_lst->arg.ll);

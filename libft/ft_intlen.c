@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:22:56 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 18:30:29 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 17:32:37 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t		ft_intlen(int nbr)
 	size_t	len;
 
 	len = 1;
-	nbr < 0 ? len ++ : len;
+	nbr < 0 ? len++ : len;
 	while (nbr && nbr != nbr % 10)
 	{
 		len++;

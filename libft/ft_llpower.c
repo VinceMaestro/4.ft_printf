@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:34:47 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 15:34:49 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 17:31:02 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 long long	ft_llpower(long long x, long long n)
 {
-    long long	value;
+	long long	value;
 
-    value = 1;
-    if (n > 0 && x > 1)
-    {
-        while (n)
-        {
-            value = value * x;
-            n--;
-        }
-    }
-    return (value);
+	value = 1;
+	if (n > 0 && x > 1)
+	{
+		while (n)
+		{
+			value = value * x;
+			n--;
+		}
+	}
+	return (value);
 }

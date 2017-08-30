@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/30 17:28:56 by vpetit            #+#    #+#             */
+/*   Updated: 2017/08/30 17:30:07 by vpetit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int    ft_power(int x, int n)
+int		ft_power(int x, int n)
 {
-    int     value;
+	int		value;
 
-    value = 1;
-    if (n > 0 && x > 1)
-    {
-        while (n)
-        {
-            value = value * x;
-            n--;
-        }
-    }
-    return (value);
+	value = 1;
+	if (n > 0 && x > 1)
+	{
+		while (n)
+		{
+			value = value * x;
+			n--;
+		}
+	}
+	return (value);
 }
