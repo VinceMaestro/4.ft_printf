@@ -6,13 +6,11 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/15 19:38:48 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 15:36:43 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 static void			ft_get_period(t_format_id *f_id, char *tmp_str)
 {

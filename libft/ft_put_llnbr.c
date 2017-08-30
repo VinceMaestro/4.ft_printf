@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_put_llnbr.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/30 14:45:52 by vpetit            #+#    #+#             */
+/*   Updated: 2017/08/30 14:47:40 by vpetit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <unistd.h>
 
@@ -13,7 +25,7 @@ static int	ft_put_llnbr_neg(long long nbr)
 
 int			ft_put_llnbr(long long nbr)
 {
-	long int	buff;
+	long long	buff;
 
 	buff = '0';
 	if (nbr < 0)

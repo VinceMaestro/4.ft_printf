@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/04/05 18:29:46 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 14:30:54 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ size_t		ft_intlen(int nbr);
 size_t		ft_llintlen(long long nbr);
 size_t		ft_ullintlen(unsigned long long nbr);
 int			ft_power(int x, int n);
+long long	ft_llpower(long long x, long long n);
 int			ft_put_llnbr(long long nbr);
 int			ft_put_ullnbr(unsigned long long nbr);
 void		ft_putnstr(void *str, int len);

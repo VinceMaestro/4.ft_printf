@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 19:08:11 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 15:13:02 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		main(void)
 	void	*ptr;
 
 	ptr = &str;
-	printf(str, "1.0", "2.0", 34, "Is : ", 80);
-	// ft_printf(str, "1.0", "2.0", 3, "Is : ", 80);
+	printf(str, "1.0", "2.0", 0, "Is : ", 80);
+	ft_printf(str, "1.0", "2.0", 0, "Is : ", 80);
 	// ft_putstr("Should be :\n");
 	return (0);
 }

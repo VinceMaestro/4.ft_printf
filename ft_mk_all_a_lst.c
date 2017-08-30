@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/17 16:35:50 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 15:09:50 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void		ft_save_ll_a(t_a_lst *a_lst, va_list *ap)
 {
 	ft_putstr("-- SAVING signed ll : ");
 	a_lst->arg.ll = va_arg(*ap, long long int);
-	ft_putnbr(a_lst->arg.ll);
+	ft_put_llnbr(a_lst->arg.ll);
 	ft_putstr("\n");
 	a_lst->arg_type = 'L';
 }

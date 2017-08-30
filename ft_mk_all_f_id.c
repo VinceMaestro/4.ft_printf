@@ -6,11 +6,22 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:07:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/13 21:19:25 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 15:54:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static t_format_id	*updt_f_id(t_format_id *f_id, int cpt)
+{
+	if (!f_id)
+		return (ft_init_format_id(f_id, cpt++));
+	else
+	{
+		f_id->next = ft_init_format_id(f_id, cpt++);
+		return (f_id->next);
+	}
+}
 
 t_format_id			*ft_mk_all_f_id(char *str)
 {
@@ -27,18 +38,12 @@ t_format_id			*ft_mk_all_f_id(char *str)
 			pos++;
 		else
 		{
-			if (!f_id)
-				f_id = ft_init_format_id(f_id, cpt++);
-			else
-			{
-				f_id->next = ft_init_format_id(f_id, cpt++);
-				f_id = f_id->next;
-			}
+			f_id = updt_f_id(f_id, cpt);
+			cpt++;
 			f_id->start_pos = pos;
 			ft_get_all_infos(f_id, &(str[pos]));
 			pos += f_id->nb_read_char;
 		}
 	}
-	f_id = f_id->first;
-	return (f_id);
+	return (f_id->first);
 }

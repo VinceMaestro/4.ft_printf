@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:47:12 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/23 17:37:21 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 15:34:14 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		ft_save_flag(t_format_id *f_id, char c)
 	else if (c == '0')
 		f_id->flags = f_id->flags | F_ZERO;
 	else if (c == '-')
-	f_id->flags = f_id->flags | F_MINUS;
+		f_id->flags = f_id->flags | F_MINUS;
 	else if (c == ' ')
 		f_id->flags = f_id->flags | F_SPACE;
 	else if (c == '+')
@@ -38,7 +38,7 @@ void			ft_get_flags(t_format_id *f_id, char *tmp_str)
 
 	pos = 0;
 	save = 1;
-	ft_strcpy(list, "#0- +\0");	//BONUS *$L’
+	ft_strcpy(list, "#0- +\0");
 	while (save)
 	{
 		i = 0;

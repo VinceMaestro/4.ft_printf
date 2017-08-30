@@ -6,7 +6,7 @@
 #    By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 21:24:23 by vpetit            #+#    #+#              #
-#    Updated: 2017/04/05 18:29:07 by vpetit           ###   ########.fr        #
+#    Updated: 2017/08/30 14:31:09 by vpetit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ SRC = ft_atoi \
 		ft_llintlen \
 		ft_ullintlen \
 		ft_power \
+		ft_llpower \
 		ft_putnstr
 
 INCL = libft

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 17:27:50 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/30 15:12:34 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,6 @@ int					ft_printf(char *str, ...)
 	len = ft_p_all_f_id(f_id, a_lst, str);
 
 	// ft_free_unions
-
-	// ft_printstr(str);
-
-	ft_putstr("\nprintf : Printing all ... DONE\n");
-
-
+	ft_putstr("INFO : printf : Printing all ... DONE\n");
 	return (len);
 }
