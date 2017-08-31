@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 19:17:10 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/31 11:17:08 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,3 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	else
 		ft_putstr("ft_print_arg_s: !a_lst or !f_id\n");
 }
-
-
-
-//
-// if (f_id->flags & (F_MINUS | F_ZERO))
-// 	;
-// else if (f_id->flags & F_MINUS)
-// 	;
-// else if (f_id->flags & ~F_MINUS)
-// 	;

@@ -15,6 +15,10 @@ SRC = ft_printf.c \
 		ft_get_lenght.c \
 		ft_get_arg_type.c \
 		ft_mk_all_a_lst.c \
+		ft_save_ll_a.c \
+		ft_save_s_a.c \
+		ft_save_p_a.c \
+		ft_save_ull_a.c \
 		ft_get_a_from_lst.c \
 		ft_new_a_lst_elem.c \
 		ft_p_x_char.c \
@@ -28,9 +32,9 @@ SRC = ft_printf.c \
 		ft_print_arg_u.c \
 		ft_print_arg_null.c \
 		ft_updt_all_precision.c \
-		ft_print_arg_o.c
-		# ft_print_arg_p.c \
-		# ft_print_arg_c.c
+		ft_print_arg_o.c \
+		ft_print_arg_c.c \
+		ft_print_arg_p.c
 
 LIBDIR = ./libft
 

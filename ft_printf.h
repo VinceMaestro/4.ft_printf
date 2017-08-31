@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 19:15:24 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/31 14:17:41 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # include <stdint.h>
 
 typedef struct s_lst		t_lst;
-// typedef struct s_flags		t_flags;
 typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
 typedef struct s_list_arg	t_a_lst;
@@ -65,7 +64,6 @@ struct			s_format_id
 
 union			u_union
 {
-	void				*p;
 	char 				*s;
 	long long			ll;
 	unsigned long long	ull;
@@ -111,6 +109,11 @@ void			ft_get_arg_type(t_format_id *f_id, char *tmp_str);
 t_a_lst			*ft_get_a_from_lst(t_a_lst *a_lst, int nbr);
 t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst);
 t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap);
+void			ft_save_ll_a(t_a_lst *a_lst, va_list *ap, char *str);
+void			ft_save_s_a(t_a_lst *a_lst, va_list *ap, char *str);
+void			ft_save_p_a(t_a_lst *a_lst, va_list *ap);
+void			ft_save_ull_a(t_a_lst *a_lst, va_list *ap);
+
 t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
 void			ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst);
 

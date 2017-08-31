@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 15:12:34 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/31 10:59:14 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void 		ft_printstr(char *str)
 
 int					ft_printf(char *str, ...)
 {
-	va_list			ap;
 	int				len;
+	va_list			ap;
 	t_format_id		*f_id;
 	t_a_lst			*a_lst;
 

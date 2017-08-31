@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 20:16:36 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/13 21:08:36 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/31 10:58:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst)
 			f_id->precision.width_max = a_lst->arg.ll;
 			a_lst = a_lst->next;
 		}
-		a_lst ? a_lst = a_lst->next : ft_error("ft_updt_all_precision: should'nt happen, implementation error");
+		a_lst ? a_lst = a_lst->next : NULL;
 		f_id = f_id->next;
 	}
 }

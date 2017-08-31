@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_save_ull_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 12:52:56 by vpetit           ###   ########.fr       */
+/*   Created: 2017/08/31 11:32:41 by vpetit            #+#    #+#             */
+/*   Updated: 2017/08/31 14:14:41 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-int		main(void)
+void		ft_save_ull_a(t_a_lst *a_lst, va_list *ap)
 {
-	// char	str[80] = "Hello %2$3.*d str %3$2.4s str %3$d int %%4p pointer %2$-+03.04k out%%\0";
-	char	str[80] = "-%5.7s First : - Second : % 04.6s - Third : %p - Done -\n";
-	void	*ptr;
-
-	ptr = &str;
-	printf(str, "1.0", "2.0", "Salut", "Is : ", 80);
-	ft_printf(str, "1.0", "2.0", "Salut", "Is : ", 80);
-	// ft_putstr("Should be :\n");
-	return (0);
+	ft_putstr("-- SAVING unsigned ll : ");
+	a_lst->arg.ull = va_arg(*ap, unsigned long long);
+	ft_putnbr(a_lst->arg.ull);
+	ft_putstr("\n");
+	a_lst->arg_type = 'U';
 }

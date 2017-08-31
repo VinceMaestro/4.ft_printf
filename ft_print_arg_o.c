@@ -6,12 +6,11 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 17:45:50 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/08/31 11:15:45 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static long long	get_value(long long nbr, long long cpt, long long maxoctpow)
 {
@@ -37,7 +36,6 @@ static long long	ft_int_to_oct(long long nbr)
 	long long	cpt;
 
 	maxoctpow = 10;
-	// ret = 0;
 	cpt = 4;
 	if (!nbr)
 		return (0);
@@ -50,15 +48,6 @@ static long long	ft_int_to_oct(long long nbr)
 		}
 	}
 	ret = get_value(nbr, cpt, maxoctpow);
-	// while (nbr)
-	// {
-	// 	while (cpt && cpt * ft_llpower(8, maxoctpow) > nbr)
-	// 		cpt--;
-	// 	ret += cpt * ft_llpower(10, maxoctpow);
-	// 	nbr -= cpt * ft_llpower(8, maxoctpow);
-	// 	maxoctpow--;
-	// 	cpt = 7;
-	// }
 	return (ret);
 }
 
