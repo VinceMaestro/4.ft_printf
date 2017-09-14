@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 14:37:10 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/14 17:42:23 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 void		ft_save_p_a(t_a_lst *a_lst, va_list *ap)
 {
-	unsigned long long	ptr;
-	char				*str;
+	size_t		ptr;
+	char		*str;
 
+	ptr = (size_t)va_arg(*ap, void*);
 	ft_putstr("-- SAVING pointer : ");
-	ptr = (unsigned long long)va_arg(*ap, void*);
 	str = ft_itoabase(ptr, "0123456789abcdef");
+	ft_putstr("-- SAVING pointer : ");
 	a_lst->arg.s = str;
 	a_lst->arg_type = 'p';
 	ft_putstr(a_lst->arg.s);

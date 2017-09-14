@@ -6,39 +6,72 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 14:50:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 16:53:47 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/14 18:11:56 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char		*ft_itoabase(long long nbr, const char *base)
+static size_t	ft_strbaselen(size_t nbr, size_t base_len)
 {
-	char				*str;
-	unsigned long long	base_len;
-	int					ordre;
-	long long			tmp;
-	int					extra;
+	size_t	str_len;
+	size_t	tmp;
 
-	if (nbr && base_len)
+	tmp = nbr;
+	str_len = 1;
+	while ((tmp = tmp / base_len) > 0)
+		str_len++;
+	return (str_len);
+}
+
+static char		*ft_changebase(size_t nbr, const char *base)
+{
+	size_t			newstr_len;
+	size_t			base_len;
+	size_t			ordre;
+	size_t			index;
+	char			*str;
+
+	base_len = ft_strlen(base);
+	newstr_len = ft_strbaselen(nbr, base_len);
+	str = ft_strnew(newstr_len);
+	str[newstr_len] = 0;
+	ordre = newstr_len;
+	ft_putstr("---  1  ---\n");
+	while (ordre > 0)
 	{
-		tmp = nbr;
-		ordre = 1;
-		tmp >= 0 ? extra = 0 : extra = 1;
-		base_len = ft_strlen(base);
-		while ((tmp = tmp / base_len) > 0)
-			ordre++;
-		tmp = nbr;
-		str = ft_strnew(ordre + extra);
-		str[ordre + extra] = 0;
-		nbr < 0 ? str[0] = '-' : NULL;
+		ft_putstr("---  2  ---\n");
+		index = nbr / (size_t)ft_llpower(base_len, ordre - 1);
+		ft_putstr("---  2.0  ---\n");
+		str[newstr_len - ordre] = base[index];
+		ft_putstr("---  2.1  ---\n");
+		nbr = nbr % (size_t)ft_llpower(base_len, ordre - 1);
+		ft_putstr("---  2.2  ---\n");
+		ordre--;
+	}
+	ft_putstr("---  3  ---\n");
+	return (str);
+}
 
-		while (--ordre >= 0)
+char			*ft_itoabase(size_t nbr, const char *base)
+{
+	char		*str;
+	size_t		tmp;
+
+	if (base && *base)
+	{
+		if (nbr)
 		{
-			str[i] = base[tmp / ft_power(base_len, ordre)];
-			tmp = tmp % ft_power(base_len, ordre);
+			tmp = nbr;
+			str = ft_changebase(tmp, base);
 		}
-		return (str)
+		else
+		{
+			str = ft_strnew(1);
+			str[0] = base[0];
+		}
+		return (str);
 	}
 	else
 		return (NULL);

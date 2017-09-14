@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 12:31:18 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/14 18:14:10 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static			void (*(ft_ptr_fct[]))(t_a_lst *, t_format_id *) =
 {
 	['s'] = ft_print_arg_s,				//String.
 	['S'] = ft_print_arg_s,					//String.
-	// ['p'] = ft_print_arg_p,				//pointer.
+	['p'] = ft_print_arg_p,				//pointer.
 	['d'] = ft_print_arg_i,				//Decimal signed integer.
 	['D'] = ft_print_arg_i,				//Decimal signed integer.
 	['i'] = ft_print_arg_i,				//Decimal signed integer.
