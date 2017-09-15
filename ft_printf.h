@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 14:17:41 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/15 12:21:55 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ union			u_union
 	char 				*s;
 	long long			ll;
 	unsigned long long	ull;
-	long double			ld;
+	double				d;
 };
 
 struct			s_list_arg

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/14 17:15:11 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/15 12:01:35 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		main(void)
 	void	*ptr;
 
 	ptr = &str;
-	printf(str, "1.0", "2.0", "Salut", "Is : ", 80);
-	ft_printf(str, "1.0", "2.0", "Salut", "Is : ", 80);
+	printf(str, "1.0", "2.0", ptr, "Is : ", 80);
+	ft_printf(str, "1.0", "2.0", ptr, "Is : ", 80);
 
 	// tmp = ft_itoabase(0, "0123456789abcdef");
 	// ft_putstr(tmp);

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/14 18:14:10 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/15 12:02:30 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static			void (*(ft_ptr_fct[]))(t_a_lst *, t_format_id *) =
 	['X'] = ft_print_arg_x,				//Hex integer.
 	['c'] = ft_print_arg_c,				//Character.
 	['C'] = ft_print_arg_c				//Character.
-	// ['%'] = ft_print_arg_percent
 	// // ['f'] = printf_format_f,				//double
 	// // ['e'] = printf_format_e,				//double.
 	// // ['E'] = printf_format_e,				//double.
