@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/14 18:08:36 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/15 16:40:17 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int			ft_count_if(char **tab, int (*f)(char*));
 size_t		ft_min(size_t a, size_t b);
 size_t		ft_max(size_t a, size_t b);
 size_t		ft_intlen(int nbr);
+size_t		ft_lintlen(long nbr);
 size_t		ft_llintlen(long long nbr);
 size_t		ft_ullintlen(unsigned long long nbr);
 int			ft_power(int x, int n);
