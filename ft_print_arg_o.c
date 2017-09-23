@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 11:15:45 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/23 14:44:53 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,13 @@ void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 	long long	oct;
 
 	oct = ft_int_to_oct(a_lst->arg.ll);
+	if (f_id->precision.width_max > -1)
+		ft_put_x_char('0', f_id->precision.width_max - (int)ft_llintlen(oct));
+	else if (f_id->width_min > -1)
+		ft_put_x_char(' ' + (f_id->flags & F_ZERO ? 16 : 0), ft_max(\
+		f_id->width_min - (int)ft_llintlen(oct), f_id->flags & F_HASH ? 1 : 0));
+	else if (f_id->flags & F_HASH)
+		ft_putchar('0');
 	ft_put_llnbr(oct);
-	f_id->nb_print_char = ft_llintlen(oct);
+	f_id->nb_print_char = ft_llintlen(oct) + (f_id->flags & F_HASH ? 1 : 0);
 }

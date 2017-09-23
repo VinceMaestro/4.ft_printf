@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/15 16:40:17 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/23 13:54:55 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void		ft_putendl(char const *s);
 void		ft_putendl_fd(char const *s, int fd);
 int			ft_putchar(char c);
 void		ft_putchar_fd(char c, int fd);
+void		ft_put_x_char(char c, int nbr);
 void		ft_putstr_fd(char const *s, int fd);
 t_list		*ft_lstnew(void const *content, size_t content_size);
 void		ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_p_x_char.c                                      :+:      :+:    :+:   */
+/*   ft_put_x_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:18:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 15:19:42 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/23 13:55:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+#include <unistd.h>
 
-void		ft_p_x_char(char c, int nbr)
+void		ft_put_x_char(char c, int nbr)
 {
 	int		i;
 
@@ -21,7 +22,7 @@ void		ft_p_x_char(char c, int nbr)
 	{
 		while (i < nbr)
 		{
-			ft_putchar(c);
+			write(1, &c, 1);
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 03:57:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 19:29:39 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/23 15:32:17 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void			ft_get_width_min(t_format_id *f_id, char *tmp_str)
 
 	nbr_len = 0;
 	nb_read_char = 0;
+	while (tmp_str[nb_read_char] == '0')
+		nb_read_char++;
 	if ((save_nbr = ft_atoi(&tmp_str[nb_read_char])))
 		nbr_len = ft_intlen(save_nbr);
 	else if (tmp_str[nb_read_char] == '*')

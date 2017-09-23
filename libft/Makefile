@@ -6,7 +6,7 @@
 #    By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 21:24:23 by vpetit            #+#    #+#              #
-#    Updated: 2017/09/15 16:39:37 by vpetit           ###   ########.fr        #
+#    Updated: 2017/09/23 13:55:13 by vpetit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC = ft_atoi \
 		ft_memset \
 		ft_putchar \
 		ft_putchar_fd \
+		ft_put_x_char \
 		ft_putendl \
 		ft_putendl_fd \
 		ft_putnbr \

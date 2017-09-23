@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 19:14:47 by vpetit            #+#    #+#             */
-/*   Updated: 2017/06/19 19:16:19 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/23 13:57:02 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			ft_print_arg_null(t_format_id *f_id, char *str)
 	if (str && f_id)
 	{
 		(f_id->width_min ? len = f_id->width_min - 1 : len);
-		ft_p_x_char(' ', len);
+		ft_put_x_char(' ', len);
 		f_id->nb_print_char += ft_max(len, 0);
 	}
 	else
