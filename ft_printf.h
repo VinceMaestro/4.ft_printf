@@ -105,7 +105,6 @@ void			ft_get_width_min(t_format_id *f_id, char *tmp_str);
 void			ft_get_precision(t_format_id *f_id, char *tmp_str);
 void			ft_get_lenght(t_format_id *f_id, char *str);
 void			ft_get_arg_type(t_format_id *f_id, char *tmp_str);
-t_a_lst			*ft_get_a_from_lst(t_a_lst *a_lst, int nbr);
 t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst);
 t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap);
 void			ft_save_ll_a(t_a_lst *a_lst, va_list *ap, char *str);
