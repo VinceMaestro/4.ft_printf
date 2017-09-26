@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/23 13:54:55 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/26 18:05:11 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ int			ft_isblank(int c);
 int			ft_isinvisible(int c);
 void		ft_foreach(int *tab, int lenght, void (*f)(int));
 int			ft_count_if(char **tab, int (*f)(char*));
-size_t		ft_min(size_t a, size_t b);
-size_t		ft_max(size_t a, size_t b);
+int			ft_min(int a, int b);
+int			ft_max(int a, int b);
 size_t		ft_intlen(int nbr);
 size_t		ft_lintlen(long nbr);
-size_t		ft_llintlen(long long nbr);
+int			ft_llintlen(long long nbr);
 size_t		ft_ullintlen(unsigned long long nbr);
 int			ft_power(int x, int n);
 long long	ft_llpower(long long x, long long n);

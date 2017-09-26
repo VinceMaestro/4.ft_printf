@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 05:45:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/01/04 05:48:08 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/26 18:04:56 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_min(size_t a, size_t b)
+int		ft_min(int a, int b)
 {
 	return ((a <= b) ? (a) : (b));
 }

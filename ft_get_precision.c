@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/23 15:30:18 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/26 15:43:53 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ static void			ft_get_width_max(t_format_id *f_id, char *tmp_str)
 	int		pos;
 
 	pos = f_id->nb_read_char;
-	ft_putstr("WTFFFFFFFFFFFFF\n");
-	ft_putstr("pos = ");
-	ft_putnbr(pos);
+	while (tmp_str[pos] == '-' || tmp_str[pos] == '+')
+		pos++;
 	if (ft_isdigit(tmp_str[pos]))
 	{
-		ft_putnbr(f_id->precision.width_max);
 		while (tmp_str[pos] == '0')
 			pos++;
 		if (ft_atoi(&tmp_str[pos]))
@@ -45,11 +43,8 @@ static void			ft_get_width_max(t_format_id *f_id, char *tmp_str)
 			f_id->precision.width_max = ft_atoi(&tmp_str[pos]);
 			pos += ft_intlen(f_id->precision.width_max);
 		}
-		f_id->nb_read_char = pos;
-		ft_putstr(" || pos = ");
-		ft_putnbr(pos);
-		ft_putstr(" \n");
 	}
+	f_id->nb_read_char = pos;
 }
 
 void				ft_get_precision(t_format_id *f_id, char *tmp_str)

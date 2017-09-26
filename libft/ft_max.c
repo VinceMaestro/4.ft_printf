@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 05:46:55 by vpetit            #+#    #+#             */
-/*   Updated: 2017/01/04 05:48:54 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/26 17:48:56 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_max(size_t a, size_t b)
+int		ft_max(int a, int b)
 {
 	return ((a < b) ? (b) : (a));
 }

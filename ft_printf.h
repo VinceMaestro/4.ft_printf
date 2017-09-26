@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/23 13:56:03 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/26 18:25:18 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,10 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-typedef struct s_lst		t_lst;
 typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
 typedef struct s_list_arg	t_a_lst;
 typedef union u_union		t_union;
-
-struct			s_lst
-{
-	char	*cont;
-	int		size_t;
-	t_lst	*first;
-	t_lst	*next;
-};
 
 struct			s_precision
 {

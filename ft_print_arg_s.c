@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/23 13:56:33 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/26 18:04:39 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	if (a_lst && f_id)
 	{
 		str = a_lst->arg.s;
-		toprint = ft_min(ft_strlen(str), f_id->precision.width_max);
+		toprint = ft_min((int)ft_strlen(str), f_id->precision.width_max);
 		len = ft_max(0, f_id->width_min - toprint);
 		if (len > 0)
 		{
