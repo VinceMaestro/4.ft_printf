@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/26 18:25:18 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/27 17:43:39 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
 typedef struct s_list_arg	t_a_lst;
 typedef union u_union		t_union;
+
+typedef struct s_p_inf	t_p_inf;
+
+struct			s_p_inf
+{
+	int			len_arg;
+	int			nbr_pad_w_min;
+	int			nbr_pad_w_max;
+	int			pad_rt;
+	char		pad_c;
+	char		first_c;
+	char		sign; //signed_c
+};
 
 struct			s_precision
 {

@@ -6,42 +6,47 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/26 15:43:53 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/27 13:46:23 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void			ft_get_period(t_format_id *f_id, char *tmp_str)
+static void			ft_get_period(t_format_id *f_id, char *str)
 {
 	int		pos;
 
 	pos = 0;
-	if (tmp_str[pos] && tmp_str[pos] == '.')
+	if (str[pos] && str[pos] == '.')
 	{
-		if (tmp_str[pos + 1] && tmp_str[pos + 1] == '*')
+		if (str[pos + 1] && str[pos + 1] == '*')
 			pos++;
-		f_id->precision.period = tmp_str[pos];
+		f_id->precision.period = str[pos];
 		pos++;
 	}
 	f_id->nb_read_char = pos;
 }
 
-static void			ft_get_width_max(t_format_id *f_id, char *tmp_str)
+static void			ft_get_width_max(t_format_id *f_id, char *str)
 {
 	int		pos;
+	int		minus;
 
+	minus = 0;
 	pos = f_id->nb_read_char;
-	while (tmp_str[pos] == '-' || tmp_str[pos] == '+')
-		pos++;
-	if (ft_isdigit(tmp_str[pos]))
+	while (str[pos] == '-' || str[pos] == '+')
 	{
-		while (tmp_str[pos] == '0')
+		str[pos] == '-' ? minus = 1 : minus;
+		pos++;
+	}
+	if (ft_isdigit(str[pos]))
+	{
+		while (str[pos] == '0')
 			pos++;
-		if (ft_atoi(&tmp_str[pos]))
+		if (ft_atoi(&str[pos]))
 		{
-			f_id->precision.width_max = ft_atoi(&tmp_str[pos]);
-			pos += ft_intlen(f_id->precision.width_max);
+			f_id->precision.width_max = ft_atoi(&str[pos]) * (minus ? -1 : 1);
+			pos += ft_intlen(f_id->precision.width_max * (minus ? -1 : 1));
 		}
 	}
 	f_id->nb_read_char = pos;

@@ -6,7 +6,7 @@
 #    By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 21:24:23 by vpetit            #+#    #+#              #
-#    Updated: 2017/09/23 13:55:13 by vpetit           ###   ########.fr        #
+#    Updated: 2017/09/27 18:13:51 by vpetit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ SRC = ft_atoi \
 		ft_count_if \
 		ft_max \
 		ft_min \
+		ft_abs \
 		ft_intlen \
 		ft_lintlen \
 		ft_llintlen \
