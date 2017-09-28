@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:07:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/23 15:13:47 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/28 15:53:41 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ t_format_id			*ft_mk_all_f_id(char *str)
 			f_id->start_pos = pos;
 			ft_get_all_infos(f_id, &(str[pos]));
 			pos += f_id->nb_read_char;
-			ft_putstr("Getting all infos: pos = ");
-			ft_putnbr(pos);
+			// ft_putstr("ft_mk_all_f_id: Getting all infos: pos = ");
+			// ft_putnbr(pos);
+			// ft_putstr(" /n");
 		}
 	}
 	return (f_id->first);

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:03:04 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 10:59:14 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/28 15:51:41 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 // gcc main_printf.c libftprintf.a ./libft/libft.a -I libft
 
-static void 		ft_printstr(char *str)
-{
-	ft_putstr("STRING IS : '");
-	ft_putstr(str);
-	ft_putstr("'\n");
-}
+// static void 		ft_printstr(char *str)
+// {
+// 	ft_putstr("STRING IS : '");
+// 	ft_putstr(str);
+// 	ft_putstr("'\n");
+// }
 
 int					ft_printf(char *str, ...)
 {
@@ -28,14 +28,14 @@ int					ft_printf(char *str, ...)
 	t_format_id		*f_id;
 	t_a_lst			*a_lst;
 
-	ft_printstr(str);
-	ft_putstr("printf : Making all format_id ... \n");
+	// ft_printstr(str);
+	// ft_putstr("printf : Making all format_id ... \n");
 	f_id = ft_mk_all_f_id(str);
-	ft_putstr(" DONE\n");
+	// ft_putstr(" DONE\n");
 
 	// dbug_p_all_f_id(f_id); // for debugg
 
-	ft_putstr("printf : Making all arg_list ... \n");
+	// ft_putstr("printf : Making all arg_list ... \n");
 
 	va_start(ap, str);
 	a_lst = ft_mk_all_a_lst(f_id, &ap);
@@ -43,7 +43,7 @@ int					ft_printf(char *str, ...)
 
 	ft_updt_all_precision(f_id, a_lst);
 
-	ft_putstr(" DONE\n");
+	// ft_putstr(" DONE\n");
 
 	ft_putstr("printf : Printing all ... \n");
 	len = ft_p_all_f_id(f_id, a_lst, str);

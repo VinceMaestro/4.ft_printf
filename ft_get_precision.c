@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/27 13:46:23 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/28 15:59:44 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ static void			ft_get_width_max(t_format_id *f_id, char *str)
 			f_id->precision.width_max = ft_atoi(&str[pos]) * (minus ? -1 : 1);
 			pos += ft_intlen(f_id->precision.width_max * (minus ? -1 : 1));
 		}
+		else
+			f_id->precision.width_max = 0;
 	}
 	f_id->nb_read_char = pos;
 }

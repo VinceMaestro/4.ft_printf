@@ -6,13 +6,12 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/27 18:29:37 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/28 14:34:00 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
-#include <stdlib.h>
 
 static long long	get_value(long long nbr, long long cpt, long long maxoctpow)
 {
@@ -53,23 +52,6 @@ static long long	ft_int_to_oct(long long nbr)
 	return (ret);
 }
 
-static t_p_inf		*ft_init_p_inf()
-{
-	t_p_inf		*infos;
-
-	infos = NULL;
-	if (!(infos = (t_p_inf*)malloc(sizeof(t_p_inf))))
-		ft_error("ft_print_arg_o: ft_init_p_inf: input error");
-	else
-	{
-		infos->len_arg = 0;
-		infos->nbr_pad_w_min = 0;
-		infos->nbr_pad_w_max = 0;
-		infos->pad_rt = 0;
-	}
-	return (infos);
-}
-
 static void			ft_updt_p_info(t_p_inf *infos, long long oct, \
 	t_a_lst *a_lst, t_format_id *f_id)
 {
@@ -99,18 +81,11 @@ static void			ft_updt_p_info(t_p_inf *infos, long long oct, \
 void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 {
 	long long	oct;
-	// char		pad_char;
-	// char		first_char;
-	// char		signed_c;
-	// char		pad_rt;
-
 	t_p_inf		*infos;
 
 	oct = ft_int_to_oct(a_lst->arg.ll);
-
 	infos = ft_init_p_inf();
 	ft_updt_p_info(infos, oct, a_lst, f_id);
-
 	write(1, &infos->sign, 1);
 	if (!infos->pad_rt)
 	{
@@ -129,26 +104,4 @@ void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 	f_id->nb_print_char = infos->len_arg + infos->nbr_pad_w_min + \
 		infos->nbr_pad_w_max + (infos->first_c ? 1 : 0) + \
 			(infos->sign ? 1 : 0);
-
-
-	// signed_c = 0 + (f_id->flags & F_PLUS && oct > 0 ? '+' : 0);
-	// first_char = 0 + (f_id->flags & F_HASH && (f_id->precision.width_max - \
-	// 	ft_llintlen(oct) < 1) ? '0' : 0);
-	// pad_rt = (f_id->flags & F_MINUS && f_id->precision.width_max < 1 ? 1 : 0);
-	// pad_char = ' ' + (!(f_id->flags & F_MINUS) && (f_id->precision.width_max <=\
-	// 	0) && (f_id->flags & F_ZERO) ? 16 : 0);
-	// write(1, &signed_c, 1);
-	// pad_rt ? write(1, &first_char, 1) : 0;
-	// pad_rt ? ft_put_llnbr(oct) : ft_put_x_char(pad_char, \
-	// 	f_id->width_min - ft_max(f_id->precision.width_max, \
-	// 		ft_llintlen(oct)));
-	// pad_rt ? 0 : write(1, &first_char, 1);
-	// ft_put_x_char('0', f_id->precision.width_max - ft_llintlen(oct));
-	// pad_rt ? ft_put_x_char(pad_char, \
-	// 	f_id->width_min - ft_max(f_id->precision.width_max, \
-	// 		ft_llintlen(oct))) : ft_put_llnbr(oct);
-	// f_id->nb_print_char = ft_max(f_id->precision.width_max, \
-	// 	ft_llintlen(oct)) + (signed_c ? 1 : 0) + \
-	// 		(first_char ? 1 : 0) + ft_max(0, f_id->width_min - \
-	// 			f_id->precision.width_max);
 }

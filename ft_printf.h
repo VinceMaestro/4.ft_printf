@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/27 17:43:39 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/28 14:36:13 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,7 @@ t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
 void			ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst);
 
 t_format_id		*ft_init_format_id(t_format_id *f_id, int nbr);
+
+t_p_inf			*ft_init_p_inf();
 
 #endif
