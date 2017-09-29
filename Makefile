@@ -62,3 +62,4 @@ fclean: clean
 	make -C $(LIBDIR) fclean
 
 re: fclean all
+	make -C $(LIBDIR) re

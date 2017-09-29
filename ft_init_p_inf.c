@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 14:32:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/28 14:37:35 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/29 13:59:10 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_p_inf			*ft_init_p_inf()
 	else
 	{
 		infos->len_arg = 0;
-		infos->nbr_pad_w_min = 0;
-		infos->nbr_pad_w_max = 0;
+		infos->nbr_pad_c1 = 0;
+		infos->nbr_pad_c2 = 0;
 		infos->pad_rt = 0;
 	}
 	return (infos);

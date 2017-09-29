@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/28 14:36:13 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/29 13:58:56 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ typedef struct s_p_inf	t_p_inf;
 struct			s_p_inf
 {
 	int			len_arg;
-	int			nbr_pad_w_min;
-	int			nbr_pad_w_max;
+	int			nbr_pad_c1;
+	int			nbr_pad_c2;
 	int			pad_rt;
-	char		pad_c;
+	char		pad_c1;
+	char		pad_c2;
 	char		first_c;
 	char		sign; //signed_c
 };

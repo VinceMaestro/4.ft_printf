@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/28 14:34:00 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/09/29 17:00:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ static void			ft_updt_p_info(t_p_inf *infos, long long oct, \
 	{
 		infos->len_arg = ft_llintlen(oct);
 
-		infos->nbr_pad_w_min = f_id->width_min - \
+		infos->nbr_pad_c1 = f_id->width_min - \
 			ft_max(ft_abs(f_id->precision.width_max), infos->len_arg);
 
-		infos->nbr_pad_w_max = ft_abs(f_id->precision.width_max) - \
+		infos->nbr_pad_c2 = ft_abs(f_id->precision.width_max) - \
 			infos->len_arg;
 
 		infos->pad_rt = f_id->precision.width_max < -1 ? 1 : 0;
 
-		infos->pad_c = f_id->precision.width_max >= 0 ? '0' : ' ';
+		infos->pad_c2 = f_id->precision.width_max >= 0 ? '0' : ' ';
 
 		infos->first_c = (f_id->flags & F_HASH && \
 			(ft_abs(f_id->precision.width_max) - infos->len_arg < 1) ? '0' : 0);
@@ -89,8 +89,8 @@ void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 	write(1, &infos->sign, 1);
 	if (!infos->pad_rt)
 	{
-		ft_put_x_char(infos->pad_c, infos->nbr_pad_w_min);
-		ft_put_x_char('0', infos->nbr_pad_w_max);
+		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);
+		ft_put_x_char('0', infos->nbr_pad_c2);
 		write(1, &infos->first_c, 1);
 		ft_put_llnbr(oct);
 	}
@@ -98,10 +98,10 @@ void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 	{
 		write(1, &infos->first_c, 1);
 		ft_put_llnbr(oct);
-		ft_put_x_char(' ', infos->nbr_pad_w_max);
-		ft_put_x_char(infos->pad_c, infos->nbr_pad_w_min);
+		ft_put_x_char(' ', infos->nbr_pad_c2);
+		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);
 	}
-	f_id->nb_print_char = infos->len_arg + infos->nbr_pad_w_min + \
-		infos->nbr_pad_w_max + (infos->first_c ? 1 : 0) + \
+	f_id->nb_print_char = infos->len_arg + infos->nbr_pad_c1 + \
+		infos->nbr_pad_c2 + (infos->first_c ? 1 : 0) + \
 			(infos->sign ? 1 : 0);
 }
