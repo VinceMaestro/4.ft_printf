@@ -6,11 +6,12 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:07:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/28 15:53:41 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/03 15:13:03 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static t_format_id	*updt_f_id(t_format_id *f_id, int cpt)
 {
@@ -48,5 +49,5 @@ t_format_id			*ft_mk_all_f_id(char *str)
 			// ft_putstr(" /n");
 		}
 	}
-	return (f_id->first);
+	return (f_id ? f_id->first : NULL);
 }

@@ -51,6 +51,7 @@ $(LIBDIR)/libft.a:
 	gcc $(CFLAGS) -c $< -o $@ -g $(addprefix -I, $(INCL))
 
 $(NAME): $(OBJ) | $(LIBDIR)/libft.a
+	cp $(LIBDIR)/libft.a $(NAME)
 	ar -rc $(NAME) $(OBJ)
 
 clean:

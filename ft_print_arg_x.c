@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 10:58:29 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 10:58:30 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/03 16:05:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void						ft_print_arg_x(t_a_lst *a_lst, t_format_id *f_id)
     unsigned long long		nbr;
 	int						quartet;
 	int						hex_nbr;
+	int						offset;
 
+	offset = (f_id->arg_type == 'X' ? 0 : 32);
     nbr = (unsigned long long)a_lst->arg.ll;
 
 	quartet = ft_find_max_quartet(nbr);
