@@ -22,7 +22,9 @@ int		main(void)
 	// printf(str, 9999, "2.0", ptr, "Is : ", 80);
 	// ft_printf(str, 9999, "2.0", ptr, "Is : ", 80);
 
-	ft_printf("%x", 42);
+	ft_printf("%5c", 42);
+
+	// ft_printf("%x", 42);
 
 	// ToDo : arg_p arg_s arg_u arg_x arg_c arg_null
 

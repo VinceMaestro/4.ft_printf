@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-void		ft_save_p_a(t_a_lst *a_lst, va_list *ap)
+void		ft_save_p_a(t_a_lst *a_lst, va_list *ap, char tp)
 {
 	size_t		ptr;
 	char		*str;
@@ -22,7 +22,7 @@ void		ft_save_p_a(t_a_lst *a_lst, va_list *ap)
 	ptr = (size_t)va_arg(*ap, void*);
 	str = ft_itoabase(ptr, "0123456789abcdef");
 	a_lst->arg.s = str;
-	a_lst->arg_type = 'p';
+	a_lst->arg_type = tp;
 	// ft_putstr(a_lst->arg.s);
 	// ft_putstr("\n");
 }

@@ -86,17 +86,17 @@ void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 	oct = ft_int_to_oct(a_lst->arg.ll);
 	infos = ft_init_p_inf();
 	ft_updt_p_info(infos, oct, a_lst, f_id);
-	write(1, &infos->sign, 1);
+	infos->sign ? write(1, &infos->sign, 1) : 0;
 	if (!infos->pad_rt)
 	{
 		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);
 		ft_put_x_char('0', infos->nbr_pad_c2);
-		write(1, &infos->first_c, 1);
+		infos->first_c ? write(1, &infos->first_c, 1) : 0;
 		ft_put_llnbr(oct);
 	}
 	else
 	{
-		write(1, &infos->first_c, 1);
+		infos->first_c ? write(1, &infos->first_c, 1) : 0;
 		ft_put_llnbr(oct);
 		ft_put_x_char(' ', infos->nbr_pad_c2);
 		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);

@@ -114,7 +114,7 @@ t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst);
 t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap);
 void			ft_save_ll_a(t_a_lst *a_lst, va_list *ap, char *str);
 void			ft_save_s_a(t_a_lst *a_lst, va_list *ap, char *str);
-void			ft_save_p_a(t_a_lst *a_lst, va_list *ap);
+void			ft_save_p_a(t_a_lst *a_lst, va_list *ap, char tp);
 void			ft_save_ull_a(t_a_lst *a_lst, va_list *ap);
 
 t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);

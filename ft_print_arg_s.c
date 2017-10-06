@@ -22,7 +22,12 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	if (a_lst && f_id)
 	{
 		str = a_lst->arg.s;
-		toprint = ft_min((int)ft_strlen(str), f_id->precision.width_max);
+		// toprint = ft_min((int)ft_strlen(str), f_id->precision.width_max);
+		if (f_id->precision.period)
+			toprint = ft_min((int)ft_strlen(str), \
+				ft_abs(f_id->precision.width_max));
+		else
+			toprint = (int)ft_strlen(str);
 		len = ft_max(0, f_id->width_min - toprint);
 		if (len > 0)
 		{
@@ -41,6 +46,7 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 		}
 		if (len <= 0 || f_id->flags & ~F_MINUS || !f_id->flags)
 			ft_putnstr(str, toprint);
+
 		f_id->nb_print_char = toprint + ft_max(len, 0);
 		// if (f_id->flags.plus)
 		// 	;

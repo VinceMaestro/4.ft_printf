@@ -14,10 +14,10 @@
 
 static void		ft_save_arg(t_format_id *f_id, t_a_lst *a_lst, va_list *ap)
 {
-	if (ft_strchr("dDioOxX", f_id->arg_type))
+	if (ft_strchr("dDioO", f_id->arg_type))
 		ft_save_ll_a(a_lst, ap, ft_strchr("dDi", f_id->arg_type));
-	else if (f_id->arg_type == 'p')
-		ft_save_p_a(a_lst, ap);
+	else if (ft_strchr("pxX", f_id->arg_type))
+		ft_save_p_a(a_lst, ap, f_id->arg_type);
 	else if (ft_strchr("sScC", f_id->arg_type))
 		ft_save_s_a(a_lst, ap, ft_strchr("cC", f_id->arg_type));
 	else if (ft_strchr("uU", f_id->arg_type))

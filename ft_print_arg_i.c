@@ -73,15 +73,15 @@ void	ft_print_arg_i(t_a_lst *a_lst, t_format_id *f_id)
 	{
 		ft_put_x_char(infos->pad_c1, infos->nbr_pad_c1);
 		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c2);
-		write(1, &infos->first_c, 1);
-		write(1, &infos->sign, 1);
+		infos->first_c ? write(1, &infos->first_c, 1) : 0;
+		infos->sign ? write(1, &infos->sign, 1) : 0;
 		ft_put_llnbr(a_lst->arg.ll);
 	}
 	else
 	{
 		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c2);
-		write(1, &infos->first_c, 1);
-		write(1, &infos->sign, 1);
+		infos->first_c ? write(1, &infos->first_c, 1) : 0;
+		infos->sign ? write(1, &infos->sign, 1) : 0;
 		ft_put_llnbr(a_lst->arg.ll);
 		if (f_id->precision.width_max >= 0)
 			ft_put_x_char(infos->pad_c1, infos->nbr_pad_c1);
@@ -89,5 +89,5 @@ void	ft_print_arg_i(t_a_lst *a_lst, t_format_id *f_id)
 			ft_put_x_char(infos->pad_c1, infos->nbr_pad_c1);
 	}
 	f_id->nb_print_char = infos->len_arg + infos->nbr_pad_c2 + (infos->first_c ? 1 : 0) + \
-			(infos->sign ? 1 : 0); //+ infos->nbr_pad_c2;
+			(infos->sign ? 1 : 0) + infos->nbr_pad_c1; //+ infos->nbr_pad_c2;
 }

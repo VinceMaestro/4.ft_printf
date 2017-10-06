@@ -78,6 +78,7 @@ SRC = ft_atoi \
 		ft_strtrim \
 		ft_tolower \
 		ft_toupper \
+		ft_strtoupper \
 		ft_range \
 		ft_isblank \
 		ft_isinvisible \
