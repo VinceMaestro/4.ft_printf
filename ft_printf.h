@@ -19,13 +19,13 @@
 # define F_SPACE	(1 << 3)
 # define F_PLUS		(1 << 4)
 
-
 // # define A_TYPE_ "sSpdDioOuUxXcC"
 // # define LEN_ "hlzjhhll"
 
 # include "./libft/libft.h"
 # include <stdarg.h>
 # include <stdint.h>
+# include <limits.h>
 
 typedef struct s_precision	t_precision;
 typedef struct s_format_id	t_format_id;
@@ -112,10 +112,10 @@ void			ft_get_lenght(t_format_id *f_id, char *str);
 void			ft_get_arg_type(t_format_id *f_id, char *tmp_str);
 t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst);
 t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap);
-void			ft_save_ll_a(t_a_lst *a_lst, va_list *ap, char *str);
-void			ft_save_s_a(t_a_lst *a_lst, va_list *ap, char *str);
-void			ft_save_p_a(t_a_lst *a_lst, va_list *ap, char tp);
-void			ft_save_ull_a(t_a_lst *a_lst, va_list *ap);
+void			ft_save_ll_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
+void			ft_save_s_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
+void			ft_save_p_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
+void			ft_save_ull_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
 
 t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
 void			ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst);

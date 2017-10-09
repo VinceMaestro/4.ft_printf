@@ -22,7 +22,9 @@ int		main(void)
 	// printf(str, 9999, "2.0", ptr, "Is : ", 80);
 	// ft_printf(str, 9999, "2.0", ptr, "Is : ", 80);
 
-	ft_printf("%5c", 42);
+	// char	str[80] = "Hello %5 %\n";
+		ft_printf("%lx", 4294967296);
+		printf("%lx", 4294967296);
 
 	// ft_printf("%x", 42);
 

@@ -13,7 +13,20 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define DEF_LL			long long
+# define DEF_L			long
+# define DEF_ULL		unsigned long long
+# define DEF_UL			unsigned long
+# define DEF_UCHAR		unsigned char
+
+
 # include <string.h>
+
+typedef DEF_LL			t_ll;
+typedef DEF_L			t_l;
+typedef DEF_ULL			t_ull;
+typedef DEF_UL			t_ul;
+typedef DEF_UCHAR		t_uchar;
 
 typedef struct s_list	t_list;
 
@@ -86,7 +99,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s);
 char		**ft_strsplit(char const *s, char c);
 char		*ft_itoa(int n);
-char		*ft_itoabase(size_t nbr, const char *base);
+char		*ft_itoabase(t_ull nbr, const char *base);
 int			ft_isblank(int c);
 int			ft_isinvisible(int c);
 void		ft_foreach(int *tab, int lenght, void (*f)(int));

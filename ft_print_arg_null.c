@@ -19,6 +19,12 @@ void			ft_print_arg_null(t_format_id *f_id, char *str)
 	len = 0;
 	if (str && f_id)
 	{
+		if (f_id->flags & F_MINUS && str[f_id->nb_read_char - 1])
+		{
+			ft_putchar(str[f_id->nb_read_char - 1]);
+			f_id->nb_read_char += 1;
+			f_id->nb_print_char += 1;
+		}
 		(f_id->width_min ? len = f_id->width_min - 1 : len);
 		ft_put_x_char(' ', len);
 		f_id->nb_print_char += ft_max(len, 0);

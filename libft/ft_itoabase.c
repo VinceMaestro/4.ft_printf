@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static size_t	ft_strbaselen(size_t nbr, size_t base_len)
+static t_ull	ft_strbaselen(t_ull nbr, t_ull base_len)
 {
-	size_t	str_len;
-	size_t	tmp;
+	t_ull	str_len;
+	t_ull	tmp;
 
 	tmp = nbr;
 	str_len = 1;
@@ -24,38 +24,40 @@ static size_t	ft_strbaselen(size_t nbr, size_t base_len)
 	return (str_len);
 }
 
-static char		*ft_changebase(size_t nbr, const char *base)
+static char		*ft_changebase(t_ull nbr, const char *base)
 {
-	size_t			newstr_len;
-	size_t			base_len;
-	size_t			ordre;
-	size_t			index;
+	t_ull			newstr_len;
+	t_ull			base_len;
+	t_ull			ordre;
+	t_ull			index;
 	char			*str;
 
-	base_len = ft_strlen(base);
+	base_len = (t_ull)ft_strlen(base);
 	newstr_len = ft_strbaselen(nbr, base_len);
 	str = ft_strnew(newstr_len);
 	str[newstr_len] = 0;
 	ordre = newstr_len;
 	while (ordre > 0)
 	{
-		index = nbr / (size_t)ft_llpower(base_len, ordre - 1);
+		index = nbr / (t_ull)ft_llpower(base_len, ordre - 1);
 		str[newstr_len - ordre] = base[index];
-		nbr = nbr % (size_t)ft_llpower(base_len, ordre - 1);
+		nbr = nbr % (t_ull)ft_llpower(base_len, ordre - 1);
 		ordre--;
 	}
 	return (str);
 }
 
-char			*ft_itoabase(size_t nbr, const char *base)
+char			*ft_itoabase(t_ull nbr, const char *base)
 {
 	char		*str;
-	size_t		tmp;
+	t_ull		tmp;
+	t_ull		hello;
 
 	if (base && *base)
 	{
 		if (nbr)
 		{
+			hello = (t_ull)nbr;
 			tmp = nbr;
 			str = ft_changebase(tmp, base);
 		}
