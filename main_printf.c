@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/03 15:46:04 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/10 17:58:08 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,25 @@
 
 int		main(void)
 {
-	// char	str[80] = "-% 7.-5i First : - Second : % 04.6s - Third : %p - Done -\n";
-	// void	*ptr;
-	//
-	// ptr = &str;
-	// printf(str, 9999, "2.0", ptr, "Is : ", 80);
-	// ft_printf(str, 9999, "2.0", ptr, "Is : ", 80);
+	char		base[80] = "0123456789abcdef";
+	char		*str;
+	int			nbr;
+	int			base_len;
 
-	// char	str[80] = "Hello %5 %\n";
-		ft_printf("%lx", 4294967296);
-		printf("%lx", 4294967296);
+	base_len = ft_strlen(base);
+	nbr =	1 * base_len * base_len * base_len * base_len +\
+			1 * base_len * base_len * base_len +\
+			1 * base_len * base_len +\
+			1 * base_len +\
+			1;
+	str = ft_itoabase(nbr, base);
+	ft_putstr(str);
 
-	// ft_printf("%x", 42);
+	// char str[80] = "%*c";
+
+	// ft_printf(str, 1, 42);
+	// printf(str, 1, 42);
+
 
 	// ToDo : arg_p arg_s arg_u arg_x arg_c arg_null
 

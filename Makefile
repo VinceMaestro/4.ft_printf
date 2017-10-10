@@ -60,7 +60,6 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	make -C $(LIBDIR) fclean
+	/bin/rm -f $(LIBDIR)/libft.a
 
 re: fclean all
-	make -C $(LIBDIR) re

@@ -6,14 +6,14 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/28 15:49:34 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/10 17:13:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static t_ull				*ft_get_max(char *str)
+static t_ull		ft_get_max(char *str)
 {
 	t_ull		max;
 
@@ -29,7 +29,7 @@ static t_ull				*ft_get_max(char *str)
 	return (max);
 }
 
-static t_ll					*ft_get_min(char *str)
+static t_ll			ft_get_min(char *str)
 {
 	t_ll		min;
 
@@ -42,10 +42,12 @@ static t_ll					*ft_get_min(char *str)
 	return (min);
 }
 
-static char					*ft_get_str(t_a_lst *a_lst, t_format_id *f_id)
+static char			*ft_get_str(t_a_lst *a_lst, t_format_id *f_id, va_list *ap)
 {
 	char		*tmp_str;
+	// size_t		ptr;
 	t_ull		max;
+	t_ui		ptr;
 	t_ll		min;
 
 	tmp_str = NULL;
@@ -56,21 +58,20 @@ static char					*ft_get_str(t_a_lst *a_lst, t_format_id *f_id)
 	else
 		tmp_str = a_lst->arg.s;
 
+	ptr = (t_ui)va_arg(*ap, void*);
 
 	tmp_str = ft_itoabase(ptr, "0123456789abcdef");
 	return (tmp_str);
 }
 
-void		ft_save_p_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap)
+void				ft_save_p_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap)
 {
-	size_t				ptr;
 	char				*str;
 
 	if (a_lst && f_id)
 	{
 		// ft_putstr("-- SAVING pointer : ");
-		ptr = (size_t)va_arg(*ap, void*);
-		str = ft_get_str(a_lst, f_id);
+		str = ft_get_str(a_lst, f_id, ap);
 		a_lst->arg.s = str;
 		a_lst->arg_type = f_id->arg_type;
 		// ft_putstr(a_lst->arg.s);
