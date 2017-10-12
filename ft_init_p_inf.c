@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 14:32:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/29 13:59:10 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 14:39:52 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_p_inf			*ft_init_p_inf()
 
 	infos = NULL;
 	if (!(infos = (t_p_inf*)malloc(sizeof(t_p_inf))))
-		ft_error("ft_print_arg_o: ft_init_p_inf: input error");
+		ft_error("ft_print_a_o: ft_init_p_inf: input error");
 	else
 	{
-		infos->len_arg = 0;
+		infos->len_a = 0;
 		infos->nbr_pad_c1 = 0;
 		infos->nbr_pad_c2 = 0;
 		infos->pad_rt = 0;

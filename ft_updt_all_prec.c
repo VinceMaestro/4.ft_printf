@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_new_a_lst_elem.c                                :+:      :+:    :+:   */
+/*   ft_updt_all_prec.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/16 20:37:14 by vpetit            #+#    #+#             */
-/*   Updated: 2017/05/16 21:38:06 by vpetit           ###   ########.fr       */
+/*   Created: 2017/06/13 20:16:36 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/12 17:22:49 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst)
+void		ft_updt_all_prec(t_f_id *f_id, t_a_lst *a_lst)
 {
-	if (a_lst)
+	while (f_id && a_lst)
 	{
-		a_lst->next = ft_init_a_lst(a_lst);
-		a_lst = a_lst->next;
+		if (f_id->prec.period && f_id->prec.period == '*')
+		{
+			f_id->prec.nb_dgt = a_lst->a.ll;
+			a_lst = a_lst->next;
+		}
+		a_lst ? a_lst = a_lst->next : NULL;
+		f_id = f_id->next;
 	}
-	else
-		a_lst = ft_init_a_lst(a_lst);
-	return (a_lst);
 }

@@ -6,7 +6,7 @@
 #    By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 21:24:23 by vpetit            #+#    #+#              #
-#    Updated: 2017/09/27 18:13:51 by vpetit           ###   ########.fr        #
+#    Updated: 2017/10/12 16:13:04 by vpetit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = ft_atoi \
 		ft_isprint \
 		ft_itoa \
 		ft_itoabase \
+		ft_ltoabase \
 		ft_lstadd \
 		ft_lstdel \
 		ft_lstdelone \

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_arg_s.c                                   :+:      :+:    :+:   */
+/*   ft_print_a_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/26 18:04:39 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 17:22:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
+void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
 {
 	char		*str;
 	int			len;
@@ -21,14 +21,14 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 	len = 0;
 	if (a_lst && f_id)
 	{
-		str = a_lst->arg.s;
-		// toprint = ft_min((int)ft_strlen(str), f_id->precision.width_max);
-		if (f_id->precision.period)
+		str = a_lst->a.s;
+		// toprint = ft_min((int)ft_strlen(str), f_id->prec.nb_dgt);
+		if (f_id->prec.period)
 			toprint = ft_min((int)ft_strlen(str), \
-				ft_abs(f_id->precision.width_max));
+				ft_abs(f_id->prec.nb_dgt));
 		else
 			toprint = (int)ft_strlen(str);
-		len = ft_max(0, f_id->width_min - toprint);
+		len = ft_max(0, f_id->w_min - toprint);
 		if (len > 0)
 		{
 			if (f_id->flags & F_MINUS)
@@ -47,7 +47,7 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 		if (len <= 0 || f_id->flags & ~F_MINUS || !f_id->flags)
 			ft_putnstr(str, toprint);
 
-		f_id->nb_print_char = toprint + ft_max(len, 0);
+		f_id->nb_p_c = toprint + ft_max(len, 0);
 		// if (f_id->flags.plus)
 		// 	;
 		// if (f_id->flags.hash)
@@ -56,5 +56,5 @@ void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id)
 		// 	;
 	}
 	else
-		ft_putstr("ft_print_arg_s: !a_lst or !f_id\n");
+		ft_putstr("ft_print_a_s: !a_lst or !f_id\n");
 }

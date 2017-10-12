@@ -4,36 +4,36 @@ CFLAGS = -Wall -Werror -Wextra
 
 SRC = ft_printf.c \
 		ft_error.c \
-		ft_init_format_id.c \
+		ft_init_f_id.c \
 		ft_init_a_lst.c \
 		ft_init_p_inf.c \
 		ft_mk_all_f_id.c \
-		ft_get_all_infos.c \
-		ft_get_parameter.c \
+		ft_mk_new_f_id.c \
+		ft_get_param.c \
 		ft_get_flags.c \
-		ft_get_width_min.c \
-		ft_get_precision.c \
+		ft_get_w_min.c \
+		ft_get_prec.c \
 		ft_get_lenght.c \
-		ft_get_arg_type.c \
+		ft_get_a_tp.c \
 		ft_mk_all_a_lst.c \
-		ft_save_ll_a.c \
-		ft_save_s_a.c \
-		ft_save_p_a.c \
-		ft_save_ull_a.c \
-		ft_new_a_lst_elem.c \
-		ft_p_f_id.c \
+		ft_save_a_ll.c \
+		ft_save_a_s.c \
+		ft_save_a_p.c \
+		ft_save_a_ull.c \
+		ft_mk_new_a_lst.c \
+		ft_print_arg.c \
 		dbug_p_f_id.c \
 		dbug_p_all_f_id.c \
-		ft_p_all_f_id.c \
-		ft_print_arg_s.c \
-		ft_print_arg_i.c \
-		ft_print_arg_x.c \
-		ft_print_arg_u.c \
-		ft_print_arg_null.c \
-		ft_updt_all_precision.c \
-		ft_print_arg_o.c \
-		ft_print_arg_c.c \
-		ft_print_arg_p.c
+		ft_print_all.c \
+		ft_print_a_s.c \
+		ft_print_a_i.c \
+		ft_print_a_x.c \
+		ft_print_a_u.c \
+		ft_print_a_null.c \
+		ft_updt_all_prec.c \
+		ft_print_a_o.c \
+		ft_print_a_c.c \
+		ft_print_a_p.c
 
 LIBDIR = ./libft
 

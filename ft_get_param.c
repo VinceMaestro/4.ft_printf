@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_updt_all_precision.c                            :+:      :+:    :+:   */
+/*   ft_get_param.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/13 20:16:36 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/31 10:58:15 by vpetit           ###   ########.fr       */
+/*   Created: 2017/04/05 17:02:40 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/12 14:48:48 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst)
+void		ft_get_param(t_f_id *f_id, char *tmp_str)
 {
-	while (f_id && a_lst)
+	int		nbr_len;
+	int		save_nbr;
+	int		nb_r_c;
+
+	nbr_len = 0;
+	nb_r_c = 1;
+	save_nbr = ft_atoi(&tmp_str[nb_r_c]);
+	if (save_nbr)
+		nbr_len = ft_intlen(save_nbr);
+	if (tmp_str[nbr_len + nb_r_c] == '$')
 	{
-		if (f_id->precision.period && f_id->precision.period == '*')
-		{
-			f_id->precision.width_max = a_lst->arg.ll;
-			a_lst = a_lst->next;
-		}
-		a_lst ? a_lst = a_lst->next : NULL;
-		f_id = f_id->next;
+		nb_r_c++;
+		f_id->nb_r_c = nbr_len + nb_r_c;
 	}
+	else
+		f_id->nb_r_c = nb_r_c;
 }

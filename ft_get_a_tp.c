@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_save_ull_a.c                                    :+:      :+:    :+:   */
+/*   ft_get_a_tp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/31 11:32:41 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/10 13:25:06 by vpetit           ###   ########.fr       */
+/*   Created: 2017/03/30 03:19:17 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/12 14:48:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdlib.h>
 
-void		ft_save_ull_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap)
+void			ft_get_a_tp(t_f_id *f_id, char *tmp_str)
 {
-	if (a_lst && f_id)
+	char	list[15];
+
+	ft_strcpy(list, "sSpdDioOuUxXcC\0");
+	if (tmp_str[0])
 	{
-		// ft_putstr("-- SAVING unsigned ll : ");
-		a_lst->arg.ull = va_arg(*ap, unsigned long long);
-		// ft_putnbr(a_lst->arg.ull);
-		// ft_putstr("\n");
-		a_lst->arg_type = (f_id->arg_type ? f_id->arg_type : 'U');
+		if (ft_strchr(list, tmp_str[0]))
+			f_id->a_tp = tmp_str[0];
+		f_id->nb_r_c = 1;
 	}
 }

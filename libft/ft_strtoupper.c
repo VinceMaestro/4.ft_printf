@@ -3,12 +3,14 @@
 char		*ft_strtoupper(char *str)
 {
 	int		i;
+	char	*tmp;
 
 	i = 0;
-	while (str[i])
+	tmp = str;
+	while (tmp[i])
 	{
-		str[i] = ft_toupper(str[i]);
+		tmp[i] = ft_toupper(tmp[i]);
 		i++;
 	}
-	return (str);
+	return (tmp);
 }

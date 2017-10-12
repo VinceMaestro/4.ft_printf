@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_arg_o.c                                   :+:      :+:    :+:   */
+/*   ft_print_a_o.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/29 17:00:15 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 17:22:34 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,37 +53,37 @@ static long long	ft_int_to_oct(long long nbr)
 }
 
 static void			ft_updt_p_info(t_p_inf *infos, long long oct, \
-	t_a_lst *a_lst, t_format_id *f_id)
+	t_a_lst *a_lst, t_f_id *f_id)
 {
 	if (infos && a_lst && f_id)
 	{
-		infos->len_arg = ft_llintlen(oct);
+		infos->len_a = ft_llintlen(oct);
 
-		infos->nbr_pad_c1 = f_id->width_min - \
-			ft_max(ft_abs(f_id->precision.width_max), infos->len_arg);
+		infos->nbr_pad_c1 = f_id->w_min - \
+			ft_max(ft_abs(f_id->prec.nb_dgt), infos->len_a);
 
-		infos->nbr_pad_c2 = ft_abs(f_id->precision.width_max) - \
-			infos->len_arg;
+		infos->nbr_pad_c2 = ft_abs(f_id->prec.nb_dgt) - \
+			infos->len_a;
 
-		infos->pad_rt = f_id->precision.width_max < -1 ? 1 : 0;
+		infos->pad_rt = f_id->prec.nb_dgt < -1 ? 1 : 0;
 
-		infos->pad_c2 = f_id->precision.width_max >= 0 ? '0' : ' ';
+		infos->pad_c2 = f_id->prec.nb_dgt >= 0 ? '0' : ' ';
 
 		infos->first_c = (f_id->flags & F_HASH && \
-			(ft_abs(f_id->precision.width_max) - infos->len_arg < 1) ? '0' : 0);
+			(ft_abs(f_id->prec.nb_dgt) - infos->len_a < 1) ? '0' : 0);
 
 		infos->sign = (f_id->flags & F_PLUS && oct > 0 ? '+' : 0);
 	}
 	else
-		ft_error("ft_print_arg_o: ft_init_p_inf: input error");
+		ft_error("ft_print_a_o: ft_init_p_inf: input error");
 }
 
-void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
+void				ft_print_a_o(t_a_lst *a_lst, t_f_id *f_id)
 {
 	long long	oct;
 	t_p_inf		*infos;
 
-	oct = ft_int_to_oct(a_lst->arg.ll);
+	oct = ft_int_to_oct(a_lst->a.ll);
 	infos = ft_init_p_inf();
 	ft_updt_p_info(infos, oct, a_lst, f_id);
 	infos->sign ? write(1, &infos->sign, 1) : 0;
@@ -101,7 +101,7 @@ void				ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id)
 		ft_put_x_char(' ', infos->nbr_pad_c2);
 		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);
 	}
-	f_id->nb_print_char = infos->len_arg + infos->nbr_pad_c1 + \
+	f_id->nb_p_c = infos->len_a + infos->nbr_pad_c1 + \
 		infos->nbr_pad_c2 + (infos->first_c ? 1 : 0) + \
 			(infos->sign ? 1 : 0);
 }

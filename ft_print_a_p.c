@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_arg_type.c                                  :+:      :+:    :+:   */
+/*   ft_print_a_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 03:19:17 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 15:33:42 by vpetit           ###   ########.fr       */
+/*   Created: 2017/10/12 14:46:34 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/12 14:50:46 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_get_arg_type(t_format_id *f_id, char *tmp_str)
+void	ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id)
 {
-	char	list[15];
-
-	ft_strcpy(list, "sSpdDioOuUxXcC\0");
-	if (tmp_str[0])
+	if (a_lst && f_id)
 	{
-		if (ft_strchr(list, tmp_str[0]))
-			f_id->arg_type = tmp_str[0];
-		f_id->nb_read_char = 1;
+		ft_putstr("0x");
+		ft_putstr(a_lst->a.s);
+		f_id->nb_p_c = ft_strlen(a_lst->a.s) + 2;
 	}
+	else
+		ft_error("ft_print_a_p: Should'nt hapend");
 }

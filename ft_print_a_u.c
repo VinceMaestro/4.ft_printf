@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_arg_null.c                                :+:      :+:    :+:   */
+/*   ft_print_a_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/19 19:14:47 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/23 13:57:02 by vpetit           ###   ########.fr       */
+/*   Created: 2017/10/12 14:46:44 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/12 17:08:43 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_print_arg_null(t_format_id *f_id, char *str)
+void	ft_print_a_u(t_a_lst *a_lst, t_f_id *f_id)
 {
-	int		len;
-
-	len = 0;
-	if (str && f_id)
+	if (a_lst && f_id)
 	{
-		if (f_id->flags & F_MINUS && str[f_id->nb_read_char - 1])
-		{
-			ft_putchar(str[f_id->nb_read_char - 1]);
-			f_id->nb_read_char += 1;
-			f_id->nb_print_char += 1;
-		}
-		(f_id->width_min ? len = f_id->width_min - 1 : len);
-		ft_put_x_char(' ', len);
-		f_id->nb_print_char += ft_max(len, 0);
+		ft_put_ullnbr(a_lst->a.ull);
+		f_id->nb_p_c = ft_ullintlen(a_lst->a.ull);
 	}
 	else
-		ft_error("ft_print_arg_null: Shouldn't happend");
+		ft_error("ft_print_a_u : Should not happend\n");
 }

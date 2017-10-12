@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/09/29 13:58:56 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 17:22:46 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@
 # include <stdint.h>
 # include <limits.h>
 
-typedef struct s_precision	t_precision;
-typedef struct s_format_id	t_format_id;
-typedef struct s_list_arg	t_a_lst;
+typedef struct s_prec		t_prec;
+typedef struct s_f_id		t_f_id;
+typedef struct s_list_a		t_a_lst;
 typedef union u_union		t_union;
 
-typedef struct s_p_inf	t_p_inf;
+typedef struct s_p_inf		t_p_inf;
 
 struct			s_p_inf
 {
-	int			len_arg;
+	int			len_a;
 	int			nbr_pad_c1;
 	int			nbr_pad_c2;
 	int			pad_rt;
@@ -46,25 +46,25 @@ struct			s_p_inf
 	char		sign; //signed_c
 };
 
-struct			s_precision
+struct			s_prec
 {
 	char	period;
-	int		width_max;
+	int		nb_dgt;
 };
 
-struct			s_format_id
+struct			s_f_id
 {
-	int			parameter;
+	int			param;
 	uint32_t	flags;
-	int			width_min;
-	t_precision	precision;
+	int			w_min;
+	t_prec		prec;
 	char		*lenght;
-	char		arg_type;
-	int			nb_read_char;
-	int			nb_print_char;
+	char		a_tp;
+	int			nb_r_c;
+	int			nb_p_c;
 	int			start_pos;
-	t_format_id	*first;
-	t_format_id	*next;
+	t_f_id	*first;
+	t_f_id	*next;
 };
 
 union			u_union
@@ -75,11 +75,11 @@ union			u_union
 	double				d;
 };
 
-struct			s_list_arg
+struct			s_list_a
 {
 	int				nbr;
-	char			arg_type;
-	t_union			arg;
+	char			a_tp;
+	t_union			a;
 	size_t			len;
 	t_a_lst			*next;
 	t_a_lst			*first;
@@ -87,40 +87,40 @@ struct			s_list_arg
 
 void			ft_error(char *msg);
 int				ft_printf(char *str, ...);
-int				ft_p_all_f_id(t_format_id *f_id ,t_a_lst *a_lst, char *str);
+int				ft_print_all(t_f_id *f_id ,t_a_lst *a_lst, char *str);
 
-void			dbug_p_all_f_id(t_format_id *f_id);
-void			dbug_p_f_id(t_format_id *f_id);
+void			dbug_p_all_f_id(t_f_id *f_id);
+void			dbug_p_f_id(t_f_id *f_id);
 
-t_a_lst			*ft_p_f_id(t_format_id *f_id, t_a_lst *a_lst);
-void			ft_print_arg_s(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_p(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_i(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_o(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_u(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_x(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_c(t_a_lst *a_lst, t_format_id *f_id);
-void			ft_print_arg_null(t_format_id *f_id, char *str);
+t_a_lst			*ft_print_arg(t_f_id *f_id, t_a_lst *a_lst, char *str);
+void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_i(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_o(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_u(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_x(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_c(t_a_lst *a_lst, t_f_id *f_id);
+void			ft_print_a_null(t_f_id *f_id, char *str);
 
-t_format_id		*ft_mk_all_f_id(char *str);
-void			ft_get_all_infos(t_format_id *f_id, char *str);
-void			ft_get_parameter(t_format_id *f_id, char *tmp_str);
-void			ft_get_flags(t_format_id *f_id, char *tmp_str);
-void			ft_get_width_min(t_format_id *f_id, char *tmp_str);
-void			ft_get_precision(t_format_id *f_id, char *tmp_str);
-void			ft_get_lenght(t_format_id *f_id, char *str);
-void			ft_get_arg_type(t_format_id *f_id, char *tmp_str);
-t_a_lst			*ft_new_a_lst_elem(t_a_lst *a_lst);
-t_a_lst			*ft_mk_all_a_lst(t_format_id *f_id, va_list *ap);
-void			ft_save_ll_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
-void			ft_save_s_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
-void			ft_save_p_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
-void			ft_save_ull_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap);
+t_f_id			*ft_mk_all_f_id(char *str);
+void			ft_mk_new_f_id(t_f_id *f_id, char *str);
+void			ft_get_param(t_f_id *f_id, char *tmp_str);
+void			ft_get_flags(t_f_id *f_id, char *tmp_str);
+void			ft_get_w_min(t_f_id *f_id, char *tmp_str);
+void			ft_get_prec(t_f_id *f_id, char *tmp_str);
+void			ft_get_lenght(t_f_id *f_id, char *str);
+void			ft_get_a_tp(t_f_id *f_id, char *tmp_str);
+t_a_lst			*ft_mk_new_a_lst(t_a_lst *a_lst);
+t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap);
+void			ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
+void			ft_save_a_s(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
+void			ft_save_a_p(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
+void			ft_save_a_ull(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
 
 t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
-void			ft_updt_all_precision(t_format_id *f_id, t_a_lst *a_lst);
+void			ft_updt_all_prec(t_f_id *f_id, t_a_lst *a_lst);
 
-t_format_id		*ft_init_format_id(t_format_id *f_id, int nbr);
+t_f_id			*ft_init_f_id(t_f_id *f_id, int nbr);
 
 t_p_inf			*ft_init_p_inf();
 

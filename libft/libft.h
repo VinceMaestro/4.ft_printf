@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/10 17:59:11 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 16:44:37 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define DEF_ULL		unsigned long long
 # define DEF_UL			unsigned long
 # define DEF_UI			unsigned int
+# define DEF_US			unsigned short
 # define DEF_UCHAR		unsigned char
 
 
@@ -28,6 +29,7 @@ typedef DEF_L			t_l;
 typedef DEF_ULL			t_ull;
 typedef DEF_UL			t_ul;
 typedef DEF_UI			t_ui;
+typedef DEF_US			t_us;
 typedef DEF_UCHAR		t_uchar;
 
 typedef struct s_list	t_list;
@@ -102,6 +104,7 @@ char		*ft_strtrim(char const *s);
 char		**ft_strsplit(char const *s, char c);
 char		*ft_itoa(int n);
 char		*ft_itoabase(int nbr, const char *base);
+char		*ft_ltoabase(t_l nbr, const char *base);
 int			ft_isblank(int c);
 int			ft_isinvisible(int c);
 void		ft_foreach(int *tab, int lenght, void (*f)(int));

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_arg_x.c                                   :+:      :+:    :+:   */
+/*   ft_print_a_null.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/31 10:58:29 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/10 13:27:46 by vpetit           ###   ########.fr       */
+/*   Created: 2017/06/19 19:14:47 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/12 14:50:32 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// str = (!f_id->lenght && (ptr > INT_MAX || ptr < INT_MIN)) ? strdup("0") :
-	// ft_itoabase(ptr, "0123456789abcdef");
-
-void						ft_print_arg_x(t_a_lst *a_lst, t_format_id *f_id)
+void			ft_print_a_null(t_f_id *f_id, char *str)
 {
-	char		*str;
+	int		len;
 
-	str = NULL;
-	if (a_lst && f_id)
+	len = 0;
+	if (str && f_id)
 	{
-		str = a_lst->arg.s;
-		ft_putstr(str);
-		f_id->nb_print_char = ft_strlen(str);
+		if (f_id->flags & F_MINUS && str[f_id->nb_r_c - 1])
+		{
+			ft_putchar(str[f_id->nb_r_c - 1]);
+			f_id->nb_r_c += 1;
+			f_id->nb_p_c += 1;
+		}
+		(f_id->w_min ? len = f_id->w_min - 1 : len);
+		ft_put_x_char(' ', len);
+		f_id->nb_p_c += ft_max(len, 0);
 	}
 	else
-		ft_error("ft_print_arg_p: Should'nt hapend");
+		ft_error("ft_print_a_null: Shouldn't happend");
 }

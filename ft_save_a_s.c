@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_save_s_a.c                                      :+:      :+:    :+:   */
+/*   ft_save_a_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:35 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/10 13:18:37 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 14:51:50 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-void		ft_save_s_a(t_a_lst *a_lst, t_format_id *f_id, va_list *ap)
+void		ft_save_a_s(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
 	if (a_lst && f_id)
 	{
-		if (f_id->arg_type && (f_id->arg_type == 'c' || f_id->arg_type == 'C'))
+		if (f_id->a_tp && (f_id->a_tp == 'c' || f_id->a_tp == 'C'))
 		{
 			// ft_putstr("-- SAVING char : ");
-			a_lst->arg.ll = va_arg(*ap, int);
-			a_lst->arg_type = f_id->arg_type;
-			// ft_putchar(a_lst->arg.ll);
+			a_lst->a.ll = va_arg(*ap, int);
+			a_lst->a_tp = f_id->a_tp;
+			// ft_putchar(a_lst->a.ll);
 			// ft_putstr("\n");
 		}
 		else
 		{
 			// ft_putstr("-- SAVING string : ");
-			a_lst->arg.s = va_arg(*ap, char*);
-			a_lst->arg_type = f_id->arg_type;
-			// ft_putstr(a_lst->arg.s);
+			a_lst->a.s = va_arg(*ap, char*);
+			a_lst->a_tp = f_id->a_tp;
+			// ft_putstr(a_lst->a.s);
 			// ft_putstr("\n");
 		}
 	}

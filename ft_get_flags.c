@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:47:12 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 15:34:14 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 14:48:36 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_save_flag(t_format_id *f_id, char c)
+static int		ft_save_flag(t_f_id *f_id, char c)
 {
 	if (c == '#')
 		f_id->flags = f_id->flags | F_HASH;
@@ -29,7 +29,7 @@ static int		ft_save_flag(t_format_id *f_id, char c)
 	return (1);
 }
 
-void			ft_get_flags(t_format_id *f_id, char *tmp_str)
+void			ft_get_flags(t_f_id *f_id, char *tmp_str)
 {
 	char		list[6];
 	int			pos;
@@ -53,6 +53,6 @@ void			ft_get_flags(t_format_id *f_id, char *tmp_str)
 			}
 			i++;
 		}
-		f_id->nb_read_char = pos;
+		f_id->nb_r_c = pos;
 	}
 }

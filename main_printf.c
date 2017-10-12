@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/10 17:58:08 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/12 17:15:49 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,15 @@
 
 int		main(void)
 {
-	char		base[80] = "0123456789abcdef";
-	char		*str;
-	int			nbr;
-	int			base_len;
+	// char	str[80] = "abcde";
+	// char	*tmp;
 
-	base_len = ft_strlen(base);
-	nbr =	1 * base_len * base_len * base_len * base_len +\
-			1 * base_len * base_len * base_len +\
-			1 * base_len * base_len +\
-			1 * base_len +\
-			1;
-	str = ft_itoabase(nbr, base);
-	ft_putstr(str);
+	// tmp = ft_strtoupper(str);
 
-	// char str[80] = "%*c";
+	// ft_printf(str);
 
-	// ft_printf(str, 1, 42);
-	// printf(str, 1, 42);
+	ft_printf("%-10x", 42);
+	printf("%-10x", 42);
 
 
 	// ToDo : arg_p arg_s arg_u arg_x arg_c arg_null
@@ -40,6 +31,21 @@ int		main(void)
 	// Doing: arg_i
 
 	// Done : arg_o //exept len modifier
+
+
+	// char		base[80] = "0123456789abcdef";
+	// int			base_len;
+	// int			nbr;
+	//
+	// base_len = ft_strlen(base);
+	// nbr =	15 * base_len * base_len * base_len * base_len +\
+	// 		0 * base_len * base_len * base_len +\
+	// 		0 * base_len * base_len +\
+	// 		0 * base_len +\
+	// 		0;
+	// str = ft_itoabase(nbr, base);
+	// ft_putstr(str);
+
 
 	return (0);
 }
