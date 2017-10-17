@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 17:15:49 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/17 12:34:53 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int		main(void)
 
 	// ft_printf(str);
 
-	ft_printf("%-10x", 42);
-	printf("%-10x", 42);
+	ft_printf("%#x", 0);
+	printf("%#x", 0);
 
 
 	// ToDo : arg_p arg_s arg_u arg_x arg_c arg_null

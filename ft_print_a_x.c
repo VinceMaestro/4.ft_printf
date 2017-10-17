@@ -6,11 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 10:58:29 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 18:29:27 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/17 12:42:08 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+#include <stdio.h>
 
 void			ft_putsign(char c, uint32_t flags, int w_min)
 {
@@ -31,8 +33,8 @@ void			ft_print_a_x(t_a_lst *a_lst, t_f_id *f_id)
 
 	if (a_lst && f_id)
 	{
-		len_a = ft_strlen(a_lst->a.s) + ((f_id->flags & F_PLUS) ? 1 : 0) + ((f_id->flags & F_HASH) && \
-				a_lst->a.s ? 1 : 0);
+		len_a = ft_strlen(a_lst->a.s) + ((f_id->flags & F_PLUS) ? 1 : 0) + \
+		((f_id->flags & F_HASH) && (a_lst->a.s[0] != '0') ? 1 : 0);
 		len_nb_dgt = (f_id->prec.period ? ft_abs(f_id->prec.nb_dgt) : 0) - \
 			ft_strlen(a_lst->a.s) - \
 			(f_id->flags & F_HASH && (a_lst->a.s[0] != '0') ? 1 : 0);
@@ -44,15 +46,15 @@ void			ft_print_a_x(t_a_lst *a_lst, t_f_id *f_id)
 			ft_putsign(a_lst->a.s[0], f_id->flags, len_w_min);
 			ft_put_x_char((f_id->flags & F_ZERO && !f_id->prec.period) ? '0' : \
 				' ', len_w_min);
-			if (f_id->flags & F_HASH && a_lst->a.s[0] != '0' && )
-				ft_putstr("0x");
+			if (f_id->flags & F_HASH && a_lst->a.s[0] != '0')
+				a_lst->a_tp == 'x' ? ft_putstr("0x") : ft_putstr("0X");
 			ft_put_x_char('0', len_nb_dgt);
 			ft_putstr(a_lst->a.s);
 		}
 		if (f_id->flags & F_MINUS)
 		{
 			if (f_id->flags & F_HASH && a_lst->a.s[0] != '0')
-				ft_putstr("0x");
+				a_lst->a_tp == 'x' ? ft_putstr("0x") : ft_putstr("0X");
 			ft_putsign(a_lst->a.s[0], f_id->flags, len_w_min);
 			ft_put_x_char('0', len_nb_dgt);
 			ft_putstr(a_lst->a.s);
@@ -60,6 +62,8 @@ void			ft_print_a_x(t_a_lst *a_lst, t_f_id *f_id)
 		}
 		f_id->nb_p_c = len_a + ft_max(0, len_w_min) + ft_max(0, len_nb_dgt) + \
 			((f_id->flags & F_HASH) && (a_lst->a.s[0] != '0') ? 1 : 0);
+
+		// printf("len_a = %i || len_w_min = %i || len_nb_dgt = %i || a_lst->a.s[0] = %c\n", len_a, len_w_min, len_nb_dgt, a_lst->a.s[0]);
 	}
 	else
 		ft_error("ft_print_a_p: Should'nt hapend");
