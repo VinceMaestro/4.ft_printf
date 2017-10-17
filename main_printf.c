@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/17 12:34:53 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/17 17:29:54 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 int		main(void)
 {
-	// char	str[80] = "abcde";
+	char	str[80] = "abcde";
 	// char	*tmp;
 
 	// tmp = ft_strtoupper(str);
 
 	// ft_printf(str);
 
-	ft_printf("%#x", 0);
-	printf("%#x", 0);
+	ft_printf("%s %s", NULL, str);
+	// printf("%#x", 0);
 
 
 	// ToDo : arg_p arg_s arg_u arg_x arg_c arg_null

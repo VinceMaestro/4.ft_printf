@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:26:59 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 16:21:09 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/17 17:59:11 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void		ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
 	if (a_lst && f_id)
 	{
-		if (f_id->a_tp && (f_id->a_tp == 'd' || f_id->a_tp == 'D' \
-			|| f_id->a_tp == 'i'))
+		if (f_id->a_tp && (f_id->a_tp == 'd' || f_id->a_tp == 'i'))
 		{
 			// ft_putstr("-- SAVING signed i : ");
 			a_lst->a.ll = va_arg(*ap, int);

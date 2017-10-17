@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 17:22:38 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/17 17:44:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
 	int			toprint;
 
 	len = 0;
-	if (a_lst && f_id)
+	if (a_lst && f_id && a_lst->a.s)
 	{
 		str = a_lst->a.s;
 		// toprint = ft_min((int)ft_strlen(str), f_id->prec.nb_dgt);
@@ -55,6 +55,9 @@ void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
 		// if (f_id->flags.space)
 		// 	;
 	}
-	else
-		ft_putstr("ft_print_a_s: !a_lst or !f_id\n");
+	else if (a_lst && f_id)
+		{
+			ft_putstr("(null)");
+			f_id->nb_p_c = 6;
+		}
 }
