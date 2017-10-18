@@ -59,18 +59,18 @@ static void			ft_updt_p_info(t_p_inf *infos, long long oct, \
 	{
 		infos->len_a = ft_llintlen(oct);
 
-		infos->nbr_pad_c1 = f_id->w_min - \
+		infos->nbr_pad_w_min = f_id->w_min - \
 			ft_max(ft_abs(f_id->prec.nb_dgt), infos->len_a);
 
-		infos->nbr_pad_c2 = ft_abs(f_id->prec.nb_dgt) - \
+		infos->nbr_pad_dgt = ft_abs(f_id->prec.nb_dgt) - \
 			infos->len_a;
 
 		infos->pad_rt = f_id->prec.nb_dgt < -1 ? 1 : 0;
 
-		infos->pad_c2 = f_id->prec.nb_dgt >= 0 ? '0' : ' ';
+		infos->pad_dgt = f_id->prec.nb_dgt >= 0 ? '0' : ' ';
 
 		infos->first_c = (f_id->flags & F_HASH && \
-			(ft_abs(f_id->prec.nb_dgt) - infos->len_a < 1) ? '0' : 0);
+			(ft_abs(f_id->prec.nb_dgt) - infos->len_a < 1) ? "0" : 0);
 
 		infos->sign = (f_id->flags & F_PLUS && oct > 0 ? '+' : 0);
 	}
@@ -89,19 +89,19 @@ void				ft_print_a_o(t_a_lst *a_lst, t_f_id *f_id)
 	infos->sign ? write(1, &infos->sign, 1) : 0;
 	if (!infos->pad_rt)
 	{
-		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);
-		ft_put_x_char('0', infos->nbr_pad_c2);
-		infos->first_c ? write(1, &infos->first_c, 1) : 0;
+		ft_put_x_char(infos->pad_dgt, infos->nbr_pad_w_min);
+		ft_put_x_char('0', infos->nbr_pad_dgt);
+		*infos->first_c ? write(1, infos->first_c, 1) : 0;
 		ft_put_llnbr(oct);
 	}
 	else
 	{
-		infos->first_c ? write(1, &infos->first_c, 1) : 0;
+		*infos->first_c ? write(1, infos->first_c, 1) : 0;
 		ft_put_llnbr(oct);
-		ft_put_x_char(' ', infos->nbr_pad_c2);
-		ft_put_x_char(infos->pad_c2, infos->nbr_pad_c1);
+		ft_put_x_char(' ', infos->nbr_pad_dgt);
+		ft_put_x_char(infos->pad_dgt, infos->nbr_pad_w_min);
 	}
-	f_id->nb_p_c = infos->len_a + infos->nbr_pad_c1 + \
-		infos->nbr_pad_c2 + (infos->first_c ? 1 : 0) + \
+	f_id->nb_p_c = infos->len_a + infos->nbr_pad_w_min + \
+		infos->nbr_pad_dgt + (*infos->first_c ? 1 : 0) + \
 			(infos->sign ? 1 : 0);
 }

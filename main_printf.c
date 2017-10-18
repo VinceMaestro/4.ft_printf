@@ -15,15 +15,16 @@
 
 int		main(void)
 {
-	char	str[80] = "abcde";
+	// char	str[80] = "abcde";
 	// char	*tmp;
 
 	// tmp = ft_strtoupper(str);
 
 	// ft_printf(str);
 
-	ft_printf("%s %s", NULL, str);
-	// printf("%#x", 0);
+	ft_printf("@moulitest: %5.3x %5.0x", 0, 0);
+	printf("@moulitest: %5.3x %5.0x", 0, 0);
+	// ft_putnbr((printf("%07x", 0)));
 
 
 	// ToDo : arg_p arg_s arg_u arg_x arg_c arg_null

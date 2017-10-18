@@ -23,8 +23,8 @@ t_p_inf			*ft_init_p_inf()
 	else
 	{
 		infos->len_a = 0;
-		infos->nbr_pad_c1 = 0;
-		infos->nbr_pad_c2 = 0;
+		infos->nbr_pad_w_min = 0;
+		infos->nbr_pad_dgt = 0;
 		infos->pad_rt = 0;
 	}
 	return (infos);

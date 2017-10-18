@@ -24,6 +24,7 @@ SRC = ft_atoi \
 		ft_isdigit \
 		ft_isprint \
 		ft_itoa \
+		ft_stoabase \
 		ft_itoabase \
 		ft_ltoabase \
 		ft_lstadd \

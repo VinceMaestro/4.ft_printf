@@ -22,11 +22,13 @@ static t_ull		ft_get_max(char *str)
 	max = (t_ull)INT_MAX;
 	if (str && *str)
 	{
-		if (str[0] == 'l')
+		if (str[0] == 'l' || str[0] == 'z')
 			max = (t_ull)ULONG_MAX;
 		else if (str[0] == 'h')
 			max = str[1] && (str[1] == 'h') ? (t_ull)UCHAR_MAX : \
 				(t_ull)USHRT_MAX;
+		else if (str[0] == 'j')
+			max = UINT_MAX;
 	}
 	return (max);
 }
@@ -38,7 +40,7 @@ static t_ll			ft_get_min(char *str)
 	min = (t_ll)INT_MIN;
 	if (str && *str)
 	{
-		if (str[0] == 'l' || str[0] == 'h')
+		if (str[0] == 'l' || str[0] == 'h' || str[0] == 'j')
 			min = 0;
 	}
 	return (min);
@@ -47,20 +49,32 @@ static t_ll			ft_get_min(char *str)
 static char			*ft_get_str(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
 	char		*tmp_str;
-	// size_t		ptr;
 	t_ul		max;
-	t_ui		ptr;
 	t_ll		min;
+	int			ptr1;
+	t_l			ptr2;
+	t_s			ptr3;
 
 	tmp_str = NULL;
 	max = ft_get_max(f_id->lenght);
 	min = ft_get_min(f_id->lenght);
-	ptr = (t_ui)va_arg(*ap, void*);
 
-	if (min && max == INT_MAX)
-		tmp_str = ft_itoabase((t_l)ptr, "0123456789abcdef");
+	if ((min && max == INT_MAX) || max == UINT_MAX)
+	{
+		ptr1 = (int)va_arg(*ap, void*);
+		tmp_str = ft_itoabase(ptr1, "0123456789abcdef");
+	}
 	else if (min || max == ULONG_MAX)
-		tmp_str = ft_ltoabase((t_l)ptr, "0123456789abcdef");
+	{
+		ptr2 = (t_l)va_arg(*ap, void*);
+		tmp_str = ft_ltoabase(ptr2, "0123456789abcdef");
+	}
+	else if (!min || max == SHRT_MAX)
+	{
+		ptr3 = (t_s)va_arg(*ap, void*);
+		tmp_str = ft_stoabase(ptr3, "0123456789abcdef");
+	}
+
 
 	// else if (max == UCHAR_MAX)
 	// 	tmp_str = a_lst->a_tp == 'X' ? ft_uctoabase((t_uchar)ptr, \

@@ -19,6 +19,7 @@
 # define DEF_UL			unsigned long
 # define DEF_UI			unsigned int
 # define DEF_US			unsigned short
+# define DEF_S			short
 # define DEF_UCHAR		unsigned char
 
 
@@ -30,6 +31,7 @@ typedef DEF_ULL			t_ull;
 typedef DEF_UL			t_ul;
 typedef DEF_UI			t_ui;
 typedef DEF_US			t_us;
+typedef DEF_S			t_s;
 typedef DEF_UCHAR		t_uchar;
 
 typedef struct s_list	t_list;
@@ -103,6 +105,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s);
 char		**ft_strsplit(char const *s, char c);
 char		*ft_itoa(int n);
+char		*ft_stoabase(short nbr, const char *base);
 char		*ft_itoabase(int nbr, const char *base);
 char		*ft_ltoabase(t_l nbr, const char *base);
 int			ft_isblank(int c);

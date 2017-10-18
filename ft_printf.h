@@ -37,12 +37,12 @@ typedef struct s_p_inf		t_p_inf;
 struct			s_p_inf
 {
 	int			len_a;
-	int			nbr_pad_c1;
-	int			nbr_pad_c2;
+	int			nbr_pad_w_min;
+	int			nbr_pad_dgt;
 	int			pad_rt;
-	char		pad_c1;
-	char		pad_c2;
-	char		first_c;
+	char		pad_w_min;
+	char		pad_dgt;
+	char		*first_c;
 	char		sign; //signed_c
 };
 
@@ -72,7 +72,7 @@ union			u_union
 	char 				*s;
 	long long			ll;
 	unsigned long long	ull;
-	double				d;
+	// double				d;
 };
 
 struct			s_list_a
