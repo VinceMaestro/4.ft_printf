@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 10:58:29 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/17 17:43:47 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/19 13:27:39 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,9 @@
 
 #include <stdio.h>
 
-void			ft_putsign(char *str, uint32_t flags, int w_min)
-{
-	if (flags & F_PLUS && str && *str)
-	{
-		if (*str == '-')
-			ft_putchar('-');
-		else if (w_min <= 0)
-			ft_putchar(' ');
-	}
-}
-
 static void			ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 {
-	if (infos && a_lst && f_id)
+	if (infos)
 	{
 		infos->len_a = ft_strlen(a_lst->a.s);
 

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 16:44:37 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/19 15:24:57 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,37 @@
 
 # include <string.h>
 
-typedef DEF_LL			t_ll;
-typedef DEF_L			t_l;
-typedef DEF_ULL			t_ull;
-typedef DEF_UL			t_ul;
-typedef DEF_UI			t_ui;
-typedef DEF_US			t_us;
-typedef DEF_S			t_s;
-typedef DEF_UCHAR		t_uchar;
+typedef DEF_LL				t_ll;
+typedef DEF_L				t_l;
+typedef DEF_ULL				t_ull;
+typedef DEF_UL				t_ul;
+typedef DEF_UI				t_ui;
+typedef DEF_US				t_us;
+typedef DEF_S				t_s;
+typedef DEF_UCHAR			t_uchar;
 
-typedef struct s_list	t_list;
+typedef struct s_list		t_list;
+typedef union u_nbr_union	t_u_nbr;
 
 struct		s_list
 {
 	void	*content;
 	size_t	content_size;
 	t_list	*next;
+};
+
+union			u_nbr_union
+{
+	t_uchar	uc;
+	char	c;
+	t_us	us;
+	t_s		s;
+	t_ui	ui;
+	int		i;
+	t_ul	ul;
+	t_l		l;
+	t_ull	ull;
+	t_ll	ll;
 };
 
 void		ft_bzero(void *s, size_t n);
@@ -114,7 +129,7 @@ void		ft_foreach(int *tab, int lenght, void (*f)(int));
 int			ft_count_if(char **tab, int (*f)(char*));
 int			ft_min(int a, int b);
 int			ft_max(int a, int b);
-int			ft_abs(int num);
+t_l			ft_abs(t_l num);
 size_t		ft_intlen(int nbr);
 size_t		ft_lintlen(long nbr);
 int			ft_llintlen(long long nbr);
