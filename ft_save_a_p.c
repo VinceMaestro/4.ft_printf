@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 16:47:41 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/19 18:02:57 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_ull		ft_get_max(char *str)
 			max = str[1] && (str[1] == 'h') ? (t_ull)UCHAR_MAX : \
 				(t_ull)USHRT_MAX;
 		else if (str[0] == 'j')
-			max = UINT_MAX;
+			max = ULLONG_MAX;
 	}
 	return (max);
 }
@@ -51,9 +51,7 @@ static char			*ft_get_str(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 	char		*tmp_str;
 	t_ul		max;
 	t_ll		min;
-	int			ptr1;
-	t_l			ptr2;
-	t_s			ptr3;
+	t_u_nbr		nbr;
 
 	tmp_str = NULL;
 	max = ft_get_max(f_id->lenght);
@@ -61,18 +59,18 @@ static char			*ft_get_str(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 
 	if ((min && max == INT_MAX) || max == UINT_MAX)
 	{
-		ptr1 = (int)va_arg(*ap, void*);
-		tmp_str = ft_itoabase(ptr1, "0123456789abcdef");
+		nbr.i = (int)va_arg(*ap, void*);
+		tmp_str = ft_itoabase(nbr.i, "0123456789abcdef");
 	}
 	else if (min || max == ULONG_MAX)
 	{
-		ptr2 = (t_l)va_arg(*ap, void*);
-		tmp_str = ft_ltoabase(ptr2, "0123456789abcdef");
+		nbr.l = (t_l)va_arg(*ap, void*);
+		tmp_str = ft_ltoabase(nbr.l, "0123456789abcdef");
 	}
 	else if (!min || max == SHRT_MAX)
 	{
-		ptr3 = (t_s)va_arg(*ap, void*);
-		tmp_str = ft_stoabase(ptr3, "0123456789abcdef");
+		nbr.s = (t_s)va_arg(*ap, void*);
+		tmp_str = ft_stoabase(nbr.s, "0123456789abcdef");
 	}
 
 

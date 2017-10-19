@@ -22,6 +22,7 @@ SRC = ft_printf.c \
 		ft_save_a_ull.c \
 		ft_mk_new_a_lst.c \
 		ft_print_arg.c \
+		dbug_infos.c \
 		dbug_p_f_id.c \
 		dbug_p_all_f_id.c \
 		ft_print_all.c \

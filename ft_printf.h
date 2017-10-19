@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/19 15:18:47 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/19 17:16:39 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int				ft_print_all(t_f_id *f_id ,t_a_lst *a_lst, char *str);
 
 void			dbug_p_all_f_id(t_f_id *f_id);
 void			dbug_p_f_id(t_f_id *f_id);
+void			dbug_infos(t_p_inf *infos);
 
 t_a_lst			*ft_print_arg(t_f_id *f_id, t_a_lst *a_lst, char *str);
 void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id);
