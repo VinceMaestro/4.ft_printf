@@ -28,8 +28,8 @@ int		main(void)
 	//
 	// nbr = (t_ull)-9223372036854775808;
 
-	ft_printf("%05d", -42);
-	printf("%05d", -42);
+	ft_printf("%o\n", 40);
+	printf("%o\n", 40);
 	// ft_putnbr((printf("%07x", 0)));
 
 
