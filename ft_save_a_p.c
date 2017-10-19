@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/19 18:02:57 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/19 21:15:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,6 @@ static char			*ft_get_str(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 		nbr.s = (t_s)va_arg(*ap, void*);
 		tmp_str = ft_stoabase(nbr.s, "0123456789abcdef");
 	}
-
-
-	// else if (max == UCHAR_MAX)
-	// 	tmp_str = a_lst->a_tp == 'X' ? ft_uctoabase((t_uchar)ptr, \
-	// 	"0123456789ABCDEF") : ft_uctoabase((t_uchar)ptr, "0123456789abcdef");
-	// else if (max == USHRT_MAX)
-	// 	tmp_str = a_lst->a_tp == 'X' ? ft_ustoabase((t_us)ptr, \
-	// 	"0123456789ABCDEF") : ft_ustoabase((t_us)ptr, "0123456789abcdef");
 	return ((a_lst->a_tp == 'X') ? tmp_str = ft_strtoupper(tmp_str) : tmp_str);
 }
 
