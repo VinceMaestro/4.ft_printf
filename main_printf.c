@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:26:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/20 12:42:42 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/20 18:23:47 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		main(void)
 	//
 	// nbr = (t_ull)-9223372036854775808;
 
-	ft_printf("%5%\n");
-	printf("%5%\n");
+	ft_printf("@moulitest: %5.o %5.0o\n", 0, 0);
+	printf("@moulitest: %5.o %5.0o\n", 0, 0);
 	// ft_putnbr((printf("%07x", 0)));
 
 

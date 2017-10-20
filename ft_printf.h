@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/20 12:25:27 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/20 16:47:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void			ft_print_a_o(t_a_lst *a_lst, t_f_id *f_id);
 void			ft_print_a_u(t_a_lst *a_lst, t_f_id *f_id);
 void			ft_print_a_x(t_a_lst *a_lst, t_f_id *f_id);
 void			ft_print_a_c(t_a_lst *a_lst, t_f_id *f_id);
-void			ft_print_a_null(t_a_lst *a_lst, t_f_id *f_id, char *str);
+void			ft_print_a_null(t_f_id *f_id, char *str);
 
 t_f_id			*ft_mk_all_f_id(char *str);
 void			ft_mk_new_f_id(t_f_id *f_id, char *str);

@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 17:21:59 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/20 18:30:53 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static void			ft_get_nb_dgt(t_f_id *f_id, char *str)
 		else
 			f_id->prec.nb_dgt = 0;
 	}
+	else
+		f_id->prec.nb_dgt = 0;
 	f_id->nb_r_c = pos;
 }
 

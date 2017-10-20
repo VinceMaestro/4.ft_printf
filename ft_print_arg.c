@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/20 12:52:38 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/20 17:11:15 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,16 @@ static			void (*(ft_ptr_fct[]))(t_a_lst *, t_f_id *) =
 
 t_a_lst			*ft_print_arg(t_f_id *f_id, t_a_lst *a_lst, char *str)
 {
-	if (!a_lst)
-		printf("ERROR NO ARG\n");
-	if (a_lst && f_id)
+	if (f_id)
 	{
-		printf("Here printarg\n");
-		if (f_id->prec.period == '*')
+		if (f_id->prec.period == '*' && a_lst)
 			a_lst = a_lst->next;
 		if (!f_id->a_tp)
-			ft_print_a_null(a_lst, f_id, str); //a_lst est il update a next?
-		else
+			ft_print_a_null(f_id, str);
+		else if (a_lst)
 		{
 			if (f_id->prec.period && f_id->prec.period == '*')
 				!(a_lst = a_lst->next) ? ft_error("ft_p_f_id: a_lst->next = Null ") : NULL;
-			// dbug_p_f_id(f_id);
 			if (!a_lst)
 				ft_error("ft_p_f_id: Should'nt happend\n");
 
