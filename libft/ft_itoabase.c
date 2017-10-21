@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 14:50:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 16:02:32 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 12:37:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ char			*ft_itoabase(int nbr, const char *base)
 	int		base_len;
 
 	if (!nbr || !base || !*base)
-		return (strdup("0"));
-	str = NULL;
+		return (ft_strdup("0"));
 	cp_nbr = (t_ui)nbr;
 	base_len = ft_strlen(base);
 	i = 0;

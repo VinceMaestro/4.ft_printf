@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/17 17:44:33 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 12:45:25 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
 	if (a_lst && f_id && a_lst->a.s)
 	{
 		str = a_lst->a.s;
-		// toprint = ft_min((int)ft_strlen(str), f_id->prec.nb_dgt);
 		if (f_id->prec.period)
 			toprint = ft_min((int)ft_strlen(str), \
 				ft_abs(f_id->prec.nb_dgt));
@@ -46,18 +45,11 @@ void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
 		}
 		if (len <= 0 || f_id->flags & ~F_MINUS || !f_id->flags)
 			ft_putnstr(str, toprint);
-
 		f_id->nb_p_c = toprint + ft_max(len, 0);
-		// if (f_id->flags.plus)
-		// 	;
-		// if (f_id->flags.hash)
-		// 	;
-		// if (f_id->flags.space)
-		// 	;
 	}
 	else if (a_lst && f_id)
-		{
-			ft_putstr("(null)");
-			f_id->nb_p_c = 6;
-		}
+	{
+		ft_putstr("(null)");
+		f_id->nb_p_c = 6;
+	}
 }

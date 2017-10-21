@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:27:34 by vpetit            #+#    #+#             */
-/*   Updated: 2017/01/04 01:05:20 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 10:27:06 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int			ft_putnbr_fd(int nbr, int fd)
 	long int	buff;
 
 	buff = '0';
-	if (nbr < 0)
+	if (nbr == INT_MIN)
+		return (write(fd, "-2147483648", 11));
+	else if (nbr < 0)
 		return (ft_putnbr_neg_fd(-(long int)nbr, fd));
 	(nbr % 10 != nbr) ? (ft_putnbr_fd(nbr / 10, fd)) : buff;
 	buff = '0' + nbr % 10;

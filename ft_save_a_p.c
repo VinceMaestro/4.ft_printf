@@ -6,14 +6,12 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/19 21:15:15 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 12:20:09 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
-
-#include <stdio.h>
 
 static t_ull		ft_get_max(char *str)
 {
@@ -56,7 +54,6 @@ static char			*ft_get_str(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 	tmp_str = NULL;
 	max = ft_get_max(f_id->lenght);
 	min = ft_get_min(f_id->lenght);
-
 	if ((min && max == INT_MAX) || max == UINT_MAX)
 	{
 		nbr.i = (int)va_arg(*ap, void*);
@@ -81,11 +78,8 @@ void				ft_save_a_p(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 
 	if (a_lst && f_id)
 	{
-		// ft_putstr("-- SAVING pointer : ");
 		a_lst->a_tp = f_id->a_tp;
 		str = ft_get_str(a_lst, f_id, ap);
 		a_lst->a.s = str;
-		// ft_putstr(a_lst->a.s);
-		// ft_putstr("\n");
 	}
 }

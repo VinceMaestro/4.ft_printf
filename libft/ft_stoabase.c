@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stoabase.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/21 12:38:32 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/21 12:38:33 by vpetit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
@@ -9,8 +21,7 @@ char			*ft_stoabase(short nbr, const char *base)
 	short	base_len;
 
 	if (!nbr || !base || !*base)
-		return (strdup("0"));
-	str = NULL;
+		return (ft_strdup("0"));
 	cp_nbr = (t_us)nbr;
 	base_len = ft_strlen(base);
 	i = 0;

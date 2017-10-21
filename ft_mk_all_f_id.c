@@ -6,12 +6,11 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:07:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 15:00:56 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 12:24:40 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static t_f_id	*updt_f_id(t_f_id *f_id, int cpt)
 {
@@ -28,7 +27,7 @@ t_f_id			*ft_mk_all_f_id(char *str)
 {
 	int				cpt;
 	int				pos;
-	t_f_id		*f_id;
+	t_f_id			*f_id;
 
 	pos = 0;
 	cpt = 1;
@@ -44,9 +43,6 @@ t_f_id			*ft_mk_all_f_id(char *str)
 			f_id->start_pos = pos;
 			ft_mk_new_f_id(f_id, &(str[pos]));
 			pos += f_id->nb_r_c;
-			// ft_putstr("ft_mk_all_f_id: Getting all infos: pos = ");
-			// ft_putnbr(pos);
-			// ft_putstr(" /n");
 		}
 	}
 	return (f_id ? f_id->first : NULL);

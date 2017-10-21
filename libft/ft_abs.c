@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 18:12:08 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/19 14:19:56 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 13:06:59 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_l		ft_abs(t_l num)
+t_ll		ft_abs(t_ll num)
 {
-	return((num < 0 ? -num : num));
+	return ((num < 0 ? -num : num));
 }

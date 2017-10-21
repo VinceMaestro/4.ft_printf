@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/19 15:24:57 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 13:17:21 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # define DEF_S			short
 # define DEF_UCHAR		unsigned char
 
-
 # include <string.h>
+# include <limits.h>
 
 typedef DEF_LL				t_ll;
 typedef DEF_L				t_l;
@@ -44,7 +44,7 @@ struct		s_list
 	t_list	*next;
 };
 
-union			u_nbr_union
+union		u_nbr_union
 {
 	t_uchar	uc;
 	char	c;
@@ -73,8 +73,7 @@ size_t		ft_strlen(const char *str);
 void		ft_putstr(void *str);
 char		*ft_strcat(char *s1, const char *s2);
 char		*ft_strncat(char *s1, const char *s2, size_t n);
-size_t		ft_strlcat(char *dst, const char *src,
-				size_t size);
+size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strstr(const char *big, const char *little);
@@ -123,13 +122,14 @@ char		*ft_itoa(int n);
 char		*ft_stoabase(short nbr, const char *base);
 char		*ft_itoabase(int nbr, const char *base);
 char		*ft_ltoabase(t_l nbr, const char *base);
+t_l			ft_l_to_oct(t_l nbr);
 int			ft_isblank(int c);
 int			ft_isinvisible(int c);
 void		ft_foreach(int *tab, int lenght, void (*f)(int));
 int			ft_count_if(char **tab, int (*f)(char*));
 int			ft_min(int a, int b);
 int			ft_max(int a, int b);
-t_l			ft_abs(t_l num);
+t_ll		ft_abs(t_ll num);
 size_t		ft_intlen(int nbr);
 size_t		ft_lintlen(long nbr);
 int			ft_llintlen(long long nbr);

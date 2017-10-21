@@ -6,14 +6,14 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 17:24:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/08/30 17:24:11 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 10:22:10 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-int			ft_put_ullnbr(unsigned long long nbr)
+int			ft_put_ullnbr(t_ull nbr)
 {
 	long int	buff;
 

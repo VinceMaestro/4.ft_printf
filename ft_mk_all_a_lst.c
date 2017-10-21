@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 14:57:45 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 10:52:21 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 static void		ft_save_a(t_f_id *f_id, t_a_lst *a_lst, va_list *ap)
 {
-	if (ft_strchr("dDioO", f_id->a_tp))
+	if (ft_strchr("dDioOuU", f_id->a_tp))
 		ft_save_a_ll(a_lst, f_id, ap);
 	else if (ft_strchr("pxX", f_id->a_tp))
 		ft_save_a_p(a_lst, f_id, ap);
 	else if (ft_strchr("sScC", f_id->a_tp))
 		ft_save_a_s(a_lst, f_id, ap);
-	else if (ft_strchr("uU", f_id->a_tp))
-		ft_save_a_ull(a_lst, f_id, ap);
 }
 
 t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap)

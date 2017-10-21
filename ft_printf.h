@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/20 16:47:15 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 13:05:14 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # define F_MINUS	(1 << 2)
 # define F_SPACE	(1 << 3)
 # define F_PLUS		(1 << 4)
-
-// # define A_TYPE_ "sSpdDioOuUxXcC"
-// # define LEN_ "hlzjhhll"
 
 # include "./libft/libft.h"
 # include <stdarg.h>
@@ -43,7 +40,6 @@ struct			s_p_inf
 	char		pad_w_min;
 	char		pad_dgt;
 	char		*first_c;
-	char		sign; //signed_c
 };
 
 struct			s_prec
@@ -63,16 +59,15 @@ struct			s_f_id
 	int			nb_r_c;
 	int			nb_p_c;
 	int			start_pos;
-	t_f_id	*first;
-	t_f_id	*next;
+	t_f_id		*first;
+	t_f_id		*next;
 };
 
 union			u_union
 {
-	char 				*s;
+	char				*s;
 	long long			ll;
 	unsigned long long	ull;
-	// double				d;
 };
 
 struct			s_list_a
@@ -86,13 +81,13 @@ struct			s_list_a
 };
 
 void			ft_error(char *msg);
-int				ft_printf(char *str, ...);
-int				ft_print_all(t_f_id *f_id ,t_a_lst *a_lst, char *str);
-
 void			dbug_p_all_f_id(t_f_id *f_id);
 void			dbug_p_f_id(t_f_id *f_id);
 void			dbug_infos(t_p_inf *infos);
 
+int				ft_printf(char *str, ...);
+
+int				ft_print_all(t_f_id *f_id, t_a_lst *a_lst, char *str);
 t_a_lst			*ft_print_arg(t_f_id *f_id, t_a_lst *a_lst, char *str);
 void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id);
 void			ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id);
@@ -105,24 +100,25 @@ void			ft_print_a_null(t_f_id *f_id, char *str);
 
 t_f_id			*ft_mk_all_f_id(char *str);
 void			ft_mk_new_f_id(t_f_id *f_id, char *str);
+t_f_id			*ft_init_f_id(t_f_id *f_id, int nbr);
+
+t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap);
+t_a_lst			*ft_mk_new_a_lst(t_a_lst *a_lst);
+t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
+
+t_p_inf			*ft_init_p_inf(void);
+
+void			ft_updt_all_prec(t_f_id *f_id, t_a_lst *a_lst);
+
 void			ft_get_param(t_f_id *f_id, char *tmp_str);
 void			ft_get_flags(t_f_id *f_id, char *tmp_str);
 void			ft_get_w_min(t_f_id *f_id, char *tmp_str);
 void			ft_get_prec(t_f_id *f_id, char *tmp_str);
 void			ft_get_lenght(t_f_id *f_id, char *str);
 void			ft_get_a_tp(t_f_id *f_id, char *tmp_str);
-t_a_lst			*ft_mk_new_a_lst(t_a_lst *a_lst);
-t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap);
+
 void			ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
 void			ft_save_a_s(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
 void			ft_save_a_p(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
-void			ft_save_a_ull(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
-
-t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
-void			ft_updt_all_prec(t_f_id *f_id, t_a_lst *a_lst);
-
-t_f_id			*ft_init_f_id(t_f_id *f_id, int nbr);
-
-t_p_inf			*ft_init_p_inf();
 
 #endif

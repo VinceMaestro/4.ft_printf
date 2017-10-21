@@ -6,14 +6,14 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 14:32:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 14:39:52 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 12:24:17 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-t_p_inf			*ft_init_p_inf()
+t_p_inf			*ft_init_p_inf(void)
 {
 	t_p_inf		*infos;
 
