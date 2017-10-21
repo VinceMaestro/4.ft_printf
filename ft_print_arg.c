@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 12:49:07 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:17:22 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static		void (*(ft_ptr_fct[]))(t_a_lst *, t_f_id *) =
 	['C'] = ft_print_a_c
 };
 
-t_a_lst		*ft_print_arg(t_f_id *f_id, t_a_lst *a_lst, char *str)
+t_a_lst		*ft_print_arg(t_a_lst *a_lst, t_f_id *f_id, char *str)
 {
 	if (f_id)
 	{

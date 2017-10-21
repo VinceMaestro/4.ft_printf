@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 13:05:14 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:17:31 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,14 @@ void			ft_error(char *msg);
 void			dbug_p_all_f_id(t_f_id *f_id);
 void			dbug_p_f_id(t_f_id *f_id);
 void			dbug_infos(t_p_inf *infos);
+void			dbug_a_lst(t_a_lst *a_lst);
 
 int				ft_printf(char *str, ...);
 
-int				ft_print_all(t_f_id *f_id, t_a_lst *a_lst, char *str);
-t_a_lst			*ft_print_arg(t_f_id *f_id, t_a_lst *a_lst, char *str);
+void			ft_free_all(t_a_lst *a_lst, t_f_id *f_id);
+
+int				ft_print_all(t_a_lst *a_lst, t_f_id *f_id, char *str);
+t_a_lst			*ft_print_arg(t_a_lst *a_lst, t_f_id *f_id, char *str);
 void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id);
 void			ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id);
 void			ft_print_a_i(t_a_lst *a_lst, t_f_id *f_id);
@@ -108,7 +111,7 @@ t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
 
 t_p_inf			*ft_init_p_inf(void);
 
-void			ft_updt_all_prec(t_f_id *f_id, t_a_lst *a_lst);
+void			ft_updt_all_prec(t_a_lst *a_lst, t_f_id *f_id);
 
 void			ft_get_param(t_f_id *f_id, char *tmp_str);
 void			ft_get_flags(t_f_id *f_id, char *tmp_str);

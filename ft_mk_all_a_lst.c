@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 10:52:21 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:18:19 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_save_a(t_f_id *f_id, t_a_lst *a_lst, va_list *ap)
+static void		ft_save_a(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
 	if (ft_strchr("dDioOuU", f_id->a_tp))
 		ft_save_a_ll(a_lst, f_id, ap);
@@ -39,7 +39,7 @@ t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap)
 				ft_save_a_ll(a_lst, f_id, ap);
 				a_lst = ft_mk_new_a_lst(a_lst);
 			}
-			ft_save_a(f_id, a_lst, ap);
+			ft_save_a(a_lst, f_id, ap);
 		}
 		((!f_id->next && stop++) ? f_id : (f_id = f_id->next));
 	}

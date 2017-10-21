@@ -21,9 +21,6 @@ SRC = ft_printf.c \
 		ft_save_a_p.c \
 		ft_mk_new_a_lst.c \
 		ft_print_arg.c \
-		dbug_infos.c \
-		dbug_p_f_id.c \
-		dbug_p_all_f_id.c \
 		ft_print_all.c \
 		ft_print_a_s.c \
 		ft_print_a_i.c \
@@ -33,7 +30,12 @@ SRC = ft_printf.c \
 		ft_updt_all_prec.c \
 		ft_print_a_o.c \
 		ft_print_a_c.c \
-		ft_print_a_p.c
+		ft_print_a_p.c \
+		dbug_infos.c \
+		dbug_p_f_id.c \
+		dbug_p_all_f_id.c \
+		dbug_a_lst.c \
+		ft_free_all.c
 
 LIBDIR = ./libft
 
