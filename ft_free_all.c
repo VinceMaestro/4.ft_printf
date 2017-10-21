@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 14:25:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 18:19:43 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:38:17 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void		ft_free_all_a_lst(t_a_lst *a_lst)
 	while (a_lst)
 	{
 		next = a_lst->next;
-		if (ft_strchr("sSxX", a_lst->a_tp))
+		if (ft_strchr("sSxXp", a_lst->a_tp))
 			ft_strdel(&a_lst->a.s);
 		a_lst->first = NULL;
 		a_lst->next = NULL;

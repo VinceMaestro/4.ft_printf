@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:35 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/19 13:43:09 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:44:18 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void		ft_save_a_s(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
 	t_u_nbr		nbr;
+	char		*tmp_str;
 
 	if (a_lst && f_id)
 	{
@@ -27,7 +28,9 @@ void		ft_save_a_s(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 		}
 		else
 		{
-			a_lst->a.s = (char*)va_arg(*ap, void*);
+
+			tmp_str = (char*)va_arg(*ap, void*);
+			a_lst->a.s = ft_strdup(tmp_str);
 			a_lst->a_tp = f_id->a_tp;
 		}
 	}

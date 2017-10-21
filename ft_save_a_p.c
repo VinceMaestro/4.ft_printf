@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:31:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 12:20:09 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:43:00 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void				ft_save_a_p(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 	{
 		a_lst->a_tp = f_id->a_tp;
 		str = ft_get_str(a_lst, f_id, ap);
-		a_lst->a.s = str;
+		a_lst->a.s = ft_strdup(str);
 	}
 }

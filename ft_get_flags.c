@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 14:47:12 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 14:48:36 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/21 18:57:48 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ static int		ft_save_flag(t_f_id *f_id, char c)
 
 void			ft_get_flags(t_f_id *f_id, char *tmp_str)
 {
-	char		list[6];
+	char		*list;
 	int			pos;
 	int			i;
 	int			save;
 
 	pos = 0;
 	save = 1;
-	ft_strcpy(list, "#0- +\0");
+	list = ft_strdup("#0- +");
 	while (save)
 	{
 		i = 0;
@@ -55,4 +55,5 @@ void			ft_get_flags(t_f_id *f_id, char *tmp_str)
 		}
 		f_id->nb_r_c = pos;
 	}
+	ft_strdel(&list);
 }
