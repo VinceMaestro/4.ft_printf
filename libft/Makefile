@@ -17,6 +17,8 @@ SRC_DIR = .
 INCL_DIR = .
 
 SRC = ft_atoi \
+		ft_malloc \
+		ft_error \
 		ft_bzero \
 		ft_isalnum \
 		ft_isalpha \

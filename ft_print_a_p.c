@@ -14,7 +14,7 @@
 
 void	ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id)
 {
-	if (a_lst && f_id)
+	if (a_lst && f_id && a_lst->a.s)
 	{
 		ft_putstr("0x");
 		ft_putstr(a_lst->a.s);

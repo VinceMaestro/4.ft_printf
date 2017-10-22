@@ -60,7 +60,7 @@ static t_ll		ft_get_min(char *str, char tp)
 	return (min);
 }
 
-void			ft_save_signed(t_a_lst *a_lst, va_list *ap, t_ull max)
+static void		ft_save_signed(t_a_lst *a_lst, va_list *ap, t_ull max)
 {
 	t_u_nbr		nbr;
 
@@ -91,7 +91,7 @@ void			ft_save_signed(t_a_lst *a_lst, va_list *ap, t_ull max)
 	}
 }
 
-void			ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
+static void		ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
 {
 	t_u_nbr		nbr;
 
@@ -104,6 +104,16 @@ void			ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
 	{
 		nbr.ul = (t_ul)va_arg(*ap, void*);
 		a_lst->a.ll = a_lst->a_tp == 'O' ? ft_l_to_oct(nbr.ul) : nbr.ul;
+	}
+	else if (max == USHRT_MAX)
+	{
+		nbr.us = (t_us)va_arg(*ap, void*);
+		a_lst->a.ll = nbr.us;
+	}
+	else if (max == UCHAR_MAX)
+	{
+		nbr.uc = (t_uchar)va_arg(*ap, void*);
+		a_lst->a.ll = nbr.uc;
 	}
 }
 

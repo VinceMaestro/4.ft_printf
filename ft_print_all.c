@@ -23,7 +23,9 @@ int					ft_print_all(t_a_lst *a_lst, t_f_id *f_id, char *str)
 	{
 		while (str[pos] && (!f_id || pos < f_id->start_pos))
 		{
+			// ft_putstr("char: | ");
 			ft_putchar(str[pos++]);
+			// ft_putstr(" |\n");
 			len++;
 		}
 		if (str[pos] && pos == f_id->start_pos)

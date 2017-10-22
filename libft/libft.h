@@ -22,6 +22,8 @@
 # define DEF_S			short
 # define DEF_UCHAR		unsigned char
 
+# define NEW(T)	((T*)ft_malloc(sizeof(T), __func__, ": Malloc failed " #T));
+
 # include <string.h>
 # include <limits.h>
 
@@ -58,6 +60,8 @@ union		u_nbr_union
 	t_ll	ll;
 };
 
+void		ft_error(char *msg);
+void		*ft_malloc(size_t size, const char *func, const char *err);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memset(void *b, int c, size_t len);
 void		*ft_memcpy(void *dst, void const *src, size_t n);

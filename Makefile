@@ -3,7 +3,6 @@ NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra
 
 SRC = ft_printf.c \
-		ft_error.c \
 		ft_init_f_id.c \
 		ft_init_a_lst.c \
 		ft_init_p_inf.c \

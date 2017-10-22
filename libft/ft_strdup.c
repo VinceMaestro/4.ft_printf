@@ -20,18 +20,22 @@ char	*ft_strdup(char const *s1)
 	int		i;
 
 	s1_len = 0;
+	s1_copy = NULL;
 	i = 0;
-	while (s1[s1_len] != '\0')
-		s1_len += 1;
-	s1_copy = (char*)malloc(sizeof(*s1_copy) * (s1_len + 1));
-	if (s1_copy != NULL)
+	if (s1)
 	{
-		while (i < s1_len)
+		while (s1[s1_len] != '\0')
+			s1_len += 1;
+		s1_copy = (char*)malloc(sizeof(*s1_copy) * (s1_len + 1));
+		if (s1_copy != NULL)
 		{
-			s1_copy[i] = s1[i];
-			i += 1;
+			while (i < s1_len)
+			{
+				s1_copy[i] = s1[i];
+				i += 1;
+			}
+			s1_copy[i] = '\0';
 		}
-		s1_copy[i] = '\0';
 	}
 	return (s1_copy);
 }
