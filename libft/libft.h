@@ -26,6 +26,8 @@
 
 # include <string.h>
 # include <limits.h>
+# include <wchar.h>
+// # include <locale.h>
 
 typedef DEF_LL				t_ll;
 typedef DEF_L				t_l;
@@ -48,6 +50,7 @@ struct		s_list
 
 union		u_nbr_union
 {
+	wchar_t	wc;
 	t_uchar	uc;
 	char	c;
 	t_us	us;
@@ -74,7 +77,10 @@ char		*ft_strdup(char const *s1);
 char		*ft_strcpy(char *dst, char const *src);
 char		*ft_strncpy(char *dst, char const *src, size_t len);
 size_t		ft_strlen(const char *str);
+size_t		ft_wstrlen(const wchar_t *str);
 void		ft_putstr(void *str);
+void		ft_putnstr(void *str, int len);
+void		ft_putn_ustr(void *str, int len);
 char		*ft_strcat(char *s1, const char *s2);
 char		*ft_strncat(char *s1, const char *s2, size_t n);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
@@ -127,6 +133,8 @@ char		*ft_stoabase(short nbr, const char *base);
 char		*ft_itoabase(int nbr, const char *base);
 char		*ft_ltoabase(t_l nbr, const char *base);
 t_l			ft_l_to_oct(t_l nbr);
+char		*ft_wstrto_nstr(wchar_t *w_str, int nbr_bytes);
+int			ft_wcharto_str(char **buff, int pos, wchar_t w_c);
 int			ft_isblank(int c);
 int			ft_isinvisible(int c);
 void		ft_foreach(int *tab, int lenght, void (*f)(int));
@@ -142,6 +150,5 @@ int			ft_power(int x, int n);
 long long	ft_llpower(long long x, long long n);
 int			ft_put_llnbr(long long nbr);
 int			ft_put_ullnbr(unsigned long long nbr);
-void		ft_putnstr(void *str, int len);
 
 #endif

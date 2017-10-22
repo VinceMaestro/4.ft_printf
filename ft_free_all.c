@@ -35,7 +35,7 @@ static void		ft_free_all_a_lst(t_a_lst *a_lst)
 	while (a_lst)
 	{
 		next = a_lst->next;
-		if (ft_strchr("sSxXp", a_lst->a_tp))
+		if (ft_strchr("sSCxXp", a_lst->a_tp))
 			ft_strdel(&a_lst->a.s);
 		a_lst->first = NULL;
 		a_lst->next = NULL;

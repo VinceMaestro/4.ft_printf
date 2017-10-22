@@ -14,7 +14,7 @@
 
 static void		ft_save_a(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
-	if (ft_strchr("dDioOuU", f_id->a_tp))
+	if (ft_strchr("dDiuUoO", f_id->a_tp))
 		ft_save_a_ll(a_lst, f_id, ap);
 	else if (ft_strchr("pxX", f_id->a_tp))
 		ft_save_a_p(a_lst, f_id, ap);

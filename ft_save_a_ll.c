@@ -45,7 +45,7 @@ static t_ll		ft_get_min(char *str, char tp)
 {
 	t_ll		min;
 
-	if (ft_strchr("dDi", tp))
+	if (ft_strchr("dDiI", tp))
 	{
 		min = INT_MIN;
 		if ((str && str[0] == 'l') || tp == 'D')
@@ -98,12 +98,18 @@ static void		ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
 	if (max == UINT_MAX)
 	{
 		nbr.ui = (t_ui)va_arg(*ap, void*);
-		a_lst->a.ll = a_lst->a_tp == 'o' ? ft_l_to_oct(nbr.ui) : nbr.ui;
+		if (a_lst->a_tp == 'o')
+			a_lst->a.s = ft_ltoabase(nbr.ui, "01234567");
+		else
+			a_lst->a.ll = nbr.ui;
 	}
 	else if (max == ULONG_MAX)
 	{
 		nbr.ul = (t_ul)va_arg(*ap, void*);
-		a_lst->a.ll = a_lst->a_tp == 'O' ? ft_l_to_oct(nbr.ul) : nbr.ul;
+		if (a_lst->a_tp == 'O')
+			a_lst->a.s = ft_ltoabase(nbr.ul, "01234567");
+		else
+			a_lst->a.ll = nbr.ul;
 	}
 	else if (max == USHRT_MAX)
 	{
@@ -124,7 +130,8 @@ void			ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 
 	if (a_lst && f_id)
 	{
-		a_lst->a_tp = f_id->a_tp;
+		a_lst->a_tp = f_id->lenght && f_id->lenght[0] == 'l' ? \
+			ft_toupper(f_id->a_tp) : f_id->a_tp;
 		max = ft_get_max(f_id->lenght, a_lst->a_tp);
 		min = ft_get_min(f_id->lenght, a_lst->a_tp);
 		if (min)

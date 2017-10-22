@@ -30,6 +30,8 @@ SRC = ft_atoi \
 		ft_itoabase \
 		ft_ltoabase \
 		ft_l_to_oct \
+		ft_wstrto_nstr \
+		ft_wcharto_str \
 		ft_lstadd \
 		ft_lstdel \
 		ft_lstdelone \
@@ -54,6 +56,8 @@ SRC = ft_atoi \
 		ft_put_llnbr \
 		ft_put_ullnbr \
 		ft_putstr \
+		ft_putnstr \
+		ft_putn_ustr \
 		ft_putstr_fd \
 		ft_strcat \
 		ft_strchr \
@@ -68,6 +72,7 @@ SRC = ft_atoi \
 		ft_strjoin \
 		ft_strlcat \
 		ft_strlen \
+		ft_wstrlen \
 		ft_strmap \
 		ft_strmapi \
 		ft_strncat \
@@ -97,8 +102,7 @@ SRC = ft_atoi \
 		ft_llintlen \
 		ft_ullintlen \
 		ft_power \
-		ft_llpower \
-		ft_putnstr
+		ft_llpower
 
 INCL = libft
 

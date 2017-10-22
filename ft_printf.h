@@ -66,6 +66,7 @@ struct			s_f_id
 union			u_union
 {
 	char				*s;
+	wchar_t				*ws;
 	long long			ll;
 	unsigned long long	ull;
 };
