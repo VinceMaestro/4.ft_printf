@@ -17,8 +17,21 @@ int		main(void)
 {
 	// char	str[80] = "abcde";
 
-	ft_printf("%S", L"我是一只猫。");
-	// printf("%S", L"我是一只猫。");
+	// ft_printf("@moulitest: %#.o %#.0o\n", 0, 0);
+	// printf("@moulitest: %#.o %#.0o\n", 0, 0);
+
+
+	// printf("@moulitest: %5.o %5.0o--\n", 0, 0);
+	// ft_printf("@moulitest: %5.o %5.0o++\n", 0, 0);
+
+	printf("%#p--\n", 0);
+	ft_printf("%#p++\n", 0);
+
+
+	// printf("%4.s---\n", "42");
+	// ft_printf("%4.s+++\n", "42");
+
+
 
 	// ft_printf("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S\n",
 	// L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",

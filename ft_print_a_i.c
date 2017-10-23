@@ -31,14 +31,16 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 		else
 			infos->first_c = "";
 		infos->nbr_pad_w_min = ft_max(f_id->w_min - ft_strlen(infos->first_c) -\
-			ft_max(ft_abs(f_id->prec.nb_dgt), infos->len_a), 0);
-		infos->nbr_pad_dgt = ft_max(0, ft_abs(f_id->prec.nb_dgt) - \
-			infos->len_a);
+			ft_max(f_id->prec.period ? ft_abs(f_id->prec.nb_dgt) : 0, \
+			infos->len_a), 0);
+		infos->nbr_pad_dgt = ft_max(0, (f_id->prec.period ? \
+			ft_abs(f_id->prec.nb_dgt) : 0) - infos->len_a);
 		infos->pad_rt = f_id->flags & F_MINUS ? 1 : 0;
 		infos->pad_w_min = (f_id->flags & F_ZERO && !(f_id->flags & F_MINUS) &&\
 		!f_id->prec.period) ? '0' : ' ';
-		infos->pad_dgt = (f_id->prec.nb_dgt > 0 || \
-			!infos->first_c[0]) ? '0' : '\0';
+		infos->pad_dgt = ((f_id->prec.period && f_id->prec.nb_dgt > 0) || \
+			(!infos->first_c || !infos->first_c[0] || infos->first_c[0] == '+'\
+			)) ? '0' : '\0';
 	}
 	else
 		ft_error("ft_print_a_o: ft_updt_p_info: input error");
@@ -77,8 +79,8 @@ void			ft_print_a_i(t_a_lst *a_lst, t_f_id *f_id)
 
 	if (a_lst && f_id)
 	{
-		// infos = ft_init_p_inf();
 		ft_updt_p_info(&infos, a_lst, f_id);
+		// dbug_infos(&infos);
 		infos.pad_rt ? ft_p_left(&infos, a_lst, f_id) : \
 			ft_p(&infos, a_lst, f_id);
 	}

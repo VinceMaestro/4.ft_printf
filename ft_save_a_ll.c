@@ -18,10 +18,10 @@ static t_ull	ft_get_max(char *str, char tp)
 	t_ull		max;
 
 	max = 0;
-	if (ft_strchr("dDi", tp))
+	if (ft_strchr("dDiI", tp))
 	{
 		max = INT_MAX;
-		if ((str && str[0] == 'l') || tp == 'D')
+		if ((str && str[0] == 'l') || tp == 'D' || tp == 'I')
 			max = str && str[1] && str[1] == 'l' ? LLONG_MAX : LONG_MAX;
 		else if (str && str[0] == 'h')
 			max = str && str[1] && (str[1] == 'h') ? CHAR_MAX : SHRT_MAX;
@@ -48,7 +48,7 @@ static t_ll		ft_get_min(char *str, char tp)
 	if (ft_strchr("dDiI", tp))
 	{
 		min = INT_MIN;
-		if ((str && str[0] == 'l') || tp == 'D')
+		if ((str && str[0] == 'l') || tp == 'D' || tp == 'I')
 			min = str && str[1] && str[1] == 'l' ? LLONG_MIN : LONG_MIN;
 		else if (str && str[0] == 'h')
 			min = str && str[1] && (str[1] == 'h') ? CHAR_MIN : SHRT_MIN;
@@ -98,7 +98,7 @@ static void		ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
 	if (max == UINT_MAX)
 	{
 		nbr.ui = (t_ui)va_arg(*ap, void*);
-		if (a_lst->a_tp == 'o')
+		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
 			a_lst->a.s = ft_ltoabase(nbr.ui, "01234567");
 		else
 			a_lst->a.ll = nbr.ui;
@@ -106,7 +106,7 @@ static void		ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
 	else if (max == ULONG_MAX)
 	{
 		nbr.ul = (t_ul)va_arg(*ap, void*);
-		if (a_lst->a_tp == 'O')
+		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
 			a_lst->a.s = ft_ltoabase(nbr.ul, "01234567");
 		else
 			a_lst->a.ll = nbr.ul;
@@ -114,12 +114,18 @@ static void		ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
 	else if (max == USHRT_MAX)
 	{
 		nbr.us = (t_us)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.us;
+		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
+			a_lst->a.s = ft_ltoabase(nbr.us, "01234567");
+		else
+			a_lst->a.ll = nbr.us;
 	}
 	else if (max == UCHAR_MAX)
 	{
 		nbr.uc = (t_uchar)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.uc;
+		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
+			a_lst->a.s = ft_ltoabase(nbr.uc, "01234567");
+		else
+			a_lst->a.ll = nbr.uc;
 	}
 }
 
