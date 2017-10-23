@@ -22,15 +22,14 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 		infos->len_a = f_id->prec.period && !f_id->prec.nb_dgt && (!a_lst->a.s \
 			|| a_lst->a.s[0] == '0') ? 0 : ft_strlen(a_lst->a.s);
 
-		// infos->len_a = ((a_lst->a.s && f_id->prec.nb_dgt) || \
-		// 	(!f_id->w_min && !f_id->prec.period)) ? ft_strlen(a_lst->a.s) : 0;
 		infos->len_a = infos->first_c && infos->first_c[0] && \
 			(!a_lst->a.s || a_lst->a.s[0] == '0') ? 0 : infos->len_a;
 		infos->nbr_pad_w_min = ft_max(f_id->w_min - ft_strlen(infos->first_c) -\
 			ft_max(f_id->prec.period ? ft_abs(f_id->prec.nb_dgt) : 0, \
 			infos->len_a), 0);
 		infos->nbr_pad_dgt = ft_max(0, (f_id->prec.period ? \
-			ft_abs(f_id->prec.nb_dgt) : 0) - infos->len_a);
+			ft_abs(f_id->prec.nb_dgt) : 0) - ft_strlen(infos->first_c) - \
+			infos->len_a);
 		infos->pad_rt = f_id->flags & F_MINUS ? 1 : 0;
 		infos->pad_w_min = (f_id->flags & F_ZERO && !(f_id->flags & F_MINUS) &&\
 			!f_id->prec.period) ? '0' : ' ';

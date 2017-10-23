@@ -20,8 +20,10 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 	if (infos)
 	{
 		tmp = a_lst->a.ll < 0 ? 1 : 0;
-		infos->len_a = (a_lst->a.ll || (!f_id->w_min && !f_id->prec.period)) ?\
-			ft_llintlen(a_lst->a.ll) - tmp : 0;
+		infos->len_a = f_id->prec.period && !f_id->prec.nb_dgt && \
+			(!a_lst->a.ll) ? 0 : ft_llintlen(a_lst->a.ll) - tmp;
+		// infos->len_a = (a_lst->a.ll || (!f_id->w_min && !f_id->prec.period)) ?\
+		// 	ft_llintlen(a_lst->a.ll) - tmp : 0;
 		if (f_id->flags & F_PLUS && a_lst->a.ll >= 0)
 			infos->first_c = "+";
 		else if (f_id->flags & F_SPACE && a_lst->a.ll >= 0)
@@ -50,7 +52,7 @@ static void		ft_p_left(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 {
 	ft_putstr(infos->first_c);
 	ft_put_x_char(infos->pad_dgt, infos->nbr_pad_dgt);
-	if (a_lst->a.ll || (!f_id->w_min && !f_id->prec.period))
+	if (infos->len_a || (!f_id->w_min && !f_id->prec.period))
 		a_lst->a.ll == LLONG_MIN ? ft_putstr("9223372036854775808") : \
 			ft_put_llnbr(ft_abs(a_lst->a.ll));
 	ft_put_x_char(infos->pad_w_min, infos->nbr_pad_w_min);
@@ -66,7 +68,7 @@ static void		ft_p(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 	if (infos->pad_w_min == ' ')
 		ft_putstr(infos->first_c);
 	ft_put_x_char(infos->pad_dgt, infos->nbr_pad_dgt);
-	if (a_lst->a.ll || (!f_id->w_min && !f_id->prec.period))
+	if (infos->len_a || (!f_id->w_min && !f_id->prec.period))
 		a_lst->a.ll == LLONG_MIN ? ft_putstr("9223372036854775808") : \
 			ft_put_llnbr(ft_abs(a_lst->a.ll));
 	f_id->nb_p_c = (ft_max(0, infos->nbr_pad_w_min) + \
