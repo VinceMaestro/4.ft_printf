@@ -21,7 +21,8 @@ static void			ft_updt_p_info(t_p_inf *infos, t_f_id *f_id)
 		infos->nbr_pad_w_min = ft_max((f_id->w_min - infos->len_a), 0);
 		infos->nbr_pad_dgt = 0;
 		infos->pad_rt = f_id->flags & F_MINUS ? 1 : 0;
-		infos->pad_w_min = ' ';
+		infos->pad_w_min = (f_id->flags & F_ZERO && !(f_id->flags & F_MINUS) &&\
+			(!f_id->prec.period || !f_id->prec.nb_dgt)) ? '0' : ' ';
 	}
 	else
 		ft_error("ft_print_a_o: ft_updt_p_info: input error");

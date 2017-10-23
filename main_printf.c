@@ -17,15 +17,19 @@ int		main(void)
 {
 	// char	str[80] = "abcde";
 
-	// ft_printf("@moulitest: %#.o %#.0o\n", 0, 0);
-	// printf("@moulitest: %#.o %#.0o\n", 0, 0);
+
+	// printf("%.0o, %.o--\n", 0, 0);
+	// ft_printf("%.0o, %.o++\n", 0, 0);
 
 
-	// printf("@moulitest: %5.o %5.0o--\n", 0, 0);
-	// ft_printf("@moulitest: %5.o %5.0o++\n", 0, 0);
+	printf("{%05.%}--\n", 0);
+	ft_printf("{%05.%}++\n", 0);
 
-	printf("%#p--\n", 0);
-	ft_printf("%#p++\n", 0);
+
+	// printf("%15.4S--\n", L"我是一只猫。");
+	// ft_printf("%15.4S++\n", L"我是一只猫。");
+
+
 
 
 	// printf("%4.s---\n", "42");
