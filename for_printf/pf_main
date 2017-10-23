@@ -1,0 +1,74 @@
+
+Test 1 %Retour de la fonction : |-1|
+
+Test 4 %Retour de la fonction : |-1|
+
+Test 7 %Retour de la fonction : |-1|
+
+Test 8 %Retour de la fonction : |-1|
+
+Test 9 %Retour de la fonction : |-1|
+
+Test 7-d % -1
+
+Test 10-d % -1
+
+Test printf 42-d %#15.6o : |         000052| : -1
+
+Test printf 42-e %#015.6o : |         000052| : -1
+
+Test printf 43-d %#15.6o : |         000000| : -1
+
+Test printf 43-e %#015.6o : |         000000| : -1
+
+Test printf 45-d %#-15.6o : |000055         | : -1
+
+Test printf 45-e %#-015.6o : |000055         | : -1
+
+Test printf 46-d %#-15.6o : |000000         | : -1
+
+Test printf 46-e %#-015.6o : |000000         | : -1
+
+Test printf 3-a %8x : |       0| : -1
+
+Test printf 5-a %-8x : |0       | : -1
+
+Test printf 7-a %08x : |00000000| : -1
+
+Test printf 43-b %#8x : |       0| : -1
+
+Test printf 46-b %#-8x : |0       | : -1
+
+Test printf 50-c %#08x : |00000000| : -1
+
+Test printf 50-d %#08x : |00000000| : -1
+
+Test printf 50-e %#08x : |00000000| : -1
+
+Test printf 50-f %#08x : |00000000| : -1
+
+Test printf 50-g %#08x : |00000000| : -1
+
+Test printf 50-h %-#08x : |00000000| : -1
+
+Test printf 51-c %-#08x : |0       | : -1
+
+Test printf 51-d %-#08x : |0       | : -1
+
+Test printf 51-e %-#08x : |0       | : -1
+
+Test printf 51-f %-#08x : |0       | : -1
+
+Test printf 51-g %-#08x : |0       | : -1
+
+Test printf 51-h %-#08x : |0       | : -1
+
+Test printf 3-a %8X : |       0| : -1
+
+Test printf 5-a %-8X : |0       | : -1
+
+Test printf 7-a %08X : |00000000| : -1
+
+Test printf 43-b %#8X : |       0| : -1
+
+Test printf 46-b %#-8X : |0       | : -1

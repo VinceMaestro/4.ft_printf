@@ -67,6 +67,7 @@ void			ft_print_a_o(t_a_lst *a_lst, t_f_id *f_id)
 
 	if (a_lst && f_id)
 	{
+		ft_init_p_inf(&infos);
 		ft_updt_p_info(&infos, a_lst, f_id);
 		// dbug_infos(&infos);
 		infos.pad_rt ? ft_p_left(&infos, a_lst, f_id) : \

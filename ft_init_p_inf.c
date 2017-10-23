@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-t_p_inf			*ft_init_p_inf(t_p_inf *infos)
+void		ft_init_p_inf(t_p_inf *infos)
 {
 	// infos = NEW(t_p_inf);
 	*infos = (t_p_inf){
@@ -21,6 +21,8 @@ t_p_inf			*ft_init_p_inf(t_p_inf *infos)
 		.nbr_pad_w_min = 0,
 		.nbr_pad_dgt = 0,
 		.pad_rt = 0,
+		.pad_w_min = 0,
+		.pad_dgt = 0,
+		.first_c = NULL,
 	};
-	return (infos);
 }

@@ -113,7 +113,7 @@ t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap);
 t_a_lst			*ft_mk_new_a_lst(t_a_lst *a_lst);
 t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
 
-t_p_inf			*ft_init_p_inf(t_p_inf *infos);
+void			ft_init_p_inf(t_p_inf *infos);
 
 void			ft_updt_all_prec(t_a_lst *a_lst, t_f_id *f_id);
 

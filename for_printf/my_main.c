@@ -28,18 +28,6 @@ int		main(void)
 
 	int len;
 
-	ft_printf("%#04x", 0);
-	printf("%#04x", 0);
-
-	ft_printf("%lo, %lo", 0, ULONG_MAX);
-	printf("%lo, %lo", 0, ULONG_MAX);
-
-	// ft_putnbr(printf("%4S\n", L"我是一只猫。"));
-	// ft_putnbr(ft_printf("%4S\n", L"我是一只猫。"));
-
-	// ft_printf("%9.0p+++\n", 482);
-	// printf("%9.0p---\n", 482);
-
 	// len = ft_printf("\nTest 15 %%010.2s : |%010.2s|\n", "pouet");// Undef
 	// ft_printf("Retour de la fonction : |%d|\n", len);
 
