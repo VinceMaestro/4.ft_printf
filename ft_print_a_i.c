@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 16:04:19 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 13:06:33 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/23 15:21:29 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 			(!infos->first_c || !infos->first_c[0] || infos->first_c[0] == '+'\
 			)) ? '0' : '\0';
 	}
-	else
-		ft_error("ft_print_a_o: ft_updt_p_info: input error");
 }
 
 static void		ft_p_left(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)

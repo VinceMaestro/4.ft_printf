@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_a_lst.c                                    :+:      :+:    :+:   */
+/*   ft_seek_err.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/16 19:20:50 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 18:50:13 by vpetit           ###   ########.fr       */
+/*   Created: 2017/10/23 17:29:47 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/23 17:33:18 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-t_a_lst			*ft_init_a_lst(t_a_lst *a_lst)
+static int		ft_seek_err_f_id(t_f_id *f_id)
 {
-	if (a_lst)
+	while (f_id)
 	{
-		if (!(a_lst->next = (t_a_lst*)malloc(sizeof(t_a_lst))))
-		{
-			a_lst->err = -1;
-			return (NULL);
-		}
-		a_lst->next->first = a_lst->first;
-		a_lst->next->nbr = a_lst->nbr + 1;
+		if (f_id->err == -1)
+			return (1);
+		f_id = f_id->next;
+	}
+	return (0);
+}
+
+static int		ft_seek_err_a_lst(t_a_lst *a_lst)
+{
+	while (a_lst)
+	{
+		if (a_lst->err == -1)
+			return (1);
 		a_lst = a_lst->next;
 	}
-	else
-	{
-		if (!(a_lst = (t_a_lst*)malloc(sizeof(t_a_lst))))
-			return (NULL);
-		a_lst->first = a_lst;
-		a_lst->nbr = 1;
-	}
-	a_lst->a_tp = 0;
-	a_lst->len = 0;
-	a_lst->next = NULL;
-	return (a_lst);
+	return (0);
+}
+
+int				ft_seek_err(t_a_lst *a_lst, t_f_id *f_id)
+{
+	int		ret;
+
+	ret = 0;
+	ret	+= ft_seek_err_a_lst(a_lst);
+	ret	+= ft_seek_err_f_id(f_id);
+	return (ret);
 }

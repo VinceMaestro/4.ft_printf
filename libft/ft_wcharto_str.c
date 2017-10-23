@@ -9,25 +9,25 @@ static int		ft_conv_one_byte(char **buff, int pos, wchar_t w_c)
 
 static int		ft_conv_two_byte(char **buff, int pos, wchar_t w_c)
 {
-	(*buff)[pos + 0] = ((w_c >> 6) & 0x1F) | 0xC0;
-	(*buff)[pos + 1] = (w_c & 0x3F) | 0x80;
+	(*buff)[pos + 0] = ((w_c & 0x7c0) >> 6) | 0xc0;
+	(*buff)[pos + 1] = ((w_c & 0x3f) | 0x80);
 	return (2);
 }
 
 static int		ft_conv_three_byte(char **buff, int pos, wchar_t w_c)
 {
-	(*buff)[pos + 0] = ((w_c >> 12) & 0xF) | 0xE0;
-	(*buff)[pos + 1] = ((w_c >> 6) & 0x3F) | 0x80;
-	(*buff)[pos + 2] = (w_c & 0x3F) | 0x80;
+	(*buff)[pos + 0] = (((w_c & 0xf000) >> 12) | 0xe0);
+	(*buff)[pos + 1] = (((w_c & 0xfc0) >> 6) | 0x80);
+	(*buff)[pos + 2] = ((w_c & 0x3f) | 0x80);
 	return (3);
 }
 
 static int		ft_conv_four_byte(char **buff, int pos, wchar_t w_c)
 {
-	(*buff)[pos + 0] = ((w_c >> 18) & 0x7) | 0xC0;
-	(*buff)[pos + 1] = ((w_c >> 12) & 0x3F) | 0x80;
-	(*buff)[pos + 2] = ((w_c >> 6) & 0x3F) | 0x80;
-	(*buff)[pos + 3] = (w_c & 0x3F) | 0x80;
+	(*buff)[pos + 0] = (((w_c & 0x1c0000) >> 18) | 0xf0);
+	(*buff)[pos + 1] = (((w_c & 0x3f000) >> 12) | 0x80);
+	(*buff)[pos + 2] = (((w_c & 0xfc0) >> 6) | 0x80);
+	(*buff)[pos + 3] = ((w_c & 0x3f) | 0x80);
 	return (4);
 }
 

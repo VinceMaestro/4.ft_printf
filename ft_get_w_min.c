@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 03:57:07 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/12 14:48:56 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/23 17:38:12 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			ft_get_w_min(t_f_id *f_id, char *tmp_str)
 		f_id->w_min = -1;
 	}
 	// if (!tmp_str[nbr_len + nb_r_c])
-	// 	ft_error("ft_get_w_min: Input format error");
+	// 	f_id->err = -1;
 	if (!f_id->w_min)
 		f_id->w_min = ft_max(0, save_nbr);
 	f_id->nb_r_c = nbr_len + nb_r_c;

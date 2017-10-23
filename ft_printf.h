@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 18:17:31 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/23 17:33:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ struct			s_f_id
 	int			nb_r_c;
 	int			nb_p_c;
 	int			start_pos;
+	int			err;
 	t_f_id		*first;
 	t_f_id		*next;
 };
@@ -77,6 +78,7 @@ struct			s_list_a
 	char			a_tp;
 	t_union			a;
 	size_t			len;
+	int				err;
 	t_a_lst			*next;
 	t_a_lst			*first;
 };
@@ -89,6 +91,8 @@ void			dbug_a_lst(t_a_lst *a_lst);
 int				ft_printf(char *str, ...);
 
 void			ft_free_all(t_a_lst *a_lst, t_f_id *f_id);
+
+int				ft_seek_err(t_a_lst *a_lst, t_f_id *f_id);
 
 int				ft_print_all(t_a_lst *a_lst, t_f_id *f_id, char *str);
 t_a_lst			*ft_print_arg(t_a_lst *a_lst, t_f_id *f_id, char *str);

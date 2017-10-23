@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 18:17:22 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/23 13:20:02 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ t_a_lst		*ft_print_arg(t_a_lst *a_lst, t_f_id *f_id, char *str)
 			ft_print_a_null(f_id, str);
 		else if (a_lst)
 		{
-			if (f_id->prec.period && f_id->prec.period == '*')
-				!(a_lst = a_lst->next) ? ft_error("ft_print_arg") : NULL;
-			if (!a_lst)
-				ft_error("ft_p_f_id: Should'nt happend\n");
+			// if (f_id->prec.period && f_id->prec.period == '*')
+			// 	!(a_lst = a_lst->next) ? ft_error("ft_print_arg") : NULL;
+			// if (!a_lst)
+			// 	ft_error("ft_p_f_id: Should'nt happend\n");
 			ft_ptr_fct[(int)f_id->a_tp](a_lst, f_id);
 			a_lst = a_lst->next;
 		}

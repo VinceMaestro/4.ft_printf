@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 12:41:40 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/23 15:22:26 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 		infos->pad_dgt = ((f_id->prec.period && f_id->prec.nb_dgt > 0) || \
 			(!infos->first_c || !infos->first_c[0])) ? '0' : '\0';
 	}
-	else
-		ft_error("ft_print_a_o: ft_updt_p_info: input error");
 }
 
 static void		ft_p_left(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)

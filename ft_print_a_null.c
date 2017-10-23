@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 19:14:47 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 13:01:05 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/23 16:53:33 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ static void			ft_updt_p_info(t_p_inf *infos, t_f_id *f_id)
 		infos->nbr_pad_w_min = ft_max((f_id->w_min - infos->len_a), 0);
 		infos->nbr_pad_dgt = 0;
 		infos->pad_rt = f_id->flags & F_MINUS ? 1 : 0;
-		infos->pad_w_min = (f_id->flags & F_ZERO && !(f_id->flags & F_MINUS) &&\
-			(!f_id->prec.period || !f_id->prec.nb_dgt)) ? '0' : ' ';
+		infos->pad_w_min = (f_id->flags & F_ZERO && !(f_id->flags & F_MINUS))\
+			? '0' : ' ';
 	}
-	else
-		ft_error("ft_print_a_o: ft_updt_p_info: input error");
 }
 
 static void			ft_p_left(t_p_inf *infos, t_f_id *f_id, \
@@ -59,7 +57,6 @@ void				ft_print_a_null(t_f_id *f_id, char *str)
 		ft_updt_p_info(&infos, f_id);
 		infos.pad_rt ? ft_p_left(&infos, f_id, str) : \
 			ft_p(&infos, f_id, str);
+		// dbug_infos(&infos);
 	}
-	else
-		ft_error("ft_print_a_c: Should'nt hapend");
 }

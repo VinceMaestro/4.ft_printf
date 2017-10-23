@@ -34,7 +34,8 @@ SRC = ft_printf.c \
 		dbug_p_f_id.c \
 		dbug_p_all_f_id.c \
 		dbug_a_lst.c \
-		ft_free_all.c
+		ft_free_all.c \
+		ft_seek_err.c
 
 LIBDIR = ./libft
 
