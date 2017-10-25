@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #include <stdio.h>
 #include <locale.h>
 #include <limits.h>
@@ -18,35 +18,35 @@ int		main(void)
 
 
 
-	printf(" %d\n", printf("\nTest 1 %%R : |%R|"));
-
-	printf(" %d\n", printf("\nTest 2 %% R : |% R|"));
-
-	printf(" %d\n", printf("\nTest 3 %%+R : |%+R|"));
-
-	printf(" %d\n", printf("\nTest 4 %%-R : |%-R|"));
-
-	printf(" %d\n", printf("\nTest 5 %%0R : |%0R|"));
-
-	printf(" %d\n", printf("\nTest 6 %%#R : |%#R|"));
-
-	printf(" %d\n", printf("\nTest 7-a %%8R : |%8R|"));
-	printf(" %d\n", printf("\nTest 7-b %%.4R : |%.4R|"));
-	printf(" %d\n", printf("\nTest 7-c %%8.4R : |%8.4R|"));
-	printf(" %d\n", printf("\nTest 7-d %%4.8R : |%4.8R|"));
-
-	printf(" %d\n", printf("\nTest 8 %%R : |%"));
-
-	printf(" %d\n", printf("\nTest 9 %%0R : |%0"));
-
-	printf(" %d\n", printf("\nTest 10 %%17R : |%17"));
-
-	printf(" %d\n", printf("\nTest 11 %%017R : |%017"));
-
-	printf(" %d\n", printf("\nTest 12-a %%8.5R : |%8.5"));
-	printf(" %d\n", printf("\nTest 12-b %%8.R : |%8.5"));
-
-	printf(" %d\n", printf("\nTest 13 %%08.5R : |%08.5"));
+	// printf(" %d\n", printf("\nTest 1 %%R : |%R|"));
+	//
+	// printf(" %d\n", printf("\nTest 2 %% R : |% R|"));
+	//
+	// printf(" %d\n", printf("\nTest 3 %%+R : |%+R|"));
+	//
+	// printf(" %d\n", printf("\nTest 4 %%-R : |%-R|"));
+	//
+	// printf(" %d\n", printf("\nTest 5 %%0R : |%0R|"));
+	//
+	// printf(" %d\n", printf("\nTest 6 %%#R : |%#R|"));
+	//
+	// printf(" %d\n", printf("\nTest 7-a %%8R : |%8R|"));
+	// printf(" %d\n", printf("\nTest 7-b %%.4R : |%.4R|"));
+	// printf(" %d\n", printf("\nTest 7-c %%8.4R : |%8.4R|"));
+	// printf(" %d\n", printf("\nTest 7-d %%4.8R : |%4.8R|"));
+	//
+	// printf(" %d\n", printf("\nTest 8 %%R : |%"));
+	//
+	// printf(" %d\n", printf("\nTest 9 %%0R : |%0"));
+	//
+	// printf(" %d\n", printf("\nTest 10 %%17R : |%17"));
+	//
+	// printf(" %d\n", printf("\nTest 11 %%017R : |%017"));
+	//
+	// printf(" %d\n", printf("\nTest 12-a %%8.5R : |%8.5"));
+	// printf(" %d\n", printf("\nTest 12-b %%8.R : |%8.5"));
+	//
+	// printf(" %d\n", printf("\nTest 13 %%08.5R : |%08.5"));
 
 	//		 _   ___   __
 	//		(_) / (_) / /
@@ -119,20 +119,20 @@ int len;
 	len = printf("\nTest 2 %%s : |%s|\n", "pouet");
 	printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 3 %%0s : |%0s|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 3 %%0s : |%0s|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 4 %%+s : |%+s|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 4 %%+s : |%+s|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
 	len = printf("\nTest 5 %%-s : |%-s|\n", "pouet");
 	printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 6 %% s : |% s|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 6 %% s : |% s|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 7 %%#s : |%#s|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 7 %%#s : |%#s|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
 	len = printf("\nTest 8 %%10s : |%10s|\n", "pouet");
 	printf("Retour de la fonction : |%d|\n", len);
@@ -155,29 +155,29 @@ int len;
 	len = printf("\nTest 14 %%-10.2s : |%-10.2s|\n", "pouet");
 	printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 15 %%010.2s : |%010.2s|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 15 %%010.2s : |%010.2s|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 16 %%-+0 #10.2s : |%-+0 #10.2s|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 16 %%-+0 #10.2s : |%-+0 #10.2s|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 17 %%-+0 #10.2hhs : |%-+0 #10.2hhs|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 17 %%-+0 #10.2hhs : |%-+0 #10.2hhs|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 18 %%-+0 #10.2hs : |%-+0 #10.2hs|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 18 %%-+0 #10.2hs : |%-+0 #10.2hs|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 19 %%-+0 #10.2ls : |%-+0 #10.2ls|\n", L"pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 19 %%-+0 #10.2ls : |%-+0 #10.2ls|\n", L"pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 20 %%-+0 #10.2lls : |%-+0 #10.2lls|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 20 %%-+0 #10.2lls : |%-+0 #10.2lls|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 21 %%-+0 #10.2js : |%-+0 #10.2js|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 21 %%-+0 #10.2js : |%-+0 #10.2js|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 22 %%-+0 #10.2zs : |%-+0 #10.2zs|\n", "pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 22 %%-+0 #10.2zs : |%-+0 #10.2zs|\n", "pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
 	printf(" %d\n", printf("\nTest 23 %%s : |%s| :", NULL));
 	printf(" %d\n", printf("\nTest 24 %%8s : |%8s| :", NULL));
@@ -195,20 +195,20 @@ int len;
 	len = printf("\nTest 1 %%S : |%S|\n",  L"ʬ۩෴࿈♫𑀒");
 	printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 2 %%0S : |%0S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 2 %%0S : |%0S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 3 %%+S : |%+S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 3 %%+S : |%+S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
 	len = printf("\nTest 4 %%-S : |%-S|\n",  L"ʬ۩෴࿈♫𑀒");
 	printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 5 %% S : |% S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 5 %% S : |% S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 6 %%#S : |%#S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 6 %%#S : |%#S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
 	len = printf("\nTest 7 %%4S : |%4S|\n",  L"ʬ۩෴࿈♫𑀒");
 	printf("Retour de la fonction : |%d|\n", len);
@@ -219,43 +219,43 @@ int len;
 	len = printf("\nTest 9 %%25S : |%25S|\n",  L"ʬ۩෴࿈♫𑀒");
 	printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 10 %%.4S : |%.4S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 10 %%.4S : |%.4S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 11 %%.12S : |%.12S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 11 %%.12S : |%.12S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 12 %%.25S : |%.25S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 12 %%.25S : |%.25S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 13 %%20.5S : |%20.5S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 13 %%20.5S : |%20.5S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 14 %%5.20S : |%5.20S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 14 %%5.20S : |%5.20S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 15 %%10.10S : |%10.10S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 15 %%10.10S : |%10.10S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 16 %%-+0 #20.8S : |%-+0 #20.8S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 16 %%-+0 #20.8S : |%-+0 #20.8S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 17 %%0 #20S : |%0 #20S|\n",  L"ʬ۩෴࿈♫𑀒");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 17 %%0 #20S : |%0 #20S|\n",  L"ʬ۩෴࿈♫𑀒");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 18 %%-+0 #10.2S : |%-+0 #10.2S|\n",  L"pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 18 %%-+0 #10.2S : |%-+0 #10.2S|\n",  L"pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 19 %%10.2S : |%10.2S|\n",  L"pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 19 %%10.2S : |%10.2S|\n",  L"pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	len = printf("\nTest 18 %%10.5S : |%10.5S|\n",  L"pouet");
-	printf("Retour de la fonction : |%d|\n", len);
+	// len = printf("\nTest 18 %%10.5S : |%10.5S|\n",  L"pouet");
+	// printf("Retour de la fonction : |%d|\n", len);
 
-	printf(" %d\n", printf("\nTest 19 %%S : |%S| :", NULL));
-	printf(" %d\n", printf("\nTest 20 %%8S : |%8S| :", NULL));
-	printf(" %d\n", printf("\nTest 21 %%.3S : |%.3S| :", NULL));
-	printf(" %d\n", printf("\nTest 22 %%8.3S : |%8.3S| :", NULL));
+	// printf(" %d\n", printf("\nTest 19 %%S : |%S| :", NULL));// Format error
+	// printf(" %d\n", printf("\nTest 20 %%8S : |%8S| :", NULL));// Format error
+	// printf(" %d\n", printf("\nTest 21 %%.3S : |%.3S| :", NULL));
+	// printf(" %d\n", printf("\nTest 22 %%8.3S : |%8.3S| :", NULL));
 
 	//		 _   __
 	//		(_) / /
@@ -266,27 +266,27 @@ int len;
 
 	printf(" %d\n", printf("\nTest 1 %%c : |%c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 2 %%#c : |%#c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 2 %%#c : |%#c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 3 %%+c : |%+c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 3 %%+c : |%+c| :", 'a'));
 
 	printf(" %d\n", printf("\nTest 4 %%-c : |%-c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 5 %% c : |% c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 5 %% c : |% c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 6 %%0c : |%0c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 6 %%0c : |%0c| :", 'a'));
 
 	printf(" %d\n", printf("\nTest 7 %%-8c : |%-8c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 8 %%08c : |%08c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 8 %%08c : |%08c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 9 %%0-8c : |%0-8c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 9 %%0-8c : |%0-8c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 10 %% 8c : |% 8c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 10 %% 8c : |% 8c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 11 %%-+0 #c : |%-+0 #c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 11 %%-+0 #c : |%-+0 #c| :", 'a'));
 
-	printf(" %d\n", printf("\nTest 12 %%8.2c : |%8.2c| :", 'a'));
+	// printf(" %d\n", printf("\nTest 12 %%8.2c : |%8.2c| :", 'a'));
 
 	printf(" %d\n", printf("\nTest 13 %%c : |%c| :", -5));
 
@@ -303,39 +303,39 @@ int len;
 
 	printf(" %d\n", printf("\nTest 1 %%C : |%C| :", L'a'));
 
-	printf(" %d\n", printf("\nTest 2 %%#C : |%#C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 2 %%#C : |%#C| :", L'a'));
 
-	printf(" %d\n", printf("\nTest 3 %%+C : |%+C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 3 %%+C : |%+C| :", L'a'));
 
 	printf(" %d\n", printf("\nTest 4 %%-C : |%-C| :", L'a'));
 
-	printf(" %d\n", printf("\nTest 5 %% C : |% C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 5 %% C : |% C| :", L'a'));
 
-	printf(" %d\n", printf("\nTest 6 %%0C : |%0C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 6 %%0C : |%0C| :", L'a'));
 
 	printf(" %d\n", printf("\nTest 7-a %%-8C : |%-8C| :", L'a'));
 	printf(" %d\n", printf("\nTest 7-b %%-8C : |%-8C| :", L'ʬ'));
 	printf(" %d\n", printf("\nTest 7-c %%-8C : |%-8C| :", L'♫'));
 	printf(" %d\n", printf("\nTest 7-d %%-8C : |%-8C| :", L'𑀒'));
 
-	printf(" %d\n", printf("\nTest 8-a %%08C : |%08C| :", L'a'));
-	printf(" %d\n", printf("\nTest 8-b %%08C : |%08C| :", L'ʬ'));
-	printf(" %d\n", printf("\nTest 8-c %%08C : |%08C| :", L'♫'));
-	printf(" %d\n", printf("\nTest 8-d %%08C : |%08C| :", L'𑀒'));
+	// printf(" %d\n", printf("\nTest 8-a %%08C : |%08C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 8-b %%08C : |%08C| :", L'ʬ'));
+	// printf(" %d\n", printf("\nTest 8-c %%08C : |%08C| :", L'♫'));
+	// printf(" %d\n", printf("\nTest 8-d %%08C : |%08C| :", L'𑀒'));
 
-	printf(" %d\n", printf("\nTest 9-a %%0-8C : |%0-8C| :", L'a'));
-	printf(" %d\n", printf("\nTest 9-b %%0-8C : |%0-8C| :", L'ʬ'));
-	printf(" %d\n", printf("\nTest 9-c %%0-8C : |%0-8C| :", L'♫'));
-	printf(" %d\n", printf("\nTest 9-d %%0-8C : |%0-8C| :", L'𑀒'));
+	// printf(" %d\n", printf("\nTest 9-a %%0-8C : |%0-8C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 9-b %%0-8C : |%0-8C| :", L'ʬ'));
+	// printf(" %d\n", printf("\nTest 9-c %%0-8C : |%0-8C| :", L'♫'));
+	// printf(" %d\n", printf("\nTest 9-d %%0-8C : |%0-8C| :", L'𑀒'));
 
 	printf(" %d\n", printf("\nTest 10-a %%C : |%C| :", L'a'));
 	printf(" %d\n", printf("\nTest 10-b %%C : |%C| :", L'ʬ'));
 	printf(" %d\n", printf("\nTest 10-c %%C : |%C| :", L'♫'));
 	printf(" %d\n", printf("\nTest 10-d %%C : |%C| :", L'𑀒'));
 
-	printf(" %d\n", printf("\nTest 11 %%-+0 #C : |%-+0 #C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 11 %%-+0 #C : |%-+0 #C| :", L'a'));
 
-	printf(" %d\n", printf("\nTest 12 %%8.2C : |%8.2C| :", L'a'));
+	// printf(" %d\n", printf("\nTest 12 %%8.2C : |%8.2C| :", L'a'));
 
 	printf(" %d\n", printf("\nTest 13 %%C : |%C| :", 1));
 
@@ -356,31 +356,31 @@ int len;
 	printf(" %d\n", printf("\nTest printf 1-d %%d : |%d| :", 5));
 	printf(" %d\n", printf("\nTest printf 1-e %%d : |%d| :", -5));
 	printf(" %d\n", printf("\nTest printf 1-f %%d : |%d| :", 2147483647));
-	printf(" %d\n", printf("\nTest printf 1-g %%d : |%d| :", -2147483648));
+	// printf(" %d\n", printf("\nTest printf 1-g %%d : |%d| :", -2147483648));
 
-	printf(" %d\n", printf("\nTest printf 1-a %%hhd : |%hhd| :", 0));
-	printf(" %d\n", printf("\nTest printf 1-b %%hhd : |%hhd| :", 1));
-	printf(" %d\n", printf("\nTest printf 1-c %%hhd : |%hhd| :", -1));
-	printf(" %d\n", printf("\nTest printf 1-d %%hhd : |%hhd| :", 5));
-	printf(" %d\n", printf("\nTest printf 1-e %%hhd : |%hhd| :", -5));
-	printf(" %d\n", printf("\nTest printf 1-f %%hhd : |%hhd| :", 2147483647));
-	printf(" %d\n", printf("\nTest printf 1-g %%hhd : |%hhd| :", -2147483648));
+	// printf(" %d\n", printf("\nTest printf 1-a %%hhd : |%hhd| :", 0));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-b %%hhd : |%hhd| :", 1));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-c %%hhd : |%hhd| :", -1));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-d %%hhd : |%hhd| :", 5));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-e %%hhd : |%hhd| :", -5));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-f %%hhd : |%hhd| :", 2147483647));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-g %%hhd : |%hhd| :", -2147483648));// Format error
 //	printf(" %d\n", printf("\nTest printf 1-h %%hhd : |%hhd| :", -9223372036854775808)); //lldb
-	printf(" %d\n", printf("\nTest printf 1-i %%hhd : |%hhd| :", 9223372036854775807));
+	// printf(" %d\n", printf("\nTest printf 1-i %%hhd : |%hhd| :", 9223372036854775807));// Format error
 
-	printf(" %d\n", printf("\nTest printf 1-a %%hd : |%hd| :", 0));
-	printf(" %d\n", printf("\nTest printf 1-b %%hd : |%hd| :", 1));
-	printf(" %d\n", printf("\nTest printf 1-c %%hd : |%hd| :", -1));
-	printf(" %d\n", printf("\nTest printf 1-d %%hd : |%hd| :", 5));
-	printf(" %d\n", printf("\nTest printf 1-e %%hd : |%hd| :", -5));
-	printf(" %d\n", printf("\nTest printf 1-f %%hd : |%hd| :", 2147483647));
-	printf(" %d\n", printf("\nTest printf 1-g %%hd : |%hd| :", -2147483648));
+	// printf(" %d\n", printf("\nTest printf 1-a %%hd : |%hd| :", 0));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-b %%hd : |%hd| :", 1));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-c %%hd : |%hd| :", -1));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-d %%hd : |%hd| :", 5));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-e %%hd : |%hd| :", -5));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-f %%hd : |%hd| :", 2147483647));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-g %%hd : |%hd| :", -2147483648));// Format error
 //	printf(" %d\n", printf("\nTest printf 1-h %%hd : |%hd| :", -9223372036854775808)); //lldb
-	printf(" %d\n", printf("\nTest printf 1-i %%hd : |%hd| :", 9223372036854775807));
+	// printf(" %d\n", printf("\nTest printf 1-i %%hd : |%hd| :", 9223372036854775807));// Format error
 
-	printf(" %d\n", printf("\nTest printf 1-a %%ld : |%ld| :", 0));
-	printf(" %d\n", printf("\nTest printf 1-b %%ld : |%ld| :", 1));
-	printf(" %d\n", printf("\nTest printf 1-c %%ld : |%ld| :", -1));
+	// printf(" %d\n", printf("\nTest printf 1-a %%ld : |%ld| :", 0));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-b %%ld : |%ld| :", 1));// Format error
+	// printf(" %d\n", printf("\nTest printf 1-c %%ld : |%ld| :", -1));// Format error
 	printf(" %d\n", printf("\nTest printf 1-d %%ld : |%ld| :", 5));
 	printf(" %d\n", printf("\nTest printf 1-e %%ld : |%ld| :", -5));
 	printf(" %d\n", printf("\nTest printf 1-f %%ld : |%ld| :", 2147483647));
