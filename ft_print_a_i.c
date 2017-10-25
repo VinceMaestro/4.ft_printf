@@ -6,12 +6,24 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 16:04:19 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 15:21:29 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 14:01:00 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
+
+static void		ft_get_first_c(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
+{
+	if (f_id->flags & F_PLUS && a_lst->a.ll >= 0)
+		infos->first_c = "+";
+	else if (f_id->flags & F_SPACE && a_lst->a.ll >= 0)
+		infos->first_c = " ";
+	else if (a_lst->a.ll < 0)
+		infos->first_c = "-";
+	else
+		infos->first_c = "";
+}
 
 static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 {
@@ -22,16 +34,7 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 		tmp = a_lst->a.ll < 0 ? 1 : 0;
 		infos->len_a = f_id->prec.period && !f_id->prec.nb_dgt && \
 			(!a_lst->a.ll) ? 0 : ft_llintlen(a_lst->a.ll) - tmp;
-		// infos->len_a = (a_lst->a.ll || (!f_id->w_min && !f_id->prec.period)) ?\
-		// 	ft_llintlen(a_lst->a.ll) - tmp : 0;
-		if (f_id->flags & F_PLUS && a_lst->a.ll >= 0)
-			infos->first_c = "+";
-		else if (f_id->flags & F_SPACE && a_lst->a.ll >= 0)
-			infos->first_c = " ";
-		else if (a_lst->a.ll < 0)
-			infos->first_c = "-";
-		else
-			infos->first_c = "";
+		ft_get_first_c(infos, a_lst, f_id);
 		infos->nbr_pad_w_min = ft_max(f_id->w_min - ft_strlen(infos->first_c) -\
 			ft_max(f_id->prec.period ? ft_abs(f_id->prec.nb_dgt) : 0, \
 			infos->len_a), 0);
@@ -41,8 +44,8 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 		infos->pad_w_min = (f_id->flags & F_ZERO && !(f_id->flags & F_MINUS) &&\
 		!f_id->prec.period) ? '0' : ' ';
 		infos->pad_dgt = ((f_id->prec.period && f_id->prec.nb_dgt > 0) || \
-			(!infos->first_c || !infos->first_c[0] || infos->first_c[0] == '+'\
-			)) ? '0' : '\0';
+			(!infos->first_c || !infos->first_c[0] || \
+				infos->first_c[0] == '+')) ? '0' : '\0';
 	}
 }
 
@@ -79,8 +82,8 @@ void			ft_print_a_i(t_a_lst *a_lst, t_f_id *f_id)
 
 	if (a_lst && f_id)
 	{
+		ft_init_p_inf(&infos);
 		ft_updt_p_info(&infos, a_lst, f_id);
-		// dbug_infos(&infos);
 		infos.pad_rt ? ft_p_left(&infos, a_lst, f_id) : \
 			ft_p(&infos, a_lst, f_id);
 	}

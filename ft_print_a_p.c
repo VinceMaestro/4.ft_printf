@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 14:46:34 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 19:29:46 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:40:38 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,13 @@ static void			ft_p(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 	ft_max(0, infos->nbr_pad_dgt) + ft_strlen(infos->first_c) + infos->len_a);
 }
 
-void			ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id)
+void				ft_print_a_p(t_a_lst *a_lst, t_f_id *f_id)
 {
 	t_p_inf		infos;
 
 	if (a_lst && f_id)
 	{
+		ft_init_p_inf(&infos);
 		ft_updt_p_info(&infos, a_lst, f_id);
 		infos.pad_rt ? ft_p_left(&infos, a_lst, f_id) : \
 			ft_p(&infos, a_lst, f_id);

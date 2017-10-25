@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 18:37:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/20 18:30:53 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:38:04 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static void			ft_get_period(t_f_id *f_id, char *str)
 	pos = 0;
 	if (str[pos] && str[pos] == '.')
 	{
-		if (str[pos + 1] && str[pos + 1] == '*')
-			pos++;
 		f_id->prec.period = str[pos];
 		pos++;
 	}

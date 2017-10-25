@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:39:54 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 17:33:33 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 16:29:06 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,6 @@ struct			s_list_a
 	t_a_lst			*first;
 };
 
-void			dbug_p_all_f_id(t_f_id *f_id);
-void			dbug_p_f_id(t_f_id *f_id);
-void			dbug_infos(t_p_inf *infos);
-void			dbug_a_lst(t_a_lst *a_lst);
-
 int				ft_printf(char *str, ...);
 
 void			ft_free_all(t_a_lst *a_lst, t_f_id *f_id);
@@ -115,8 +110,6 @@ t_a_lst			*ft_init_a_lst(t_a_lst *a_lst);
 
 void			ft_init_p_inf(t_p_inf *infos);
 
-void			ft_updt_all_prec(t_a_lst *a_lst, t_f_id *f_id);
-
 void			ft_get_param(t_f_id *f_id, char *tmp_str);
 void			ft_get_flags(t_f_id *f_id, char *tmp_str);
 void			ft_get_w_min(t_f_id *f_id, char *tmp_str);
@@ -125,6 +118,8 @@ void			ft_get_lenght(t_f_id *f_id, char *str);
 void			ft_get_a_tp(t_f_id *f_id, char *tmp_str);
 
 void			ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
+void			ft_save_a_ll_signed(t_a_lst *a_lst, va_list *ap, t_ull max);
+void			ft_save_a_ll_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max);
 void			ft_save_a_s(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
 void			ft_save_a_p(t_a_lst *a_lst, t_f_id *f_id, va_list *ap);
 

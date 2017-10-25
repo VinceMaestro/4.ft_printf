@@ -6,12 +6,11 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 11:26:59 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 13:13:24 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 16:27:42 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdlib.h>
 
 static t_ull	ft_get_max(char *str, char tp)
 {
@@ -60,82 +59,6 @@ static t_ll		ft_get_min(char *str, char tp)
 	return (min);
 }
 
-static void		ft_save_signed(t_a_lst *a_lst, va_list *ap, t_ull max)
-{
-	t_u_nbr		nbr;
-
-	if (max == INT_MAX)
-	{
-		nbr.i = (int)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.i;
-	}
-	else if (max == LONG_MAX)
-	{
-		nbr.l = (t_l)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.l;
-	}
-	else if (max == LLONG_MAX)
-	{
-		nbr.ll = (t_ll)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.ll;
-	}
-	else if (max == SHRT_MAX)
-	{
-		nbr.s = (t_s)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.s;
-	}
-	else if (max == CHAR_MAX)
-	{
-		nbr.c = (char)va_arg(*ap, void*);
-		a_lst->a.ll = nbr.c;
-	}
-}
-
-static void		ft_save_unsigned(t_a_lst *a_lst, va_list *ap, t_ull max)
-{
-	t_u_nbr		nbr;
-	char		*str;
-
-	str = NULL;
-	if (max == UINT_MAX)
-	{
-		nbr.ui = (t_ui)va_arg(*ap, void*);
-		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
-			 str = ft_ltoabase(nbr.ui, "01234567");
-		else
-			a_lst->a.ll = nbr.ui;
-	}
-	else if (max == ULONG_MAX)
-	{
-		nbr.ul = (t_ul)va_arg(*ap, void*);
-		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
-			 str = ft_ltoabase(nbr.ul, "01234567");
-		else
-			a_lst->a.ll = nbr.ul;
-	}
-	else if (max == USHRT_MAX)
-	{
-		nbr.us = (t_us)va_arg(*ap, void*);
-		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
-			 str = ft_ltoabase(nbr.us, "01234567");
-		else
-			a_lst->a.ll = nbr.us;
-	}
-	else if (max == UCHAR_MAX)
-	{
-		nbr.uc = (t_uchar)va_arg(*ap, void*);
-		if (a_lst->a_tp == 'O' || a_lst->a_tp == 'o')
-			 str = ft_ltoabase(nbr.uc, "01234567");
-		else
-			a_lst->a.ll = nbr.uc;
-	}
-	if (str)
-	{
-		a_lst->a.s = ft_strdup(str);
-		ft_strdel(&str);
-	}
-}
-
 void			ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 {
 	t_ull		max;
@@ -148,8 +71,8 @@ void			ft_save_a_ll(t_a_lst *a_lst, t_f_id *f_id, va_list *ap)
 		max = ft_get_max(f_id->lenght, a_lst->a_tp);
 		min = ft_get_min(f_id->lenght, a_lst->a_tp);
 		if (min)
-			ft_save_signed(a_lst, ap, max);
+			ft_save_a_ll_signed(a_lst, ap, max);
 		else
-			ft_save_unsigned(a_lst, ap, max);
+			ft_save_a_ll_unsigned(a_lst, ap, max);
 	}
 }

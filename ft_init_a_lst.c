@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 19:20:50 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 18:50:13 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:33:32 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_a_lst			*ft_init_a_lst(t_a_lst *a_lst)
 	}
 	a_lst->a_tp = 0;
 	a_lst->len = 0;
+	a_lst->err = 0;
 	a_lst->next = NULL;
 	return (a_lst);
 }

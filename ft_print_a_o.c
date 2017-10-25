@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 15:08:39 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 15:22:26 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:39:43 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ static void		ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 	if (infos && a_lst && f_id)
 	{
 		infos->first_c = (f_id->flags & F_HASH && a_lst->a.s) ? "0" : "";
-
 		infos->len_a = f_id->prec.period && !f_id->prec.nb_dgt && (!a_lst->a.s \
 			|| a_lst->a.s[0] == '0') ? 0 : ft_strlen(a_lst->a.s);
-
 		infos->len_a = infos->first_c && infos->first_c[0] && \
 			(!a_lst->a.s || a_lst->a.s[0] == '0') ? 0 : infos->len_a;
 		infos->nbr_pad_w_min = ft_max(f_id->w_min - ft_strlen(infos->first_c) -\
@@ -69,7 +67,6 @@ void			ft_print_a_o(t_a_lst *a_lst, t_f_id *f_id)
 	{
 		ft_init_p_inf(&infos);
 		ft_updt_p_info(&infos, a_lst, f_id);
-		// dbug_infos(&infos);
 		infos.pad_rt ? ft_p_left(&infos, a_lst, f_id) : \
 			ft_p(&infos, a_lst, f_id);
 	}

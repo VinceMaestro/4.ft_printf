@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_wstrto_nstr.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/24 14:38:55 by vpetit            #+#    #+#             */
+/*   Updated: 2017/10/24 14:39:22 by vpetit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -21,7 +32,7 @@ char		*ft_wstrto_nstr(wchar_t *w_str, int nbr_bytes)
 		{
 			tmp = ft_wcharto_str(&buff, len, w_str[pos]);
 			if (tmp + len > max_len)
-				break;
+				break ;
 			len += tmp;
 			pos++;
 		}

@@ -6,13 +6,13 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 15:14:02 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 13:20:02 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 14:46:59 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static		void (*(ft_ptr_fct[]))(t_a_lst *, t_f_id *) =
+static		void (*(g_ft_ptr_fct[]))(t_a_lst *, t_f_id *) =
 {
 	['s'] = ft_print_a_s,
 	['S'] = ft_print_a_s,
@@ -34,17 +34,11 @@ t_a_lst		*ft_print_arg(t_a_lst *a_lst, t_f_id *f_id, char *str)
 {
 	if (f_id)
 	{
-		if (f_id->prec.period == '*' && a_lst)
-			a_lst = a_lst->next;
 		if (!f_id->a_tp)
 			ft_print_a_null(f_id, str);
 		else if (a_lst)
 		{
-			// if (f_id->prec.period && f_id->prec.period == '*')
-			// 	!(a_lst = a_lst->next) ? ft_error("ft_print_arg") : NULL;
-			// if (!a_lst)
-			// 	ft_error("ft_p_f_id: Should'nt happend\n");
-			ft_ptr_fct[(int)f_id->a_tp](a_lst, f_id);
+			g_ft_ptr_fct[(int)f_id->a_tp](a_lst, f_id);
 			a_lst = a_lst->next;
 		}
 	}

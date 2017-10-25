@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 12:51:10 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 18:18:19 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 16:11:19 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ t_a_lst			*ft_mk_all_a_lst(t_f_id *f_id, va_list *ap)
 		if (f_id->a_tp)
 		{
 			a_lst = ft_mk_new_a_lst(a_lst);
-			if (f_id->prec.period && (f_id->prec.period == '*'))
-			{
-				ft_save_a_ll(a_lst, f_id, ap);
-				a_lst = ft_mk_new_a_lst(a_lst);
-			}
 			ft_save_a(a_lst, f_id, ap);
 		}
 		((!f_id->next && stop++) ? f_id : (f_id = f_id->next));

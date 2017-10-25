@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 14:32:42 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 12:24:17 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:38:24 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void		ft_init_p_inf(t_p_inf *infos)
 {
-	// infos = NEW(t_p_inf);
 	*infos = (t_p_inf){
 		.len_a = 0,
 		.nbr_pad_w_min = 0,

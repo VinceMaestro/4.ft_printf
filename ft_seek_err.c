@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 17:29:47 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 17:33:18 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:42:52 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				ft_seek_err(t_a_lst *a_lst, t_f_id *f_id)
 	int		ret;
 
 	ret = 0;
-	ret	+= ft_seek_err_a_lst(a_lst);
-	ret	+= ft_seek_err_f_id(f_id);
+	ret += ft_seek_err_a_lst(a_lst);
+	ret += ft_seek_err_f_id(f_id);
 	return (ret);
 }

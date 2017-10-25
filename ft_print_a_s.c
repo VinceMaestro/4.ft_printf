@@ -6,12 +6,11 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 19:23:01 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/23 20:14:02 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 13:41:23 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 static void			ft_updt_p_info(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 {
@@ -58,12 +57,13 @@ static void			ft_p(t_p_inf *infos, t_a_lst *a_lst, t_f_id *f_id)
 	ft_max(0, infos->nbr_pad_dgt) + infos->len_a);
 }
 
-void			ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
+void				ft_print_a_s(t_a_lst *a_lst, t_f_id *f_id)
 {
 	t_p_inf		infos;
 
 	if (a_lst && f_id && (a_lst->a.s || f_id->prec.period || f_id->w_min))
 	{
+		ft_init_p_inf(&infos);
 		ft_updt_p_info(&infos, a_lst, f_id);
 		infos.pad_rt ? ft_p_left(&infos, a_lst, f_id) : \
 			ft_p(&infos, a_lst, f_id);

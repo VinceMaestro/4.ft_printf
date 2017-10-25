@@ -6,7 +6,7 @@
 /*   By: vpetit <vpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 17:07:18 by vpetit            #+#    #+#             */
-/*   Updated: 2017/10/21 13:17:21 by vpetit           ###   ########.fr       */
+/*   Updated: 2017/10/24 15:54:45 by vpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # include <string.h>
 # include <limits.h>
 # include <wchar.h>
-// # include <locale.h>
 
 typedef DEF_LL				t_ll;
 typedef DEF_L				t_l;
@@ -63,7 +62,7 @@ union		u_nbr_union
 	t_ll	ll;
 };
 
-void		ft_error(char *msg);
+void		ft_error(const char *msg);
 void		*ft_malloc(size_t size, const char *func, const char *err);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memset(void *b, int c, size_t len);
@@ -132,6 +131,7 @@ char		*ft_itoa(int n);
 char		*ft_stoabase(short nbr, const char *base);
 char		*ft_itoabase(int nbr, const char *base);
 char		*ft_ltoabase(t_l nbr, const char *base);
+char		*ft_ctoabase(char nbr, const char *base);
 t_l			ft_l_to_oct(t_l nbr);
 char		*ft_wstrto_nstr(wchar_t *w_str, int nbr_bytes);
 int			ft_wcharto_str(char **buff, int pos, wchar_t w_c);
